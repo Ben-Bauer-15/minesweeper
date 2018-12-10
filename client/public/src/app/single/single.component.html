@@ -3,7 +3,7 @@
     <div *ngFor = 'let column of gameArray; index as j' 
       class = 'cell'
       (click) = 'uncover(i,j)'
-      [ngClass]= "{'uncovered' : gameArray[i][j] == 1}">
+      [ngClass]= "{'uncovered' : gameArray[i][j].clicked}">
 
     </div>
   </div>
