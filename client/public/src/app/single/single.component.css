@@ -1,0 +1,20 @@
+#gameBoard{
+    margin: 50px;
+    width: 85%;
+    text-align: center;
+    padding: 50px;
+}
+
+.cell{
+    display: inline-block;
+    vertical-align: top;
+    height: 35px;
+    margin: 1px;
+    border-radius: 3px;
+    width: 35px;
+    background-color: black;
+}
+
+.uncovered{
+    background-color: gray;
+}

@@ -1,0 +1,10 @@
+<div id = 'gameBoard'>
+  <div *ngFor = 'let row of gameArray; index as i' class = 'row'>
+    <div *ngFor = 'let column of gameArray; index as j' 
+      class = 'cell'
+      (click) = 'uncover(i,j)'
+      [ngClass]= "{'uncovered' : gameArray[i][j] == 1}">
+
+    </div>
+  </div>
+</div>

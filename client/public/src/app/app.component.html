@@ -1,6 +1,23 @@
 <div class = 'navbar'>
-  <a (mouseenter) = 'mouseEnter("single")' (mouseleave) = 'mouseLeave("single")' [ngClass] = "{'hover' : selected == 'single'}" href = '#'>Single Player</a>
-  <a (mouseenter) = 'mouseEnter("multi")' (mouseleave) = 'mouseLeave("multi")' [ngClass] = "{'hover' : selected == 'multi'}" href = '#'>Multiplayer</a>
-  <a (mouseenter) = 'mouseEnter("login")' (mouseleave) = 'mouseLeave("login")' [ngClass] = "{'hover' : selected == 'login'}" href = '#'>Login</a>
+  
+  <a (mouseenter) = 'mouseEnter("single")'
+   (mouseleave) = 'mouseLeave()' 
+   [ngClass] = "{'hover' : selected == 'single'}" 
+   [routerLink]= "['']">
+   Single Player</a>
+
+  <a (mouseenter) = 'mouseEnter("multi")'
+   (mouseleave) = 'mouseLeave()' 
+   [ngClass] = "{'hover' : selected == 'multi'}" 
+   [routerLink] = "['multi']">
+   Multiplayer</a>
+
+  <a (mouseenter) = 'mouseEnter("login")' 
+  (mouseleave) = 'mouseLeave()' 
+  [ngClass] = "{'hover' : selected == 'login'}" 
+  [routerLink] = "['login']">
+  Login</a>
 
 </div> 
+
+<router-outlet></router-outlet>
