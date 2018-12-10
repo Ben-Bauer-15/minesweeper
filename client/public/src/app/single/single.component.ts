@@ -37,32 +37,51 @@ export class SingleComponent implements OnInit {
     console.log(this.gameArray)
   }
 
+
+  //reveals a cell that is clicked
   uncover(i,j){
     console.log(this.gameArray[i][j])
     this.gameArray[i][j].clicked = true
   }
 
+
   //this will determine where each mine will randomly be placed on the map
   placeMines(diff){
-    
-    //determine the appropriate number of mines to place given a difficulty input
+
+    //this will dictate how many mines we randomly place
     var numMines = this.difficulties[diff]
-    
-    //loop through our list of cells...
-    for (var i = 0; i < this.gameArray.length; i++){
-      for (var j = 0; j < this.gameArray.length; j++) {
-        var random = Math.random()
-        
-        //if random is above 0.5 and we haven't run out of mines to place, make the cell in question a mine
-        if (random > 0.7 && numMines > 0){
-          this.gameArray[i][j].mine = true
-          numMines--
-        }
-        
+
+    //create a duplicate array of the game array, but instead of storing cell objects, it stores indices
+    var gameArrayDummy = []
+    for (var i = 0; i < this.gameArray.length; i ++){
+      for (var j = 0; j < this.gameArray.length; j ++){
+        gameArrayDummy.push([i,j])
       }
     }
-    console.log(numMines)
-    
+
+    //this will store all the indices for the mines
+    var mines = []
+
+    //loop through the array dummy numMines times
+    for (var i = 0; i < numMines; i++){
+
+      //choose a random index between 0 and array dummy length
+      var random = Math.floor(Math.random() * gameArrayDummy.length)
+      
+      //store this random index
+      mines.push(gameArrayDummy[random])
+
+      //delete it from the dummy so we can't choose the same location again!
+      gameArrayDummy.splice(random, 1)
+    }
+
+    //now loop through mines and change the targeted cells to mines
+    for (var i = 0; i < mines.length; i++){
+      var row = mines[i][0]
+      var column = mines[i][1]
+      console.log(row, column)
+      this.gameArray[row][column].mine = true
+    }
   }
 
 }
