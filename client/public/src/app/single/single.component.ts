@@ -33,12 +33,12 @@ export class SingleComponent implements OnInit {
     }
 
     //invoke the placeMines method to populate the grid with mines
-    this.placeMines("expert")
+    this.placeMines("easy")
     console.log(this.gameArray)
   }
 
 
-  //reveals a cell that is clicked
+  //reveals a cell that is clicked`
   uncover(i,j){
     console.log(this.gameArray[i][j])
     this.gameArray[i][j].clicked = true
