@@ -3,8 +3,9 @@
     <div *ngFor = 'let column of gameArray; index as j' 
       class = 'cell'
       (click) = 'uncover(i,j)'
-      [ngClass]= "{'uncovered' : gameArray[i][j].clicked, 'mine' : gameArray[i][j].mine }">
-    
+      [ngClass]= "{'uncovered' : gameArray[i][j].clicked}">
+    <p *ngIf = 'gameArray[i][j].clicked && !gameArray[i][j].mine && gameArray[i][j].adjacentMines > 0'>{{gameArray[i][j].adjacentMines}}</p>
+    <img *ngIf = 'gameArray[i][j].clicked && gameArray[i][j].mine' src = '../../assets/explosion.png' class = 'mine'>
     </div>
   </div>
 </div>

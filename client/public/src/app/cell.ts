@@ -1,10 +1,14 @@
 export class Cell {
     clicked;
     mine;
-    adjacent;
-    constructor(){
+    adjacentMines;
+    neighbors;
+    constructor(public x : number, public y : number){
         this.clicked = false
         this.mine = false
-        this.adjacent = 0
+        this.adjacentMines = 0
+        this.x = x
+        this.y = y
+        this.neighbors = []
     }
 }

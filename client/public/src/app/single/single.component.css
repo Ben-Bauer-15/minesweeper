@@ -20,6 +20,14 @@
 }
 
 
-.mine {
+.test{
     background-color: red;
 }
+
+.mine {
+    height: 30px;
+    width: 30px;
+    margin-top: 2px;
+}
+
+
