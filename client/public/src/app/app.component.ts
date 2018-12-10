@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'public';
+  selected = ''
+  constructor(){}
+
+  mouseEnter(elem){
+    this.selected = elem
+  }
+  
+  mouseLeave(elem){
+    this.selected = ''
+  }
 }
