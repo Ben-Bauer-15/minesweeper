@@ -21,6 +21,7 @@ export class SingleComponent implements OnInit {
     this.dropdownHidden = true
     this.difficulty = "easy"
     this.flaggingEnabled = false
+
     this.colorCode = {
     1 : 'one', 
     2 : 'two', 
@@ -30,7 +31,9 @@ export class SingleComponent implements OnInit {
     6 : 'six', 
     7 : 'seven',
     8 : 'eight'}
+
     this.minesweeper = new Minesweeper("easy")
+
   }
 
   uncover(i, j){
@@ -44,15 +47,18 @@ export class SingleComponent implements OnInit {
 
   reset(){
     this.minesweeper = new Minesweeper(this.difficulty)
+    this.flaggingEnabled = false
   }
 
   toggleDropdown(){
 
     if (!this.dropdownHidden){
+      this.minesweeper.startTimer()
       this.dropdownHidden = true
     }
     else {
       this.dropdownHidden = false
+      this.minesweeper.stopTimer()
     }
   }
 
@@ -62,6 +68,8 @@ export class SingleComponent implements OnInit {
     this.minesweeper = new Minesweeper(this.difficulty)
   }
 
+
+  //this method toggles the users ability to place flags
   @HostListener('window:keyup', ['$event'])
   handleKeyBoardEvent(event : KeyboardEvent){
     if (event.key == 'f'){

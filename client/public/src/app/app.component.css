@@ -6,17 +6,18 @@
     height: 50px;
     border-bottom: 1px solid lightslategray;
     text-align: right;
+    background-color: darkslategray;
 }
 
 .navbar a{
     text-decoration: none;
-    color: aqua;
+    color: #f0a554;
     padding: 17px;
     font-size: 20px;
 }
 
 .hover {
-    background-color: #3a3a3a;
+    border-bottom: 3px solid #f0a554;
 }
 
 #github {
@@ -41,13 +42,13 @@
     font-size: 14px;
     display: inline-block;
     vertical-align: top;
-    color: white;
+    color: #f0a554;
 }
 
 .footer {
     padding-left: 42%;
     background-color: darkslategray;
-    margin-top: 2%;
+    margin-top: 3.7%;
 }
 
 
@@ -57,9 +58,12 @@
     margin-top: -6px;
     margin-right: 50%;
     margin-bottom: 0px;
-    color: aqua;
+    color: #969696;
 }
 
+#title span {
+    color: #f0a554;
+}
 
 @media only screen and (max-width : 949px){
     #title {

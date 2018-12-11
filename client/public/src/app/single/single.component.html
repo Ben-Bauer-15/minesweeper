@@ -1,5 +1,13 @@
 <div id = 'gameBoard'>
   
+  <div class = 'ticker' id = 'numMines'>
+    <h2>{{minesweeper.numMines}}</h2>
+  </div>
+
+  <div class = 'ticker' id = 'timer'>
+    <h2>{{minesweeper.displayedTime}}</h2>
+  </div>
+
   <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>
     
     <div *ngFor = 'let column of minesweeper.gameArray; index as j' 
@@ -40,7 +48,18 @@
       <li><a (click) = 'changeDiff("easy")' [ngClass] = "{'selectedDifficulty' : difficulty == 'easy'}" >Easy</a></li>
       <li><a (click) = 'changeDiff("beginner")' [ngClass] = "{'selectedDifficulty' : difficulty == 'beginner'}" >Beginner</a></li>
     </ul>
+    <button (click) = 'toggleDropdown()' id = 'cancel'>Cancel</button>
   </div>
+
+</div>
+
+<div id = 'winner' *ngIf = 'minesweeper.winner'>
+  <h2>Awww yeah!! :)</h2>
+  <h4>Nice Work! Your time was: {{minesweeper.gamePlayTime}} seconds</h4>
+  <button (click) = 'reset()' >Play again</button>
+</div>
+
+<div id = 'confirm' *ngIf = 'changeGame'>
 
 </div>
 

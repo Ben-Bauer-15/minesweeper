@@ -73,7 +73,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".navbar {\n    padding-right: 14px;\n    box-sizing: border-box;\n    width: 100%;\n    padding-top: 9px;\n    height: 50px;\n    border-bottom: 1px solid lightslategray;\n    text-align: right;\n}\n\n.navbar a{\n    text-decoration: none;\n    color: aqua;\n    padding: 17px;\n    font-size: 20px;\n}\n\n.hover {\n    background-color: #3a3a3a;\n}\n\n#github {\n    margin-left: 10px;\n    height: 30px;\n    vertical-align: top;\n    width: 31px;\n    margin-top: 7px;\n    display: inline-block;\n}\n\n#mail {\n    margin-left: 10px;\n    height: 26px;\n    vertical-align: top;\n    width: 40px;\n    margin-top: 10px;\n    display: inline-block;\n}\n\n.footer p {\n    font-size: 14px;\n    display: inline-block;\n    vertical-align: top;\n    color: white;\n}\n\n.footer {\n    padding-left: 42%;\n    background-color: darkslategray;\n    margin-top: 2%;\n}\n\n#title{\n    display: inline-block;\n    vertical-align: top;\n    margin-top: -6px;\n    margin-right: 50%;\n    margin-bottom: 0px;\n    color: aqua;\n}\n\n@media only screen and (max-width : 949px){\n    #title {\n        margin-right: 15% !important;\n    }\n}\n\n@media only screen and (min-width : 950px){\n    #title {\n        margin-right: 30% !important;\n    }\n}\n\n@media only screen and (min-width : 1200px){\n    #title {\n        margin-right: 54% !important;\n    }\n}\n\n@media only screen and (min-width : 1600px){\n    #title {\n        margin-right: 61% !important;\n    }\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxvQkFBb0I7SUFDcEIsdUJBQXVCO0lBQ3ZCLFlBQVk7SUFDWixpQkFBaUI7SUFDakIsYUFBYTtJQUNiLHdDQUF3QztJQUN4QyxrQkFBa0I7Q0FDckI7O0FBRUQ7SUFDSSxzQkFBc0I7SUFDdEIsWUFBWTtJQUNaLGNBQWM7SUFDZCxnQkFBZ0I7Q0FDbkI7O0FBRUQ7SUFDSSwwQkFBMEI7Q0FDN0I7O0FBRUQ7SUFDSSxrQkFBa0I7SUFDbEIsYUFBYTtJQUNiLG9CQUFvQjtJQUNwQixZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLHNCQUFzQjtDQUN6Qjs7QUFFRDtJQUNJLGtCQUFrQjtJQUNsQixhQUFhO0lBQ2Isb0JBQW9CO0lBQ3BCLFlBQVk7SUFDWixpQkFBaUI7SUFDakIsc0JBQXNCO0NBQ3pCOztBQUVEO0lBQ0ksZ0JBQWdCO0lBQ2hCLHNCQUFzQjtJQUN0QixvQkFBb0I7SUFDcEIsYUFBYTtDQUNoQjs7QUFFRDtJQUNJLGtCQUFrQjtJQUNsQixnQ0FBZ0M7SUFDaEMsZUFBZTtDQUNsQjs7QUFHRDtJQUNJLHNCQUFzQjtJQUN0QixvQkFBb0I7SUFDcEIsaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixtQkFBbUI7SUFDbkIsWUFBWTtDQUNmOztBQUdEO0lBQ0k7UUFDSSw2QkFBNkI7S0FDaEM7Q0FDSjs7QUFFRDtJQUNJO1FBQ0ksNkJBQTZCO0tBQ2hDO0NBQ0o7O0FBRUQ7SUFDSTtRQUNJLDZCQUE2QjtLQUNoQztDQUNKOztBQUVEO0lBQ0k7UUFDSSw2QkFBNkI7S0FDaEM7Q0FDSiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm5hdmJhciB7XG4gICAgcGFkZGluZy1yaWdodDogMTRweDtcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHBhZGRpbmctdG9wOiA5cHg7XG4gICAgaGVpZ2h0OiA1MHB4O1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCBsaWdodHNsYXRlZ3JheTtcbiAgICB0ZXh0LWFsaWduOiByaWdodDtcbn1cblxuLm5hdmJhciBhe1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICBjb2xvcjogYXF1YTtcbiAgICBwYWRkaW5nOiAxN3B4O1xuICAgIGZvbnQtc2l6ZTogMjBweDtcbn1cblxuLmhvdmVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjM2EzYTNhO1xufVxuXG4jZ2l0aHViIHtcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcbiAgICBoZWlnaHQ6IDMwcHg7XG4gICAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgICB3aWR0aDogMzFweDtcbiAgICBtYXJnaW4tdG9wOiA3cHg7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuXG4jbWFpbCB7XG4gICAgbWFyZ2luLWxlZnQ6IDEwcHg7XG4gICAgaGVpZ2h0OiAyNnB4O1xuICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgd2lkdGg6IDQwcHg7XG4gICAgbWFyZ2luLXRvcDogMTBweDtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG5cbi5mb290ZXIgcCB7XG4gICAgZm9udC1zaXplOiAxNHB4O1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xuICAgIGNvbG9yOiB3aGl0ZTtcbn1cblxuLmZvb3RlciB7XG4gICAgcGFkZGluZy1sZWZ0OiA0MiU7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogZGFya3NsYXRlZ3JheTtcbiAgICBtYXJnaW4tdG9wOiAyJTtcbn1cblxuXG4jdGl0bGV7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgbWFyZ2luLXRvcDogLTZweDtcbiAgICBtYXJnaW4tcmlnaHQ6IDUwJTtcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XG4gICAgY29sb3I6IGFxdWE7XG59XG5cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoIDogOTQ5cHgpe1xuICAgICN0aXRsZSB7XG4gICAgICAgIG1hcmdpbi1yaWdodDogMTUlICFpbXBvcnRhbnQ7XG4gICAgfVxufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGggOiA5NTBweCl7XG4gICAgI3RpdGxlIHtcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiAzMCUgIWltcG9ydGFudDtcbiAgICB9XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aCA6IDEyMDBweCl7XG4gICAgI3RpdGxlIHtcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiA1NCUgIWltcG9ydGFudDtcbiAgICB9XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aCA6IDE2MDBweCl7XG4gICAgI3RpdGxlIHtcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiA2MSUgIWltcG9ydGFudDtcbiAgICB9XG59XG4iXX0= */"
+module.exports = ".navbar {\n    padding-right: 14px;\n    box-sizing: border-box;\n    width: 100%;\n    padding-top: 9px;\n    height: 50px;\n    border-bottom: 1px solid lightslategray;\n    text-align: right;\n    background-color: darkslategray;\n}\n\n.navbar a{\n    text-decoration: none;\n    color: #f0a554;\n    padding: 17px;\n    font-size: 20px;\n}\n\n.hover {\n    border-bottom: 3px solid #f0a554;\n}\n\n#github {\n    margin-left: 10px;\n    height: 30px;\n    vertical-align: top;\n    width: 31px;\n    margin-top: 7px;\n    display: inline-block;\n}\n\n#mail {\n    margin-left: 10px;\n    height: 26px;\n    vertical-align: top;\n    width: 40px;\n    margin-top: 10px;\n    display: inline-block;\n}\n\n.footer p {\n    font-size: 14px;\n    display: inline-block;\n    vertical-align: top;\n    color: #f0a554;\n}\n\n.footer {\n    padding-left: 42%;\n    background-color: darkslategray;\n    margin-top: 3.7%;\n}\n\n#title{\n    display: inline-block;\n    vertical-align: top;\n    margin-top: -6px;\n    margin-right: 50%;\n    margin-bottom: 0px;\n    color: #969696;\n}\n\n#title span {\n    color: #f0a554;\n}\n\n@media only screen and (max-width : 949px){\n    #title {\n        margin-right: 15% !important;\n    }\n}\n\n@media only screen and (min-width : 950px){\n    #title {\n        margin-right: 30% !important;\n    }\n}\n\n@media only screen and (min-width : 1200px){\n    #title {\n        margin-right: 54% !important;\n    }\n}\n\n@media only screen and (min-width : 1600px){\n    #title {\n        margin-right: 61% !important;\n    }\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxvQkFBb0I7SUFDcEIsdUJBQXVCO0lBQ3ZCLFlBQVk7SUFDWixpQkFBaUI7SUFDakIsYUFBYTtJQUNiLHdDQUF3QztJQUN4QyxrQkFBa0I7SUFDbEIsZ0NBQWdDO0NBQ25DOztBQUVEO0lBQ0ksc0JBQXNCO0lBQ3RCLGVBQWU7SUFDZixjQUFjO0lBQ2QsZ0JBQWdCO0NBQ25COztBQUVEO0lBQ0ksaUNBQWlDO0NBQ3BDOztBQUVEO0lBQ0ksa0JBQWtCO0lBQ2xCLGFBQWE7SUFDYixvQkFBb0I7SUFDcEIsWUFBWTtJQUNaLGdCQUFnQjtJQUNoQixzQkFBc0I7Q0FDekI7O0FBRUQ7SUFDSSxrQkFBa0I7SUFDbEIsYUFBYTtJQUNiLG9CQUFvQjtJQUNwQixZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLHNCQUFzQjtDQUN6Qjs7QUFFRDtJQUNJLGdCQUFnQjtJQUNoQixzQkFBc0I7SUFDdEIsb0JBQW9CO0lBQ3BCLGVBQWU7Q0FDbEI7O0FBRUQ7SUFDSSxrQkFBa0I7SUFDbEIsZ0NBQWdDO0lBQ2hDLGlCQUFpQjtDQUNwQjs7QUFHRDtJQUNJLHNCQUFzQjtJQUN0QixvQkFBb0I7SUFDcEIsaUJBQWlCO0lBQ2pCLGtCQUFrQjtJQUNsQixtQkFBbUI7SUFDbkIsZUFBZTtDQUNsQjs7QUFFRDtJQUNJLGVBQWU7Q0FDbEI7O0FBRUQ7SUFDSTtRQUNJLDZCQUE2QjtLQUNoQztDQUNKOztBQUVEO0lBQ0k7UUFDSSw2QkFBNkI7S0FDaEM7Q0FDSjs7QUFFRDtJQUNJO1FBQ0ksNkJBQTZCO0tBQ2hDO0NBQ0o7O0FBRUQ7SUFDSTtRQUNJLDZCQUE2QjtLQUNoQztDQUNKIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubmF2YmFyIHtcbiAgICBwYWRkaW5nLXJpZ2h0OiAxNHB4O1xuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgcGFkZGluZy10b3A6IDlweDtcbiAgICBoZWlnaHQ6IDUwcHg7XG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIGxpZ2h0c2xhdGVncmF5O1xuICAgIHRleHQtYWxpZ246IHJpZ2h0O1xuICAgIGJhY2tncm91bmQtY29sb3I6IGRhcmtzbGF0ZWdyYXk7XG59XG5cbi5uYXZiYXIgYXtcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gICAgY29sb3I6ICNmMGE1NTQ7XG4gICAgcGFkZGluZzogMTdweDtcbiAgICBmb250LXNpemU6IDIwcHg7XG59XG5cbi5ob3ZlciB7XG4gICAgYm9yZGVyLWJvdHRvbTogM3B4IHNvbGlkICNmMGE1NTQ7XG59XG5cbiNnaXRodWIge1xuICAgIG1hcmdpbi1sZWZ0OiAxMHB4O1xuICAgIGhlaWdodDogMzBweDtcbiAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xuICAgIHdpZHRoOiAzMXB4O1xuICAgIG1hcmdpbi10b3A6IDdweDtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG5cbiNtYWlsIHtcbiAgICBtYXJnaW4tbGVmdDogMTBweDtcbiAgICBoZWlnaHQ6IDI2cHg7XG4gICAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgICB3aWR0aDogNDBweDtcbiAgICBtYXJnaW4tdG9wOiAxMHB4O1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cblxuLmZvb3RlciBwIHtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgY29sb3I6ICNmMGE1NTQ7XG59XG5cbi5mb290ZXIge1xuICAgIHBhZGRpbmctbGVmdDogNDIlO1xuICAgIGJhY2tncm91bmQtY29sb3I6IGRhcmtzbGF0ZWdyYXk7XG4gICAgbWFyZ2luLXRvcDogMy43JTtcbn1cblxuXG4jdGl0bGV7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgbWFyZ2luLXRvcDogLTZweDtcbiAgICBtYXJnaW4tcmlnaHQ6IDUwJTtcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XG4gICAgY29sb3I6ICM5Njk2OTY7XG59XG5cbiN0aXRsZSBzcGFuIHtcbiAgICBjb2xvcjogI2YwYTU1NDtcbn1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoIDogOTQ5cHgpe1xuICAgICN0aXRsZSB7XG4gICAgICAgIG1hcmdpbi1yaWdodDogMTUlICFpbXBvcnRhbnQ7XG4gICAgfVxufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtaW4td2lkdGggOiA5NTBweCl7XG4gICAgI3RpdGxlIHtcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiAzMCUgIWltcG9ydGFudDtcbiAgICB9XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aCA6IDEyMDBweCl7XG4gICAgI3RpdGxlIHtcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiA1NCUgIWltcG9ydGFudDtcbiAgICB9XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aCA6IDE2MDBweCl7XG4gICAgI3RpdGxlIHtcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiA2MSUgIWltcG9ydGFudDtcbiAgICB9XG59XG4iXX0= */"
 
 /***/ }),
 
@@ -84,7 +84,7 @@ module.exports = ".navbar {\n    padding-right: 14px;\n    box-sizing: border-bo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class = 'navbar'>\n  \n  <h1 id = 'title'>Minesweeper JS</h1>\n  <a (mouseenter) = 'mouseEnter(\"single\")'\n   (mouseleave) = 'mouseLeave()' \n   [ngClass] = \"{'hover' : selected == 'single'}\" \n   [routerLink]= \"['']\">\n   Single Player</a>\n\n  <a (mouseenter) = 'mouseEnter(\"multi\")'\n   (mouseleave) = 'mouseLeave()' \n   [ngClass] = \"{'hover' : selected == 'multi'}\" \n   [routerLink] = \"['multi']\">\n   Multiplayer</a>\n\n  <a (mouseenter) = 'mouseEnter(\"login\")' \n  (mouseleave) = 'mouseLeave()' \n  [ngClass] = \"{'hover' : selected == 'login'}\" \n  [routerLink] = \"['login']\">\n  Login</a>\n\n</div> \n\n<router-outlet></router-outlet>\n\n\n<div class = 'footer'>\n  <p>© Benjamin Bauer 2018</p>\n  <a href = 'https://github.com/Ben-Bauer-15/minesweeper'><img id = 'github' src = '../assets/githublogo_copy.png'></a>\n  <a href = 'mailto:benjaminbauer15@gmail.com'><img id = 'mail' src = '../assets/mail.png'></a>\n</div>"
+module.exports = "<div class = 'navbar'>\n  \n  <h1 id = 'title'> mine<span>sweeper</span> </h1>\n  <a (mouseenter) = 'mouseEnter(\"single\")'\n   (mouseleave) = 'mouseLeave()' \n   [ngClass] = \"{'hover' : selected == 'single'}\" \n   [routerLink]= \"['']\">\n   Single Player</a>\n\n  <a (mouseenter) = 'mouseEnter(\"multi\")'\n   (mouseleave) = 'mouseLeave()' \n   [ngClass] = \"{'hover' : selected == 'multi'}\" \n   [routerLink] = \"['multi']\">\n   Multiplayer</a>\n\n  <a (mouseenter) = 'mouseEnter(\"login\")' \n  (mouseleave) = 'mouseLeave()' \n  [ngClass] = \"{'hover' : selected == 'login'}\" \n  [routerLink] = \"['login']\">\n  Login</a>\n\n</div> \n\n<router-outlet></router-outlet>\n\n\n<div class = 'footer'>\n  <p>© Benjamin Bauer 2018</p>\n  <a href = 'https://github.com/Ben-Bauer-15/minesweeper'><img id = 'github' src = '../assets/githublogo_copy.png'></a>\n  <a href = 'mailto:benjaminbauer15@gmail.com'><img id = 'mail' src = '../assets/mail.png'></a>\n</div>"
 
 /***/ }),
 
@@ -292,12 +292,16 @@ var Minesweeper = /** @class */ (function () {
             hard: { mines: 40, size: 15 },
             normal: { mines: 30, size: 15 },
             easy: { mines: 20, size: 15 },
-            beginner: { mines: 10, size: 10 }
+            beginner: { mines: 10, size: 15 }
         };
         this.difficulty = difficulty;
         this.gameSize = this.difficulties[difficulty].size;
         this.gameArray = [];
         this.gameOver = false;
+        this.winner = false;
+        this.gamePlayTime = 0.0;
+        this.displayedTime = 0;
+        this.gameStarted = false;
         for (var i = 0; i < this.gameSize; i++) {
             this.gameArray.push([]);
             for (var j = 0; j < this.gameSize; j++) {
@@ -312,6 +316,27 @@ var Minesweeper = /** @class */ (function () {
         this.placeMines(this.difficulty);
         console.log(this.gameArray);
     }
+    //will play an explosion noise when called
+    Minesweeper.prototype.playGameOver = function () {
+        var audio = new Audio();
+        audio.src = './assets/Bomb+1.mp3';
+        audio.load();
+        audio.play();
+    };
+    //restarts the timer
+    Minesweeper.prototype.startTimer = function () {
+        var _this = this;
+        this.myTimer = setInterval(function () {
+            _this.gamePlayTime += 0.1;
+            _this.displayedTime = Math.floor(_this.gamePlayTime);
+            // console.log(this.gamePlayTime)
+        }, 100);
+    };
+    Minesweeper.prototype.stopTimer = function () {
+        clearInterval(this.myTimer);
+        this.gamePlayTime = (Math.round(this.gamePlayTime * 10) / 10);
+    };
+    //flags or unflags a cell when one is clicked
     Minesweeper.prototype.flag = function (i, j) {
         //the user has decided to unflag a cell, so switch its boolean back to false
         if (this.gameArray[i][j].flagged) {
@@ -320,6 +345,8 @@ var Minesweeper = /** @class */ (function () {
             if (this.gameArray[i][j].mine) {
                 this.mines.push([i, j]);
             }
+            //increase the number of mines the user is keeping tabs on 
+            this.numMines++;
         }
         else {
             //user has flagged a cell, switch its boolean variable to true
@@ -336,40 +363,64 @@ var Minesweeper = /** @class */ (function () {
             }
             if (this.mines.length == 0) {
                 console.log("you won!!!");
+                this.winner = true;
+                this.gameOver = true;
+                this.stopTimer();
             }
+            //decrease the number of mines the user has to keep tabs on
+            this.numMines--;
         }
         console.log(this.mines);
     };
-    //recursively uncovers cells when one is clicked
-    Minesweeper.prototype.uncover = function (i, j) {
-        //if a cell is a mine, game over and uncover the rest of the mines
-        if (this.gameArray[i][j].mine && !this.gameArray[i][j].clicked) {
+    Minesweeper.prototype.uncoverMines = function (i, j) {
+        if (!this.gameArray[i][j].clicked) {
             for (var idx = 0; idx < this.mines.length; idx++) {
                 var x = this.mines[idx][0];
                 var y = this.mines[idx][1];
                 this.gameArray[i][j].clicked = true;
-                this.uncover(x, y);
+                this.uncoverMines(x, y);
             }
+        }
+    };
+    //recursively uncovers cells when one is clicked
+    Minesweeper.prototype.uncover = function (i, j) {
+        var _this = this;
+        //if a cell is a mine, call the uncover mines function (because it doesn't have a timeout and is faster) and uncover the rest of the mines
+        if (this.gameArray[i][j].mine && !this.gameArray[i][j].clicked && !this.gameOver) {
+            this.stopTimer();
+            this.playGameOver();
             this.gameOver = true;
+            this.uncoverMines(i, j);
         }
         else if (!this.gameOver) {
-            //this is optional, but the original version of the game uncovers all cells that don't have any mines adjacent
-            //it stops uncovering once it reaches a cell with adjacent > 0
-            //if a cell doesn't have any mines adjacent and it HASNT been uncovered, recursively uncover all of its neighbors
-            if (this.gameArray[i][j].adjacentMines == 0 && !this.gameArray[i][j].clicked) {
-                for (var idx = 0; idx < this.gameArray[i][j].neighbors.length; idx++) {
-                    //all cell neighbors are stored as coordinates, NOT cells
-                    var neighborCoords = this.gameArray[i][j].neighbors[idx];
-                    //go into neighbor coords to get the actual cell
-                    var neighbor = this.gameArray[neighborCoords[0]][neighborCoords[1]];
-                    this.gameArray[i][j].clicked = true;
-                    this.uncover(neighbor.x, neighbor.y);
+            //if a user clicks a flagged cell, add 1 back to the number of mines that the user sees displayed above the grid
+            if (this.gameArray[i][j].flagged) {
+                this.numMines++;
+            }
+            if (!this.gameStarted) {
+                this.gameStarted = true;
+                this.startTimer();
+            }
+            //this delays the recursive calls so that the user can see the recursion in action!
+            setTimeout(function () {
+                //this is optional, but the original version of the game uncovers all cells that don't have any mines adjacent
+                //it stops uncovering once it reaches a cell with adjacent > 0
+                //if a cell doesn't have any mines adjacent and it HASNT been uncovered, recursively uncover all of its neighbors
+                if (_this.gameArray[i][j].adjacentMines == 0 && !_this.gameArray[i][j].clicked) {
+                    for (var idx = 0; idx < _this.gameArray[i][j].neighbors.length; idx++) {
+                        //all cell neighbors are stored as coordinates, NOT cells
+                        var neighborCoords = _this.gameArray[i][j].neighbors[idx];
+                        //go into neighbor coords to get the actual cell
+                        var neighbor = _this.gameArray[neighborCoords[0]][neighborCoords[1]];
+                        _this.gameArray[i][j].clicked = true;
+                        _this.uncover(neighbor.x, neighbor.y);
+                    }
                 }
-            }
-            else {
-                //uncover this cell but don't call this function again, since it has > 0 adjacent
-                this.gameArray[i][j].clicked = true;
-            }
+                else {
+                    //uncover this cell but don't call this function again, since it has > 0 adjacent
+                    _this.gameArray[i][j].clicked = true;
+                }
+            }, 10);
         }
     };
     //this will determine where each mine will randomly be placed on the map
@@ -407,6 +458,10 @@ var Minesweeper = /** @class */ (function () {
             var column = this.mines[i][1];
             this.increaseAdjacents(this.gameArray[row][column]);
         }
+        //this will help the user keep track of how many flags they've placed
+        //when the game starts, this figure will be the maximum (depending on difficulty),
+        //but as they place more flags, the number will decrease
+        this.numMines = this.mines.length;
     };
     Minesweeper.prototype.populateNeighbors = function (cell) {
         var max = this.gameSize;
@@ -581,7 +636,7 @@ var MultiComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "#gameBoard{\n    margin: 10px 50px 7px 3%;\n    width: 85%;\n    text-align: center;\n    padding: 50px;\n}\n\n.cell{\n    display: inline-block;\n    vertical-align: top;\n    height: 35px;\n    margin: 1px;\n    border-radius: 3px;\n    width: 35px;\n    background-color: black;\n}\n\n.uncovered{\n    background-color: gray;\n}\n\n.test{\n    background-color: red;\n}\n\n.mine {\n    height: 30px;\n    width: 30px;\n    margin-top: 2px;\n}\n\n#refresh{\n    margin-bottom: 0%;\n    width: 40px;\n    margin-left: 47%;\n    height: 40px;\n}\n\n.dropdown {\n    font-size: 23px;\n    margin-top: 2%;\n    text-decoration: none;\n    color: green;\n    display: inline-block;\n}\n\n#options ul {\n    list-style-type: none;\n    margin-right: 3%;\n}\n\nli {\n    margin-bottom: 1%;\n}\n\nli a{\n    text-decoration: none;\n    color: white;\n}\n\n.hidden {\n    display: none;\n}\n\n.dropdownDisplayed {\n    margin-bottom: 0%;\n}\n\n.selectedDifficulty {\n    color: green !important;\n}\n\n.flagging {\n    height: 5px;\n    width: 5px;\n    margin-top: 15px;\n}\n\n.flagged {\n    height: 25px;\n    width: 22px;\n    margin-left: 5px;\n    margin-top: 6px;\n}\n\n.one{\n    color: rgb(0, 97, 0)\n}\n\n.two {\n    color: rgb(0, 0, 193)\n}\n\n.three {\n    color: rgb(103, 0, 0)\n}\n\n.four {\n    color: darkblue;\n}\n\n.five {\n    color: darkred;\n}\n\n.six {\n    color: darkslategray;\n}\n\n.seven {\n    color: black\n}\n\n.eight {\n    color: rgb(116, 31, 0);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2luZ2xlL3NpbmdsZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0kseUJBQXlCO0lBQ3pCLFdBQVc7SUFDWCxtQkFBbUI7SUFDbkIsY0FBYztDQUNqQjs7QUFFRDtJQUNJLHNCQUFzQjtJQUN0QixvQkFBb0I7SUFDcEIsYUFBYTtJQUNiLFlBQVk7SUFDWixtQkFBbUI7SUFDbkIsWUFBWTtJQUNaLHdCQUF3QjtDQUMzQjs7QUFFRDtJQUNJLHVCQUF1QjtDQUMxQjs7QUFHRDtJQUNJLHNCQUFzQjtDQUN6Qjs7QUFFRDtJQUNJLGFBQWE7SUFDYixZQUFZO0lBQ1osZ0JBQWdCO0NBQ25COztBQUdEO0lBQ0ksa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixpQkFBaUI7SUFDakIsYUFBYTtDQUNoQjs7QUFFRDtJQUNJLGdCQUFnQjtJQUNoQixlQUFlO0lBQ2Ysc0JBQXNCO0lBQ3RCLGFBQWE7SUFDYixzQkFBc0I7Q0FDekI7O0FBRUQ7SUFDSSxzQkFBc0I7SUFDdEIsaUJBQWlCO0NBQ3BCOztBQUVEO0lBQ0ksa0JBQWtCO0NBQ3JCOztBQUVEO0lBQ0ksc0JBQXNCO0lBQ3RCLGFBQWE7Q0FDaEI7O0FBRUQ7SUFDSSxjQUFjO0NBQ2pCOztBQUVEO0lBQ0ksa0JBQWtCO0NBQ3JCOztBQUVEO0lBQ0ksd0JBQXdCO0NBQzNCOztBQUVEO0lBQ0ksWUFBWTtJQUNaLFdBQVc7SUFDWCxpQkFBaUI7Q0FDcEI7O0FBRUQ7SUFDSSxhQUFhO0lBQ2IsWUFBWTtJQUNaLGlCQUFpQjtJQUNqQixnQkFBZ0I7Q0FDbkI7O0FBRUQ7SUFDSSxvQkFBb0I7Q0FDdkI7O0FBRUQ7SUFDSSxxQkFBcUI7Q0FDeEI7O0FBRUQ7SUFDSSxxQkFBcUI7Q0FDeEI7O0FBRUQ7SUFDSSxnQkFBZ0I7Q0FDbkI7O0FBRUQ7SUFDSSxlQUFlO0NBQ2xCOztBQUVEO0lBQ0kscUJBQXFCO0NBQ3hCOztBQUVEO0lBQ0ksWUFBWTtDQUNmOztBQUVEO0lBQ0ksdUJBQXVCO0NBQzFCIiwiZmlsZSI6InNyYy9hcHAvc2luZ2xlL3NpbmdsZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2dhbWVCb2FyZHtcbiAgICBtYXJnaW46IDEwcHggNTBweCA3cHggMyU7XG4gICAgd2lkdGg6IDg1JTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgcGFkZGluZzogNTBweDtcbn1cblxuLmNlbGx7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgaGVpZ2h0OiAzNXB4O1xuICAgIG1hcmdpbjogMXB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDNweDtcbiAgICB3aWR0aDogMzVweDtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBibGFjaztcbn1cblxuLnVuY292ZXJlZHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBncmF5O1xufVxuXG5cbi50ZXN0e1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDtcbn1cblxuLm1pbmUge1xuICAgIGhlaWdodDogMzBweDtcbiAgICB3aWR0aDogMzBweDtcbiAgICBtYXJnaW4tdG9wOiAycHg7XG59XG5cblxuI3JlZnJlc2h7XG4gICAgbWFyZ2luLWJvdHRvbTogMCU7XG4gICAgd2lkdGg6IDQwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IDQ3JTtcbiAgICBoZWlnaHQ6IDQwcHg7XG59XG5cbi5kcm9wZG93biB7XG4gICAgZm9udC1zaXplOiAyM3B4O1xuICAgIG1hcmdpbi10b3A6IDIlO1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICBjb2xvcjogZ3JlZW47XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xufVxuXG4jb3B0aW9ucyB1bCB7XG4gICAgbGlzdC1zdHlsZS10eXBlOiBub25lO1xuICAgIG1hcmdpbi1yaWdodDogMyU7XG59XG5cbmxpIHtcbiAgICBtYXJnaW4tYm90dG9tOiAxJTtcbn1cblxubGkgYXtcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG4gICAgY29sb3I6IHdoaXRlO1xufVxuXG4uaGlkZGVuIHtcbiAgICBkaXNwbGF5OiBub25lO1xufVxuXG4uZHJvcGRvd25EaXNwbGF5ZWQge1xuICAgIG1hcmdpbi1ib3R0b206IDAlO1xufVxuXG4uc2VsZWN0ZWREaWZmaWN1bHR5IHtcbiAgICBjb2xvcjogZ3JlZW4gIWltcG9ydGFudDtcbn1cblxuLmZsYWdnaW5nIHtcbiAgICBoZWlnaHQ6IDVweDtcbiAgICB3aWR0aDogNXB4O1xuICAgIG1hcmdpbi10b3A6IDE1cHg7XG59XG5cbi5mbGFnZ2VkIHtcbiAgICBoZWlnaHQ6IDI1cHg7XG4gICAgd2lkdGg6IDIycHg7XG4gICAgbWFyZ2luLWxlZnQ6IDVweDtcbiAgICBtYXJnaW4tdG9wOiA2cHg7XG59XG5cbi5vbmV7XG4gICAgY29sb3I6IHJnYigwLCA5NywgMClcbn1cblxuLnR3byB7XG4gICAgY29sb3I6IHJnYigwLCAwLCAxOTMpXG59XG5cbi50aHJlZSB7XG4gICAgY29sb3I6IHJnYigxMDMsIDAsIDApXG59XG5cbi5mb3VyIHtcbiAgICBjb2xvcjogZGFya2JsdWU7XG59XG5cbi5maXZlIHtcbiAgICBjb2xvcjogZGFya3JlZDtcbn1cblxuLnNpeCB7XG4gICAgY29sb3I6IGRhcmtzbGF0ZWdyYXk7XG59XG5cbi5zZXZlbiB7XG4gICAgY29sb3I6IGJsYWNrXG59XG5cbi5laWdodCB7XG4gICAgY29sb3I6IHJnYigxMTYsIDMxLCAwKTtcbn0iXX0= */"
+module.exports = "#gameBoard{\n    margin: 10px 50px 7px 3%;\n    width: 85%;\n    text-align: center;\n    padding: 50px;\n}\n\n.cell{\n    display: inline-block;\n    vertical-align: top;\n    height: 35px;\n    margin: 1px;\n    border-radius: 3px;\n    width: 35px;\n    background-color: black;\n}\n\n.exploded {\n    background-color: gray;\n}\n\n@-webkit-keyframes uncover {\n    from {background-color: black}\n    to {background-color: grey}\n}\n\n@keyframes uncover {\n    from {background-color: black}\n    to {background-color: grey}\n}\n\n.uncovered{\n    -webkit-animation-name: uncover;\n            animation-name: uncover;\n    -webkit-animation-duration: 0.3s;\n            animation-duration: 0.3s;\n    background-color: gray;\n}\n\n.test{\n    background-color: red;\n}\n\n.mine {\n    height: 30px;\n    width: 30px;\n    margin-top: 2px;\n}\n\n#refresh{\n    margin-bottom: 0%;\n    width: 40px;\n    margin-left: 47%;\n    height: 40px;\n}\n\n.dropdown {\n    font-size: 23px;\n    margin-top: 2%;\n    text-decoration: none;\n    color: #f0a554;\n    display: inline-block;\n}\n\n#options ul {\n    list-style-type: none;\n    padding: 0;\n    text-align: center;\n}\n\n#options {\n    text-align: center;\n    position: absolute;\n    box-shadow: 0px 0px 177px 61px black;\n    top: 21%;\n    padding: 60px;\n    border-radius: 8px;\n    left: 42%;\n    border: 1px solid gray;\n    background-color: darkslategray;\n}\n\nli {\n    margin-bottom: 34%;\n    text-align: center;\n    font-size: 22px;\n}\n\nli a{\n    text-decoration: none;\n    color: white;\n    font-family: monospace;\n}\n\n#cancel{\n    margin-top: 40%;\n    font-size: 19px;\n    background-image: linear-gradient(blue, #5b5bff);\n    box-shadow: 0px 3px 18px 3px black;\n    padding: 12px;\n    border: 1px solid black;\n    border-radius: 5px;\n    color: white;\n    outline: none;\n}\n\n.hidden {\n    display: none;\n}\n\n.dropdownDisplayed {\n    margin-bottom: 0%;\n}\n\n.selectedDifficulty {\n    color: green !important;\n}\n\n.flagging {\n    height: 5px;\n    width: 5px;\n    margin-top: 15px;\n}\n\n.flagged {\n    height: 25px;\n    width: 22px;\n    margin-left: 5px;\n    margin-top: 6px;\n}\n\n.cell p {\n    font-size: 22px;\n    margin-bottom: 2px;\n    margin-top: 6px;\n}\n\n.one{\n    color: rgb(0, 97, 0)\n}\n\n.two {\n    color: rgb(0, 0, 193)\n}\n\n.three {\n    color: rgb(103, 0, 0)\n}\n\n.four {\n    color: darkblue;\n}\n\n.five {\n    color: darkred;\n}\n\n.six {\n    color: darkslategray;\n}\n\n.seven {\n    color: black\n}\n\n.eight {\n    color: rgb(116, 31, 0);\n}\n\n#winner {\n    text-align: center;\n    position: absolute;\n    box-shadow: 0px 0px 177px 61px black;\n    top: 26%;\n    padding: 63px;\n    border-radius: 8px;\n    left: 37.5%;\n    border: 1px solid black;\n    background-color: darkslategray;\n}\n\n#winner h2 {\n    color: #f0a554;\n}\n\n#winner h4 {\n    color: #f0a554;\n}\n\n#winner button {\n    font-size: 19px;\n    background-image: linear-gradient(blue, #5b5bff);\n    box-shadow: 0px 3px 18px 3px black;\n    padding: 12px;\n    border: 1px solid gray;\n    border-radius: 5px;\n    color: white;\n    outline: none;\n}\n\n.ticker {\n    display: inline-block;\n    vertical-align: top;\n}\n\n#timer h2 {\n    color: #619600;\n    border-radius: 5px;\n    padding: 8px;\n    background-image: linear-gradient(#000567, #000cea);\n    box-shadow: 6px 7px 15px black;\n    border: 1px solid black;\n}\n\n#numMines{\n    margin-right: 8%;\n    font-family: monospace;\n    font-size: 19px;\n}\n\n#numMines h2 {\n    color: #619600;\n    box-shadow: 6px 7px 15px black;\n    border-radius: 5px;\n    padding: 8px;\n    background-image: linear-gradient(#000567, #000cea);\n    border: 1px solid black;\n}\n\n#timer{\n    margin-left: 20%;\n    font-family: monospace;\n    font-size: 19px;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2luZ2xlL3NpbmdsZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0kseUJBQXlCO0lBQ3pCLFdBQVc7SUFDWCxtQkFBbUI7SUFDbkIsY0FBYztDQUNqQjs7QUFFRDtJQUNJLHNCQUFzQjtJQUN0QixvQkFBb0I7SUFDcEIsYUFBYTtJQUNiLFlBQVk7SUFDWixtQkFBbUI7SUFDbkIsWUFBWTtJQUNaLHdCQUF3QjtDQUMzQjs7QUFFRDtJQUNJLHVCQUF1QjtDQUMxQjs7QUFFRDtJQUNJLE1BQU0sdUJBQXVCLENBQUM7SUFDOUIsSUFBSSxzQkFBc0IsQ0FBQztDQUM5Qjs7QUFIRDtJQUNJLE1BQU0sdUJBQXVCLENBQUM7SUFDOUIsSUFBSSxzQkFBc0IsQ0FBQztDQUM5Qjs7QUFFRDtJQUNJLGdDQUF3QjtZQUF4Qix3QkFBd0I7SUFDeEIsaUNBQXlCO1lBQXpCLHlCQUF5QjtJQUN6Qix1QkFBdUI7Q0FDMUI7O0FBRUQ7SUFDSSxzQkFBc0I7Q0FDekI7O0FBRUQ7SUFDSSxhQUFhO0lBQ2IsWUFBWTtJQUNaLGdCQUFnQjtDQUNuQjs7QUFHRDtJQUNJLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLGFBQWE7Q0FDaEI7O0FBRUQ7SUFDSSxnQkFBZ0I7SUFDaEIsZUFBZTtJQUNmLHNCQUFzQjtJQUN0QixlQUFlO0lBQ2Ysc0JBQXNCO0NBQ3pCOztBQUVEO0lBQ0ksc0JBQXNCO0lBQ3RCLFdBQVc7SUFDWCxtQkFBbUI7Q0FDdEI7O0FBRUQ7SUFDSSxtQkFBbUI7SUFDbkIsbUJBQW1CO0lBQ25CLHFDQUFxQztJQUNyQyxTQUFTO0lBQ1QsY0FBYztJQUNkLG1CQUFtQjtJQUNuQixVQUFVO0lBQ1YsdUJBQXVCO0lBQ3ZCLGdDQUFnQztDQUNuQzs7QUFFRDtJQUNJLG1CQUFtQjtJQUNuQixtQkFBbUI7SUFDbkIsZ0JBQWdCO0NBQ25COztBQUVEO0lBQ0ksc0JBQXNCO0lBQ3RCLGFBQWE7SUFDYix1QkFBdUI7Q0FDMUI7O0FBRUQ7SUFDSSxnQkFBZ0I7SUFDaEIsZ0JBQWdCO0lBQ2hCLGlEQUFpRDtJQUNqRCxtQ0FBbUM7SUFDbkMsY0FBYztJQUNkLHdCQUF3QjtJQUN4QixtQkFBbUI7SUFDbkIsYUFBYTtJQUNiLGNBQWM7Q0FDakI7O0FBRUQ7SUFDSSxjQUFjO0NBQ2pCOztBQUVEO0lBQ0ksa0JBQWtCO0NBQ3JCOztBQUVEO0lBQ0ksd0JBQXdCO0NBQzNCOztBQUVEO0lBQ0ksWUFBWTtJQUNaLFdBQVc7SUFDWCxpQkFBaUI7Q0FDcEI7O0FBRUQ7SUFDSSxhQUFhO0lBQ2IsWUFBWTtJQUNaLGlCQUFpQjtJQUNqQixnQkFBZ0I7Q0FDbkI7O0FBRUQ7SUFDSSxnQkFBZ0I7SUFDaEIsbUJBQW1CO0lBQ25CLGdCQUFnQjtDQUNuQjs7QUFFRDtJQUNJLG9CQUFvQjtDQUN2Qjs7QUFFRDtJQUNJLHFCQUFxQjtDQUN4Qjs7QUFFRDtJQUNJLHFCQUFxQjtDQUN4Qjs7QUFFRDtJQUNJLGdCQUFnQjtDQUNuQjs7QUFFRDtJQUNJLGVBQWU7Q0FDbEI7O0FBRUQ7SUFDSSxxQkFBcUI7Q0FDeEI7O0FBRUQ7SUFDSSxZQUFZO0NBQ2Y7O0FBRUQ7SUFDSSx1QkFBdUI7Q0FDMUI7O0FBRUQ7SUFDSSxtQkFBbUI7SUFDbkIsbUJBQW1CO0lBQ25CLHFDQUFxQztJQUNyQyxTQUFTO0lBQ1QsY0FBYztJQUNkLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1osd0JBQXdCO0lBQ3hCLGdDQUFnQztDQUNuQzs7QUFFRDtJQUNJLGVBQWU7Q0FDbEI7O0FBRUQ7SUFDSSxlQUFlO0NBQ2xCOztBQUVEO0lBQ0ksZ0JBQWdCO0lBQ2hCLGlEQUFpRDtJQUNqRCxtQ0FBbUM7SUFDbkMsY0FBYztJQUNkLHVCQUF1QjtJQUN2QixtQkFBbUI7SUFDbkIsYUFBYTtJQUNiLGNBQWM7Q0FDakI7O0FBRUQ7SUFDSSxzQkFBc0I7SUFDdEIsb0JBQW9CO0NBQ3ZCOztBQUVEO0lBQ0ksZUFBZTtJQUNmLG1CQUFtQjtJQUNuQixhQUFhO0lBQ2Isb0RBQW9EO0lBQ3BELCtCQUErQjtJQUMvQix3QkFBd0I7Q0FDM0I7O0FBRUQ7SUFDSSxpQkFBaUI7SUFDakIsdUJBQXVCO0lBQ3ZCLGdCQUFnQjtDQUNuQjs7QUFFRDtJQUNJLGVBQWU7SUFDZiwrQkFBK0I7SUFDL0IsbUJBQW1CO0lBQ25CLGFBQWE7SUFDYixvREFBb0Q7SUFDcEQsd0JBQXdCO0NBQzNCOztBQUVEO0lBQ0ksaUJBQWlCO0lBQ2pCLHVCQUF1QjtJQUN2QixnQkFBZ0I7Q0FDbkIiLCJmaWxlIjoic3JjL2FwcC9zaW5nbGUvc2luZ2xlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjZ2FtZUJvYXJke1xuICAgIG1hcmdpbjogMTBweCA1MHB4IDdweCAzJTtcbiAgICB3aWR0aDogODUlO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBwYWRkaW5nOiA1MHB4O1xufVxuXG4uY2VsbHtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgICBoZWlnaHQ6IDM1cHg7XG4gICAgbWFyZ2luOiAxcHg7XG4gICAgYm9yZGVyLXJhZGl1czogM3B4O1xuICAgIHdpZHRoOiAzNXB4O1xuICAgIGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xufVxuXG4uZXhwbG9kZWQge1xuICAgIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XG59XG5cbkBrZXlmcmFtZXMgdW5jb3ZlciB7XG4gICAgZnJvbSB7YmFja2dyb3VuZC1jb2xvcjogYmxhY2t9XG4gICAgdG8ge2JhY2tncm91bmQtY29sb3I6IGdyZXl9XG59XG5cbi51bmNvdmVyZWR7XG4gICAgYW5pbWF0aW9uLW5hbWU6IHVuY292ZXI7XG4gICAgYW5pbWF0aW9uLWR1cmF0aW9uOiAwLjNzO1xuICAgIGJhY2tncm91bmQtY29sb3I6IGdyYXk7XG59XG5cbi50ZXN0e1xuICAgIGJhY2tncm91bmQtY29sb3I6IHJlZDtcbn1cblxuLm1pbmUge1xuICAgIGhlaWdodDogMzBweDtcbiAgICB3aWR0aDogMzBweDtcbiAgICBtYXJnaW4tdG9wOiAycHg7XG59XG5cblxuI3JlZnJlc2h7XG4gICAgbWFyZ2luLWJvdHRvbTogMCU7XG4gICAgd2lkdGg6IDQwcHg7XG4gICAgbWFyZ2luLWxlZnQ6IDQ3JTtcbiAgICBoZWlnaHQ6IDQwcHg7XG59XG5cbi5kcm9wZG93biB7XG4gICAgZm9udC1zaXplOiAyM3B4O1xuICAgIG1hcmdpbi10b3A6IDIlO1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICBjb2xvcjogI2YwYTU1NDtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG5cbiNvcHRpb25zIHVsIHtcbiAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7XG4gICAgcGFkZGluZzogMDtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbiNvcHRpb25zIHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIGJveC1zaGFkb3c6IDBweCAwcHggMTc3cHggNjFweCBibGFjaztcbiAgICB0b3A6IDIxJTtcbiAgICBwYWRkaW5nOiA2MHB4O1xuICAgIGJvcmRlci1yYWRpdXM6IDhweDtcbiAgICBsZWZ0OiA0MiU7XG4gICAgYm9yZGVyOiAxcHggc29saWQgZ3JheTtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBkYXJrc2xhdGVncmF5O1xufVxuXG5saSB7XG4gICAgbWFyZ2luLWJvdHRvbTogMzQlO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXNpemU6IDIycHg7XG59XG5cbmxpIGF7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICAgIGNvbG9yOiB3aGl0ZTtcbiAgICBmb250LWZhbWlseTogbW9ub3NwYWNlO1xufVxuXG4jY2FuY2Vse1xuICAgIG1hcmdpbi10b3A6IDQwJTtcbiAgICBmb250LXNpemU6IDE5cHg7XG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KGJsdWUsICM1YjViZmYpO1xuICAgIGJveC1zaGFkb3c6IDBweCAzcHggMThweCAzcHggYmxhY2s7XG4gICAgcGFkZGluZzogMTJweDtcbiAgICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgY29sb3I6IHdoaXRlO1xuICAgIG91dGxpbmU6IG5vbmU7XG59XG5cbi5oaWRkZW4ge1xuICAgIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5kcm9wZG93bkRpc3BsYXllZCB7XG4gICAgbWFyZ2luLWJvdHRvbTogMCU7XG59XG5cbi5zZWxlY3RlZERpZmZpY3VsdHkge1xuICAgIGNvbG9yOiBncmVlbiAhaW1wb3J0YW50O1xufVxuXG4uZmxhZ2dpbmcge1xuICAgIGhlaWdodDogNXB4O1xuICAgIHdpZHRoOiA1cHg7XG4gICAgbWFyZ2luLXRvcDogMTVweDtcbn1cblxuLmZsYWdnZWQge1xuICAgIGhlaWdodDogMjVweDtcbiAgICB3aWR0aDogMjJweDtcbiAgICBtYXJnaW4tbGVmdDogNXB4O1xuICAgIG1hcmdpbi10b3A6IDZweDtcbn1cblxuLmNlbGwgcCB7XG4gICAgZm9udC1zaXplOiAyMnB4O1xuICAgIG1hcmdpbi1ib3R0b206IDJweDtcbiAgICBtYXJnaW4tdG9wOiA2cHg7XG59XG5cbi5vbmV7XG4gICAgY29sb3I6IHJnYigwLCA5NywgMClcbn1cblxuLnR3byB7XG4gICAgY29sb3I6IHJnYigwLCAwLCAxOTMpXG59XG5cbi50aHJlZSB7XG4gICAgY29sb3I6IHJnYigxMDMsIDAsIDApXG59XG5cbi5mb3VyIHtcbiAgICBjb2xvcjogZGFya2JsdWU7XG59XG5cbi5maXZlIHtcbiAgICBjb2xvcjogZGFya3JlZDtcbn1cblxuLnNpeCB7XG4gICAgY29sb3I6IGRhcmtzbGF0ZWdyYXk7XG59XG5cbi5zZXZlbiB7XG4gICAgY29sb3I6IGJsYWNrXG59XG5cbi5laWdodCB7XG4gICAgY29sb3I6IHJnYigxMTYsIDMxLCAwKTtcbn1cblxuI3dpbm5lciB7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDE3N3B4IDYxcHggYmxhY2s7XG4gICAgdG9wOiAyNiU7XG4gICAgcGFkZGluZzogNjNweDtcbiAgICBib3JkZXItcmFkaXVzOiA4cHg7XG4gICAgbGVmdDogMzcuNSU7XG4gICAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogZGFya3NsYXRlZ3JheTtcbn1cblxuI3dpbm5lciBoMiB7XG4gICAgY29sb3I6ICNmMGE1NTQ7XG59XG5cbiN3aW5uZXIgaDQge1xuICAgIGNvbG9yOiAjZjBhNTU0O1xufVxuXG4jd2lubmVyIGJ1dHRvbiB7XG4gICAgZm9udC1zaXplOiAxOXB4O1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudChibHVlLCAjNWI1YmZmKTtcbiAgICBib3gtc2hhZG93OiAwcHggM3B4IDE4cHggM3B4IGJsYWNrO1xuICAgIHBhZGRpbmc6IDEycHg7XG4gICAgYm9yZGVyOiAxcHggc29saWQgZ3JheTtcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgY29sb3I6IHdoaXRlO1xuICAgIG91dGxpbmU6IG5vbmU7XG59XG5cbi50aWNrZXIge1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xufVxuXG4jdGltZXIgaDIge1xuICAgIGNvbG9yOiAjNjE5NjAwO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwYWRkaW5nOiA4cHg7XG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KCMwMDA1NjcsICMwMDBjZWEpO1xuICAgIGJveC1zaGFkb3c6IDZweCA3cHggMTVweCBibGFjaztcbiAgICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcbn1cblxuI251bU1pbmVze1xuICAgIG1hcmdpbi1yaWdodDogOCU7XG4gICAgZm9udC1mYW1pbHk6IG1vbm9zcGFjZTtcbiAgICBmb250LXNpemU6IDE5cHg7XG59XG5cbiNudW1NaW5lcyBoMiB7XG4gICAgY29sb3I6ICM2MTk2MDA7XG4gICAgYm94LXNoYWRvdzogNnB4IDdweCAxNXB4IGJsYWNrO1xuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgICBwYWRkaW5nOiA4cHg7XG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KCMwMDA1NjcsICMwMDBjZWEpO1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xufVxuXG4jdGltZXJ7XG4gICAgbWFyZ2luLWxlZnQ6IDIwJTtcbiAgICBmb250LWZhbWlseTogbW9ub3NwYWNlO1xuICAgIGZvbnQtc2l6ZTogMTlweDtcbn1cbiJdfQ== */"
 
 /***/ }),
 
@@ -592,7 +647,7 @@ module.exports = "#gameBoard{\n    margin: 10px 50px 7px 3%;\n    width: 85%;\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id = 'gameBoard'>\n  \n  <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>\n    \n    <div *ngFor = 'let column of minesweeper.gameArray; index as j' \n    class = 'cell'\n    (click) = 'uncover(i,j)'\n    [ngClass]= \"{'uncovered' : minesweeper.gameArray[i][j].clicked}\">\n    \n    <p *ngIf = 'minesweeper.gameArray[i][j].clicked && \n    !minesweeper.gameArray[i][j].mine && \n    minesweeper.gameArray[i][j].adjacentMines > 0'\n    [ngClass] = \"colorCode[minesweeper.gameArray[i][j].adjacentMines]\"\n    >{{minesweeper.gameArray[i][j].adjacentMines}}</p>\n    \n    <img *ngIf = 'minesweeper.gameArray[i][j].clicked && \n    minesweeper.gameArray[i][j].mine'\n    src = '../../assets/explosion.png' class = 'mine'>\n\n    <img *ngIf = 'flaggingEnabled && \n    !minesweeper.gameArray[i][j].clicked &&\n    !minesweeper.gameArray[i][j].flagged'\n    src = '../../assets/flagging.png'\n    class = 'flagging'>\n\n    <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&\n    minesweeper.gameArray[i][j].flagged' \n    src = '../../assets/flag2.png'\n    class = 'flagged'>\n    \n  </div>\n</div>\n\n  <a class = 'dropdown' (click) = 'toggleDropdown()' [ngClass] = \"{'dropdownDisplayed' : !dropdownHidden}\"><div class = 'dropdown'>Game Options</div></a>\n  <div id = 'options' [ngClass] = \"{'hidden' : dropdownHidden }\">\n    <ul>\n      <li><a (click) = 'changeDiff(\"expert\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'expert'}\" >Expert</a></li>\n      <li><a (click) = 'changeDiff(\"hard\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'hard'}\" >Hard</a></li>\n      <li><a (click) = 'changeDiff(\"normal\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'normal'}\" >Normal</a></li>\n      <li><a (click) = 'changeDiff(\"easy\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'easy'}\" >Easy</a></li>\n      <li><a (click) = 'changeDiff(\"beginner\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'beginner'}\" >Beginner</a></li>\n    </ul>\n  </div>\n\n</div>\n\n<a (click) = 'reset()'><img id = 'refresh' src = '../../assets//refresh.png'></a>"
+module.exports = "<div id = 'gameBoard'>\n  \n  <div class = 'ticker' id = 'numMines'>\n    <h2>{{minesweeper.numMines}}</h2>\n  </div>\n\n  <div class = 'ticker' id = 'timer'>\n    <h2>{{minesweeper.displayedTime}}</h2>\n  </div>\n\n  <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>\n    \n    <div *ngFor = 'let column of minesweeper.gameArray; index as j' \n    class = 'cell'\n    (click) = 'uncover(i,j)'\n    [ngClass]= \"{'uncovered' : minesweeper.gameArray[i][j].clicked}\">\n    \n    <p *ngIf = 'minesweeper.gameArray[i][j].clicked && \n    !minesweeper.gameArray[i][j].mine && \n    minesweeper.gameArray[i][j].adjacentMines > 0'\n    [ngClass] = \"colorCode[minesweeper.gameArray[i][j].adjacentMines]\"\n    >{{minesweeper.gameArray[i][j].adjacentMines}}</p>\n    \n    <img *ngIf = 'minesweeper.gameArray[i][j].clicked && \n    minesweeper.gameArray[i][j].mine'\n    src = '../../assets/explosion.png' class = 'mine'>\n\n    <img *ngIf = 'flaggingEnabled && \n    !minesweeper.gameArray[i][j].clicked &&\n    !minesweeper.gameArray[i][j].flagged'\n    src = '../../assets/flagging.png'\n    class = 'flagging'>\n\n    <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&\n    minesweeper.gameArray[i][j].flagged' \n    src = '../../assets/flag2.png'\n    class = 'flagged'>\n    \n  </div>\n</div>\n\n  <a class = 'dropdown' (click) = 'toggleDropdown()' [ngClass] = \"{'dropdownDisplayed' : !dropdownHidden}\"><div class = 'dropdown'>Game Options</div></a>\n  <div id = 'options' [ngClass] = \"{'hidden' : dropdownHidden }\">\n    <ul>\n      <li><a (click) = 'changeDiff(\"expert\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'expert'}\" >Expert</a></li>\n      <li><a (click) = 'changeDiff(\"hard\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'hard'}\" >Hard</a></li>\n      <li><a (click) = 'changeDiff(\"normal\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'normal'}\" >Normal</a></li>\n      <li><a (click) = 'changeDiff(\"easy\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'easy'}\" >Easy</a></li>\n      <li><a (click) = 'changeDiff(\"beginner\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'beginner'}\" >Beginner</a></li>\n    </ul>\n    <button (click) = 'toggleDropdown()' id = 'cancel'>Cancel</button>\n  </div>\n\n</div>\n\n<div id = 'winner' *ngIf = 'minesweeper.winner'>\n  <h2>Awww yeah!! :)</h2>\n  <h4>Nice Work! Your time was: {{minesweeper.gamePlayTime}} seconds</h4>\n  <button (click) = 'reset()' >Play again</button>\n</div>\n\n<div id = 'confirm' *ngIf = 'changeGame'>\n\n</div>\n\n<a (click) = 'reset()'><img id = 'refresh' src = '../../assets//refresh.png'></a>"
 
 /***/ }),
 
@@ -642,13 +697,16 @@ var SingleComponent = /** @class */ (function () {
     };
     SingleComponent.prototype.reset = function () {
         this.minesweeper = new _minesweeper__WEBPACK_IMPORTED_MODULE_2__["Minesweeper"](this.difficulty);
+        this.flaggingEnabled = false;
     };
     SingleComponent.prototype.toggleDropdown = function () {
         if (!this.dropdownHidden) {
+            this.minesweeper.startTimer();
             this.dropdownHidden = true;
         }
         else {
             this.dropdownHidden = false;
+            this.minesweeper.stopTimer();
         }
     };
     SingleComponent.prototype.changeDiff = function (diff) {
@@ -656,6 +714,7 @@ var SingleComponent = /** @class */ (function () {
         this.dropdownHidden = true;
         this.minesweeper = new _minesweeper__WEBPACK_IMPORTED_MODULE_2__["Minesweeper"](this.difficulty);
     };
+    //this method toggles the users ability to place flags
     SingleComponent.prototype.handleKeyBoardEvent = function (event) {
         if (event.key == 'f') {
             this.flaggingEnabled = !this.flaggingEnabled;
