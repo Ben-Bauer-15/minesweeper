@@ -3,7 +3,6 @@ import { Minesweeper } from "../minesweeper";
 import { HostListener } from "@angular/core";
 
 
-
 @Component({
   selector: 'app-single',
   templateUrl: './single.component.html',
