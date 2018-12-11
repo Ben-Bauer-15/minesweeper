@@ -4,8 +4,8 @@ This is my take on the classic minesweeper game. Play it solo or live with a fri
 
 ### Technologies leveraged
 
-Angular
-Socket.io
-Node.js
-MongoDB
-Express
+Angular \n
+Socket.io \n
+Node.js \n
+MongoDB \n
+Express \n
