@@ -1,11 +1,46 @@
 <div id = 'gameBoard'>
-  <div *ngFor = 'let row of gameArray; index as i' class = 'row'>
-    <div *ngFor = 'let column of gameArray; index as j' 
-      class = 'cell'
-      (click) = 'uncover(i,j)'
-      [ngClass]= "{'uncovered' : gameArray[i][j].clicked}">
-    <p *ngIf = 'gameArray[i][j].clicked && !gameArray[i][j].mine && gameArray[i][j].adjacentMines > 0'>{{gameArray[i][j].adjacentMines}}</p>
-    <img *ngIf = 'gameArray[i][j].clicked && gameArray[i][j].mine' src = '../../assets/explosion.png' class = 'mine'>
-    </div>
+  
+  <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>
+    
+    <div *ngFor = 'let column of minesweeper.gameArray; index as j' 
+    class = 'cell'
+    (click) = 'uncover(i,j)'
+    [ngClass]= "{'uncovered' : minesweeper.gameArray[i][j].clicked}">
+    
+    <p *ngIf = 'minesweeper.gameArray[i][j].clicked && 
+    !minesweeper.gameArray[i][j].mine && 
+    minesweeper.gameArray[i][j].adjacentMines > 0'
+    >{{minesweeper.gameArray[i][j].adjacentMines}}</p>
+    
+    <img *ngIf = 'minesweeper.gameArray[i][j].clicked && 
+    minesweeper.gameArray[i][j].mine'
+    src = '../../assets/explosion.png' class = 'mine'>
+
+    <img *ngIf = 'flaggingEnabled && 
+    !minesweeper.gameArray[i][j].clicked &&
+    !minesweeper.gameArray[i][j].flagged'
+    src = '../../assets/flagging.png'
+    class = 'flagging'>
+
+    <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&
+    minesweeper.gameArray[i][j].flagged' 
+    src = '../../assets/flag2.png'
+    class = 'flagged'>
+    
   </div>
 </div>
+
+  <a class = 'dropdown' (click) = 'toggleDropdown()' [ngClass] = "{'dropdownDisplayed' : !dropdownHidden}"><div class = 'dropdown'>Game Options</div></a>
+  <div id = 'options' [ngClass] = "{'hidden' : dropdownHidden }">
+    <ul>
+      <li><a (click) = 'changeDiff("expert")' [ngClass] = "{'selectedDifficulty' : difficulty == 'expert'}" >Expert</a></li>
+      <li><a (click) = 'changeDiff("hard")' [ngClass] = "{'selectedDifficulty' : difficulty == 'hard'}" >Hard</a></li>
+      <li><a (click) = 'changeDiff("normal")' [ngClass] = "{'selectedDifficulty' : difficulty == 'normal'}" >Normal</a></li>
+      <li><a (click) = 'changeDiff("easy")' [ngClass] = "{'selectedDifficulty' : difficulty == 'easy'}" >Easy</a></li>
+      <li><a (click) = 'changeDiff("beginner")' [ngClass] = "{'selectedDifficulty' : difficulty == 'beginner'}" >Beginner</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<a (click) = 'reset()'><img id = 'refresh' src = '../../assets//refresh.png'></a>

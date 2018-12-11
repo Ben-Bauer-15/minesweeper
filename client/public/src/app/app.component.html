@@ -1,5 +1,6 @@
 <div class = 'navbar'>
   
+  <h1 id = 'title'>Minesweeper JS</h1>
   <a (mouseenter) = 'mouseEnter("single")'
    (mouseleave) = 'mouseLeave()' 
    [ngClass] = "{'hover' : selected == 'single'}" 
@@ -21,3 +22,10 @@
 </div> 
 
 <router-outlet></router-outlet>
+
+
+<div class = 'footer'>
+  <p>© Benjamin Bauer 2018</p>
+  <a href = 'https://github.com/Ben-Bauer-15/minesweeper'><img id = 'github' src = '../assets/githublogo_copy.png'></a>
+  <a href = 'mailto:benjaminbauer15@gmail.com'><img id = 'mail' src = '../assets/mail.png'></a>
+</div>

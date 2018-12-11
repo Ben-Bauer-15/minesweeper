@@ -3,6 +3,7 @@ export class Cell {
     mine;
     adjacentMines;
     neighbors;
+    flagged;
     constructor(public x : number, public y : number){
         this.clicked = false
         this.mine = false
@@ -10,5 +11,6 @@ export class Cell {
         this.x = x
         this.y = y
         this.neighbors = []
+        this.flagged = false
     }
 }

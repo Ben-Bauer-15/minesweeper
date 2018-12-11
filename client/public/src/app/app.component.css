@@ -18,3 +18,69 @@
 .hover {
     background-color: #3a3a3a;
 }
+
+#github {
+    margin-left: 10px;
+    height: 30px;
+    vertical-align: top;
+    width: 31px;
+    margin-top: 7px;
+    display: inline-block;
+}
+
+#mail {
+    margin-left: 10px;
+    height: 26px;
+    vertical-align: top;
+    width: 40px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.footer p {
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+}
+
+.footer {
+    padding-left: 42%;
+    background-color: darkslategray;
+    margin-top: 2%;
+}
+
+
+#title{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -6px;
+    margin-right: 50%;
+    margin-bottom: 0px;
+    color: aqua;
+}
+
+
+@media only screen and (max-width : 949px){
+    #title {
+        margin-right: 15% !important;
+    }
+}
+
+@media only screen and (min-width : 950px){
+    #title {
+        margin-right: 30% !important;
+    }
+}
+
+@media only screen and (min-width : 1200px){
+    #title {
+        margin-right: 54% !important;
+    }
+}
+
+@media only screen and (min-width : 1600px){
+    #title {
+        margin-right: 61% !important;
+    }
+}
