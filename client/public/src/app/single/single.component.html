@@ -10,6 +10,7 @@
     <p *ngIf = 'minesweeper.gameArray[i][j].clicked && 
     !minesweeper.gameArray[i][j].mine && 
     minesweeper.gameArray[i][j].adjacentMines > 0'
+    [ngClass] = "colorCode[minesweeper.gameArray[i][j].adjacentMines]"
     >{{minesweeper.gameArray[i][j].adjacentMines}}</p>
     
     <img *ngIf = 'minesweeper.gameArray[i][j].clicked && 

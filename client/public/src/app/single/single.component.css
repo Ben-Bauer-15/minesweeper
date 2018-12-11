@@ -84,3 +84,35 @@ li a{
     margin-left: 5px;
     margin-top: 6px;
 }
+
+.one{
+    color: rgb(0, 97, 0)
+}
+
+.two {
+    color: rgb(0, 0, 193)
+}
+
+.three {
+    color: rgb(103, 0, 0)
+}
+
+.four {
+    color: darkblue;
+}
+
+.five {
+    color: darkred;
+}
+
+.six {
+    color: darkslategray;
+}
+
+.seven {
+    color: black
+}
+
+.eight {
+    color: rgb(116, 31, 0);
+}
