@@ -1,0 +1,29 @@
+.header {
+    margin-left: 37%;
+    color: #619600;
+}
+
+.choice {
+    margin-left: 22%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.choice button {
+    margin-top: 40%;
+    font-size: 19px;
+    background-image: linear-gradient(blue, #5b5bff);
+    box-shadow: 0px 3px 18px 3px black;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    outline: none;
+}
+
+.choice h5 {
+    color : #f0a554;
+}
+

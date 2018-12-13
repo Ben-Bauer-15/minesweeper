@@ -117,4 +117,23 @@
   </div>
 
   <h2 *ngIf = '!otherUser' id = 'waitingForUser'>Waiting for another player</h2>
+
+
+  <div *ngIf = '!userChose' class = 'choice'>
+    <div class = 'choiceButton'>
+      <button (mouseenter) = 'mouseEnter("private")'
+      (mouseleave) = 'mouseLeave()'
+      (click) = 'private()'>Private Game</button>
+      <h5 *ngIf = 'hoveredButton == "private"'>Invite a friend to play</h5>
+    </div>
+
+    <div class = 'choiceButton'>
+      <button (mouseenter) = 'mouseEnter("public")'
+      (mouseleave) = 'mouseLeave()'
+      (click) = 'public()'>Public Game</button>
+      <h5 id = 'publicH5' *ngIf = 'hoveredButton == "public"'>You are randomly assigned an opponent</h5>
+    </div>
+
+
+  </div>
     

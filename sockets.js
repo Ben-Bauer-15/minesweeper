@@ -1,11 +1,15 @@
 var publicRooms = []
+var privateRooms = []
 var io;
 
 module.exports = function(server){
     io = require('socket.io')(server)
 
     io.on('connection', (socket) => {
-        findOpenRoom(socket)
+        console.log('welcome')
+        var id = makeid()
+        console.log(id)
+        socket.emit('welcome', id)
 
         socket.on('disconnect', function(){
             
@@ -17,15 +21,31 @@ module.exports = function(server){
                     }
                 }
             }
-            
         })
         
         socket.on('clicked', (data) => {
             socket.to(data.id).emit('clicked', data.board)
         })
+
+        socket.on('userChosePrivateRoom', (data) => {
+            privateRooms.push({id : data})
+            socket.join(data)
+            console.log(privateRooms)
+        })
+        
+        socket.on('connectToPrivateRoom', (data) => {
+            console.log(data)
+            connectToPrivateRoom(data, socket)
+            
+        })
     })
 }
 
+
+function connectToPrivateRoom(id, socket){
+    socket.join(id)
+    io.in(id).emit('gameStarted')
+}
 
 function findOpenRoom(socket){
     var joined = false

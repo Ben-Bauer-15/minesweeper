@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from "@angular/router";
-// import { MultiComponent } from "./multi/multi.component";
 
 @Component({
   selector: 'app-root',
