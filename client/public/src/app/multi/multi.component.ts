@@ -24,6 +24,7 @@ export class MultiComponent implements OnInit {
   opponentTime : number
   otherUserFirstClick : boolean
   timerID;
+  roomID : string
 
   constructor(private _component : AppComponent) {
     console.log('constructor is running')
@@ -50,18 +51,20 @@ export class MultiComponent implements OnInit {
   
       this.minesweeper = new Minesweeper('easy', 'multi')
 
-      console.log("has the user visited multi? " , this._component.hasVisitedMulti)
-      // if (!this._component.hasVisitedMulti){
-        this.socket = io()
-      // }
+      this.socket = io()
+
       this.opponentBoard = new Minesweeper('easy', 'multi')
       this.opponentTime = 0
 
       this.socket.on('welcome', (data) => {
 
-        if (data == 2){
+        console.log(data)
+        this.roomID = data.id
+
+        if (data.numUsers == 2){
           this.otherUser = true
         }
+
       })
       
       this.socket.on('clicked', (data) => {
@@ -89,12 +92,12 @@ export class MultiComponent implements OnInit {
   uncover(i, j){
     if (this.flaggingEnabled){
       this.minesweeper.flag(i,j)
-      this.socket.emit('clicked', this.minesweeper)
+      this.socket.emit('clicked', {board : this.minesweeper, id : this.roomID})
     }
     else {
       if (this.otherUser){
         this.minesweeper.uncover(i,j)
-        this.socket.emit('clicked', this.minesweeper)
+        this.socket.emit('clicked', {board : this.minesweeper, id : this.roomID})
       }
     }
   }
@@ -105,7 +108,6 @@ export class MultiComponent implements OnInit {
   }
 
   toggleDropdown(){
-    console.log("toggled on multi comp")
     if (!this.dropdownHidden){
       if (this.minesweeper.gameStarted){
         this.minesweeper.startTimer()
