@@ -34,10 +34,13 @@ export class Minesweeper{
     //will be set to false when an instance is contructed, but as soon as a user clicks their first cell, set it to true
     gameStarted;
 
+    //will track singleplayer or multiplayer mode (for adjusting the speed of the cell reveal)
+    gamePlayMode;
 
 
 
-    constructor(public difficulty : string){
+
+    constructor(public difficulty : string, public mode : string){
         this.difficulties = {
           expert : {mines : 50, size : 15}, 
           hard : {mines : 40, size : 15}, 
@@ -46,6 +49,7 @@ export class Minesweeper{
           beginner : {mines : 10, size : 15}}
 
         this.difficulty = difficulty
+        this.gamePlayMode = mode
         this.gameSize = this.difficulties[difficulty].size
         this.gameArray = []
         this.gameOver = false
@@ -73,7 +77,6 @@ export class Minesweeper{
 
         //invoke the placeMines method to populate the grid with mines as well as update all of the non-mine cells
         this.placeMines(this.difficulty)
-        console.log(this.gameArray)
 
 
     }
@@ -92,7 +95,6 @@ export class Minesweeper{
     this.myTimer = setInterval(() => {
       this.gamePlayTime += 0.1
       this.displayedTime = Math.floor(this.gamePlayTime)
-      // console.log(this.gamePlayTime)
     }, 100)
   }
 
@@ -157,7 +159,6 @@ export class Minesweeper{
     }
   }
 
-
   //recursively uncovers cells when one is clicked
   uncover(i,j){
 
@@ -183,36 +184,66 @@ export class Minesweeper{
         this.startTimer()
       }
 
+      //if the gameplay is singleplayer, go ahead and do the 'fancy' reveal of cell
+      //otherwise, do it the fast way
 
-      //this delays the recursive calls so that the user can see the recursion in action!
-      setTimeout(() => {
+      if (this.gamePlayMode == 'single'){
+        //this delays the recursive calls so that the user can see the recursion in action!
+        setTimeout(() => {
+          
+          //this is optional, but the original version of the game uncovers all cells that don't have any mines adjacent
+          //it stops uncovering once it reaches a cell with adjacent > 0
+      
+          //if a cell doesn't have any mines adjacent and it HASNT been uncovered, recursively uncover all of its neighbors
+          if (this.gameArray[i][j].adjacentMines == 0 && !this.gameArray[i][j].clicked) {
+          
+
+              for (var idx = 0; idx < this.gameArray[i][j].neighbors.length; idx++){
         
-        //this is optional, but the original version of the game uncovers all cells that don't have any mines adjacent
-        //it stops uncovering once it reaches a cell with adjacent > 0
+                //all cell neighbors are stored as coordinates, NOT cells
+                var neighborCoords = this.gameArray[i][j].neighbors[idx]
+        
+                //go into neighbor coords to get the actual cell
+                var neighbor = this.gameArray[neighborCoords[0]][neighborCoords[1]]
+                
+                this.gameArray[i][j].clicked = true
+
+                this.uncover(neighbor.x, neighbor.y)
+
+                }
+            }
+            else {
+              //uncover this cell but don't call this function again, since it has > 0 adjacent
+              this.gameArray[i][j].clicked = true
+            }
+        }, 0);
+      }
+
+    else {
     
         //if a cell doesn't have any mines adjacent and it HASNT been uncovered, recursively uncover all of its neighbors
         if (this.gameArray[i][j].adjacentMines == 0 && !this.gameArray[i][j].clicked) {
         
 
-            for (var idx = 0; idx < this.gameArray[i][j].neighbors.length; idx++){
-      
-              //all cell neighbors are stored as coordinates, NOT cells
-              var neighborCoords = this.gameArray[i][j].neighbors[idx]
-      
-              //go into neighbor coords to get the actual cell
-              var neighbor = this.gameArray[neighborCoords[0]][neighborCoords[1]]
-              
-              this.gameArray[i][j].clicked = true
-
-              this.uncover(neighbor.x, neighbor.y)
-
-              }
-          }
-          else {
-            //uncover this cell but don't call this function again, since it has > 0 adjacent
+          for (var idx = 0; idx < this.gameArray[i][j].neighbors.length; idx++){
+    
+            //all cell neighbors are stored as coordinates, NOT cells
+            var neighborCoords = this.gameArray[i][j].neighbors[idx]
+    
+            //go into neighbor coords to get the actual cell
+            var neighbor = this.gameArray[neighborCoords[0]][neighborCoords[1]]
+            
             this.gameArray[i][j].clicked = true
-          }
-      }, 10);
+
+            this.uncover(neighbor.x, neighbor.y)
+
+            }
+        }
+        else {
+          //uncover this cell but don't call this function again, since it has > 0 adjacent
+          this.gameArray[i][j].clicked = true
+        }
+      }
     }
   }
 
@@ -370,7 +401,6 @@ export class Minesweeper{
   //for each mine (cell) that is placed, loop through all of its neighbors and increase their property for adjacents by 1
   increaseAdjacents(mine){
 
-    console.log("the mine is: ", mine)
     //loop through the neighbors of each mine...
     for (var i = 0; i < mine.neighbors.length; i++){
 

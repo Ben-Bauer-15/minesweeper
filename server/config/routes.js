@@ -6,6 +6,6 @@ module.exports = function(app){
     })
 
     app.all('*', function(req, res){
-        res.sendFile(path.resolve(".client/public/dist/public/index.html"))
+        res.sendFile(path.resolve("client/public/dist/public/index.html"))
     })
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Minesweeper } from "../minesweeper";
 import { HostListener } from "@angular/core";
+import { AppComponent } from "../app.component";
 
 
 @Component({
@@ -15,9 +16,10 @@ export class SingleComponent implements OnInit {
   flaggingEnabled;
   colorCode;
 
-  constructor() { }
+  constructor(private _component : AppComponent) { }
 
   ngOnInit() {
+    this._component.currentPage = 'single'
     this.dropdownHidden = true
     this.difficulty = "easy"
     this.flaggingEnabled = false
@@ -32,7 +34,7 @@ export class SingleComponent implements OnInit {
     7 : 'seven',
     8 : 'eight'}
 
-    this.minesweeper = new Minesweeper("easy")
+    this.minesweeper = new Minesweeper('easy', 'single')
 
   }
 
@@ -46,14 +48,17 @@ export class SingleComponent implements OnInit {
   }
 
   reset(){
-    this.minesweeper = new Minesweeper(this.difficulty)
+    this.minesweeper = new Minesweeper(this.difficulty, 'single')
     this.flaggingEnabled = false
   }
 
   toggleDropdown(){
+    console.log("toggled on single comp")
 
     if (!this.dropdownHidden){
-      this.minesweeper.startTimer()
+      if (this.minesweeper.gameStarted){
+        this.minesweeper.startTimer()
+      }
       this.dropdownHidden = true
     }
     else {
@@ -65,7 +70,7 @@ export class SingleComponent implements OnInit {
   changeDiff(diff){
     this.difficulty = diff
     this.dropdownHidden = true 
-    this.minesweeper = new Minesweeper(this.difficulty)
+    this.minesweeper = new Minesweeper(this.difficulty, 'single')
   }
 
 
