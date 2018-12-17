@@ -15,6 +15,7 @@ export class SingleComponent implements OnInit {
   dropdownHidden;
   flaggingEnabled;
   colorCode;
+  hoveredCell = [-1, -1]
 
   constructor(private _component : AppComponent) { }
 
@@ -53,7 +54,6 @@ export class SingleComponent implements OnInit {
   }
 
   toggleDropdown(){
-    console.log("toggled on single comp")
 
     if (!this.dropdownHidden){
       if (this.minesweeper.gameStarted){
@@ -81,6 +81,14 @@ export class SingleComponent implements OnInit {
       this.flaggingEnabled = !this.flaggingEnabled
       console.log(this.flaggingEnabled)
     }
+  }
+
+  mouseEnter(i, j){
+    this.hoveredCell = [i, j]
+  }
+  
+  mouseLeave(){
+    this.hoveredCell = [-1, -1]
   }
 
 }

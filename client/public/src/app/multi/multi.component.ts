@@ -28,9 +28,11 @@ export class MultiComponent implements OnInit {
   roomID : string
   hoveredButton;
   userChose = false
+  linkToShare : string
+  hoveredCell = [-1,-1]
+  shareWindowDisplay;
 
   constructor(private _component : AppComponent, private _route : ActivatedRoute) {
-    console.log('constructor is running')
    }
 
   ngOnInit() {
@@ -43,7 +45,6 @@ export class MultiComponent implements OnInit {
       }
     })
     
-    console.log('init is running')
     this._component.currentPage = 'multi'
     this.dropdownHidden = true
     this.difficulty = "easy"
@@ -123,7 +124,7 @@ export class MultiComponent implements OnInit {
     this.hoveredButton = ""
   }
 
-  private(){
+  choosePrivateGame(){
     this.userChose = true
 
     this.socket = io()
@@ -132,16 +133,85 @@ export class MultiComponent implements OnInit {
     this.opponentTime = 0
 
     this.socket.on('welcome', (data) => {
-      console.log(data)
+      // console.log(data)
       this.socket.emit("userChosePrivateRoom", data)
       this.roomID = data
+      this.shareWindowDisplay = true
+      this.linkToShare = 'http://192.168.0.212:8000/room/' + data
     })
-
+    
     this.socket.on('gameStarted', () => {
-      console.log('huzzah!!')
       this.otherUser = true
     })
     
+    this.socket.on('clicked', (data) => {
+      if (!this.otherUserFirstClick){
+        
+        this.timerID = setInterval(() => {
+          this.opponentTime += 1
+        }, 1000)
+        
+        this.otherUserFirstClick = true
+      }
+      this.opponentBoard = data
+    })
+    
+    this.socket.on('disconnect', () => {
+      this.otherUser = false
+      this.opponentTime = 0
+      clearInterval(this.timerID)
+      this.opponentBoard = new Minesweeper('easy', 'multi')
+      this.minesweeper = new Minesweeper('easy', 'multi')
+    })
+    
+  }
+  
+  choosePublicGame(){
+    this.userChose = true
+    this.socket = io()
+    
+    this.opponentBoard = new Minesweeper('easy', 'multi')
+    this.opponentTime = 0
+    
+    this.socket.on('welcome', ()  => {
+      this.socket.emit('connectToPublicRoom')
+    })
+
+    this.socket.on('welcomeToPublic', (data) => {
+      this.roomID = data.id
+      if (data.numUsers == 2){
+        this.otherUser = true
+      }
+    })
+
+    this.socket.on('clicked', (data) => {
+      if (!this.otherUserFirstClick){
+        
+        this.timerID = setInterval(() => {
+          this.opponentTime += 1
+        }, 1000)
+        
+        this.otherUserFirstClick = true
+      }
+      this.opponentBoard = data
+    })
+  }
+  
+  
+  connectToPrivateRoom(){
+    this.socket = io()
+    console.log(this.roomID)
+    this.socket.on('welcome', () => {
+      this.socket.emit('connectToPrivateRoom', this.roomID)
+    })
+
+    this.socket.on('gameStarted', () =>{
+      console.log('huzzah!')
+      this.opponentTime = 0
+      this.opponentBoard = new Minesweeper('easy', 'multi')
+      this.otherUser = true
+    })
+
     this.socket.on('clicked', (data) => {
       if (!this.otherUserFirstClick){
 
@@ -153,34 +223,6 @@ export class MultiComponent implements OnInit {
       }
       this.opponentBoard = data
     })
-
-    this.socket.on('disconnect', () => {
-      this.otherUser = false
-      this.opponentTime = 0
-      clearInterval(this.timerID)
-      this.opponentBoard = new Minesweeper('easy', 'multi')
-      this.minesweeper = new Minesweeper('easy', 'multi')
-    })
-
-  }
-  
-  public(){
-    this.userChose = true
-    
-  }
-
-
-  connectToPrivateRoom(){
-    this.socket = io()
-    console.log(this.roomID)
-    this.socket.on('welcome', () => {
-      this.socket.emit('connectToPrivateRoom', this.roomID)
-    })
-
-    this.socket.on('gameStarted', () =>{
-      console.log('huzzah!')
-      this.otherUser = true
-    })
   }
 
   makeid() {
@@ -191,6 +233,37 @@ export class MultiComponent implements OnInit {
       text += possible.charAt(Math.floor(Math.random() * possible.length));
 
     return text;
+  }
+
+  copyToClipboard(val: string){
+    let selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = val;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+  }
+
+
+  hoverOnCell(i, j){
+    this.hoveredCell = [i, j]
+  }
+  
+  mouseLeaveCell(){
+    this.hoveredCell = [-1, -1]
+  }
+
+  closeShareWindow(){
+    this.shareWindowDisplay = false
+  }
+
+  displayShareWindow(){
+    this.shareWindowDisplay = true
   }
 
 }

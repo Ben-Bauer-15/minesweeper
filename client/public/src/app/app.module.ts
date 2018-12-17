@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { SingleComponent } from './single/single.component';
 import { MultiComponent } from './multi/multi.component';
 import { LoginComponent } from './login/login.component';
-import { MultiplayerGatewayComponent } from './multiplayer-gateway/multiplayer-gateway.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +13,6 @@ import { MultiplayerGatewayComponent } from './multiplayer-gateway/multiplayer-g
     SingleComponent,
     MultiComponent,
     LoginComponent,
-    MultiplayerGatewayComponent
   ],
   imports: [
     BrowserModule,

@@ -6,9 +6,7 @@ module.exports = function(server){
     io = require('socket.io')(server)
 
     io.on('connection', (socket) => {
-        console.log('welcome')
         var id = makeid()
-        console.log(id)
         socket.emit('welcome', id)
 
         socket.on('disconnect', function(){
@@ -36,7 +34,10 @@ module.exports = function(server){
         socket.on('connectToPrivateRoom', (data) => {
             console.log(data)
             connectToPrivateRoom(data, socket)
-            
+        })
+
+        socket.on('connectToPublicRoom', () => {
+            connectToPublicRoom(socket)
         })
     })
 }
@@ -47,7 +48,7 @@ function connectToPrivateRoom(id, socket){
     io.in(id).emit('gameStarted')
 }
 
-function findOpenRoom(socket){
+function connectToPublicRoom(socket){
     var joined = false
     
     //this means that the server has just started and no rooms exist yet
@@ -56,7 +57,7 @@ function findOpenRoom(socket){
         publicRooms.push({sockets : [socket], id : roomID})
         
         //tell the newly connected user which room they're in as well as the fact that they're the only one there for now
-        socket.emit('welcome', {numUsers : 1, id : roomID})
+        socket.emit('welcomeToPublic', {numUsers : 1, id : roomID})
         socket.join(roomID)
         joined = true
     }
@@ -72,7 +73,7 @@ function findOpenRoom(socket){
                 socket.join(publicRooms[i].id)
 
                 publicRooms[i].sockets.push(socket)
-                io.in(publicRooms[i].id).emit('welcome', {numUsers : publicRooms[i].sockets.length, id : publicRooms[i].id})
+                io.in(publicRooms[i].id).emit('welcomeToPublic', {numUsers : publicRooms[i].sockets.length, id : publicRooms[i].id})
                 break
             }
         }
@@ -83,7 +84,7 @@ function findOpenRoom(socket){
             var roomID = makeid()
             socket.join(roomID)
             publicRooms.push({sockets : [socket], id : roomID})
-            socket.emit('welcome', {numUsers : 1, id : roomID})
+            socket.emit('welcomeToPublic', {numUsers : 1, id : roomID})
         }
     }
 }

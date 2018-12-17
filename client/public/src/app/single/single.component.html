@@ -15,7 +15,9 @@
     <div *ngFor = 'let column of minesweeper.gameArray; index as j' 
     class = 'cell'
     (click) = 'uncover(i,j)'
-    [ngClass]= "{'uncovered' : minesweeper.gameArray[i][j].clicked}">
+    (mouseenter) = 'mouseEnter(i, j)'
+    (mouseleave) = 'mouseLeave()'
+    [ngClass]= "{'uncovered' : minesweeper.gameArray[i][j].clicked && !minesweeper.gameArray[i][j].mine, 'cellHover' : hoveredCell[0] == i && hoveredCell[1] == j}">
     
     <p *ngIf = 'minesweeper.gameArray[i][j].clicked && 
     !minesweeper.gameArray[i][j].mine && 
@@ -25,7 +27,7 @@
     
     <img *ngIf = 'minesweeper.gameArray[i][j].clicked && 
     minesweeper.gameArray[i][j].mine'
-    src = '../../assets/explosion.png' class = 'mine'>
+    src = '../../assets/download.png' class = 'mine'>
 
     <img *ngIf = 'flaggingEnabled && 
     !minesweeper.gameArray[i][j].clicked &&

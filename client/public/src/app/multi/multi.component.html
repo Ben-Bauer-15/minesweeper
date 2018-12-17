@@ -20,7 +20,9 @@
       <div *ngFor = 'let column of minesweeper.gameArray; index as j' 
       class = 'cell'
       (click) = 'uncover(i,j)'
-      [ngClass]= "{'uncovered' : minesweeper.gameArray[i][j].clicked}">
+      (mouseenter) = 'hoverOnCell(i, j)'
+      (mouseleave) = 'mouseLeaveCell()'
+      [ngClass]= "{'uncovered' : minesweeper.gameArray[i][j].clicked && !minesweeper.gameArray[i][j].mine, 'cellHover' : hoveredCell[0] == i && hoveredCell[1] == j}">
       
       <p *ngIf = 'minesweeper.gameArray[i][j].clicked && 
       !minesweeper.gameArray[i][j].mine && 
@@ -30,7 +32,7 @@
       
       <img *ngIf = 'minesweeper.gameArray[i][j].clicked && 
       minesweeper.gameArray[i][j].mine'
-      src = '../../assets/explosion.png' class = 'mine'>
+      src = '../../assets/download.png' class = 'mine'>
   
       <img *ngIf = 'flaggingEnabled && 
       !minesweeper.gameArray[i][j].clicked &&
@@ -48,9 +50,19 @@
 
   </div>
 
-  <div class = 'dropdown'>
-    <a class = 'shareLink'><img src = '../../assets/link2.png'></a>
+  
+  <div *ngIf = 'linkToShare' class = 'dropdown'>
+    <a (click) = 'displayShareWindow()' class = 'shareLink'><img src = '../../assets/link2.png'></a>
   </div>
+
+  <div *ngIf = 'shareWindowDisplay' class = 'linkToShare'>
+    <h3>Share this link with a friend to start the game</h3>
+    <h6>{{linkToShare}}</h6>
+    <button (click) = 'closeShareWindow()'>Close</button>
+    <button (click) = 'copyToClipboard(linkToShare)'>Copy to Clipboard</button>
+  </div>
+
+  
     <div id = 'options' [ngClass] = "{'hidden' : dropdownHidden }">
       <ul>
         <li><a (click) = 'changeDiff("expert")' [ngClass] = "{'selectedDifficulty' : difficulty == 'expert'}" >Expert</a></li>
@@ -81,7 +93,7 @@
         
         <div *ngFor = 'let column of opponentBoard.gameArray; index as j' 
         class = 'cell'
-        [ngClass]= "{'uncovered' : opponentBoard.gameArray[i][j].clicked}">
+        [ngClass]= "{'uncovered' : opponentBoard.gameArray[i][j].clicked && !opponentBoard.gameArray[i][j].mine}">
         
         <p *ngIf = 'opponentBoard.gameArray[i][j].clicked && 
         !opponentBoard.gameArray[i][j].mine && 
@@ -90,7 +102,7 @@
         
         <img *ngIf = 'opponentBoard.gameArray[i][j].clicked && 
         opponentBoard.gameArray[i][j].mine'
-        src = '../../assets/explosion.png' class = 'mine'>
+        src = '../../assets/download.png' class = 'mine'>
     
         <img *ngIf = 'flaggingEnabled && 
         !opponentBoard.gameArray[i][j].clicked &&
@@ -123,17 +135,15 @@
     <div class = 'choiceButton'>
       <button (mouseenter) = 'mouseEnter("private")'
       (mouseleave) = 'mouseLeave()'
-      (click) = 'private()'>Private Game</button>
+      (click) = 'choosePrivateGame()'>Private Game</button>
       <h5 *ngIf = 'hoveredButton == "private"'>Invite a friend to play</h5>
-    </div>
+  </div>
 
     <div class = 'choiceButton'>
       <button (mouseenter) = 'mouseEnter("public")'
       (mouseleave) = 'mouseLeave()'
-      (click) = 'public()'>Public Game</button>
+      (click) = 'choosePublicGame()'>Public Game</button>
       <h5 id = 'publicH5' *ngIf = 'hoveredButton == "public"'>You are randomly assigned an opponent</h5>
     </div>
 
-
   </div>
-    
