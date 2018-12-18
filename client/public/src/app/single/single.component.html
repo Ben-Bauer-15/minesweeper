@@ -44,7 +44,7 @@
 </div>
 
   <a class = 'dropdown' (click) = 'toggleDropdown()' [ngClass] = "{'dropdownDisplayed' : !dropdownHidden}"><div class = 'dropdown'>Game Options</div></a>
-  <div id = 'options' [ngClass] = "{'hidden' : dropdownHidden }">
+  <div id = 'options' [ngClass] = "{'hiddenAnimation' : dropdownHidden, 'hide' : initialLoad, 'showAnimation' : !dropdownHidden}">
     <ul>
       <li><a (click) = 'changeDiff("expert")' [ngClass] = "{'selectedDifficulty' : difficulty == 'expert'}" >Expert</a></li>
       <li><a (click) = 'changeDiff("hard")' [ngClass] = "{'selectedDifficulty' : difficulty == 'hard'}" >Hard</a></li>

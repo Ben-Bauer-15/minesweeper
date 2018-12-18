@@ -1,0 +1,22 @@
+.login {
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+}
+
+h2, h4 {
+    color: rgb(100,100,100);
+}
+
+.fullWidth{
+    width: 80%;
+}
+
+#container {
+    padding: 72px;
+    text-align: center;
+    background-color: rgb(50,50,50);
+    border-top: 1px solid rgb(100,100,100);
+    border-bottom: 1px solid rgb(100,100,100);
+
+}

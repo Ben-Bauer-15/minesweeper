@@ -304,7 +304,9 @@ li a{
 
 .linkToShare h6 {
     font-size: 18px;
+    color: white;
 }
+
 .choiceButton{
     margin-right: 31px;
     margin-left: 42px;
@@ -364,6 +366,49 @@ li a{
     content: "\2026";
     width: 0px;
 }
+
+.hide {
+    display: none;
+}
+
+
+.hiddenAnimation {
+    animation: hideOptions 0.5s 1 ease-in forwards;
+}
+
+
+@keyframes hideOptions {
+    0% {
+        top : 21%;
+        opacity: 1;
+    }   
+    99% {
+        top: -59%;
+        opacity: 1;
+    }
+    100% {
+        top: -60%;
+        opacity: 0;
+        display: none;
+    }
+}
+
+@-webkit-keyframes hideOptions {
+    0% {
+      top: 21%;
+      opacity: 1;
+    }
+    99% {
+      top: 99%;
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+      display: none;
+    }
+}
+
 
 .cellHover {
     background-color: rgb(70, 70, 70);

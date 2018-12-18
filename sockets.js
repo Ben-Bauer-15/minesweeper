@@ -2,20 +2,29 @@ var publicRooms = []
 var privateRooms = []
 var io;
 
-module.exports = function(server){
+module.exports = function(server, IP){
     io = require('socket.io')(server)
 
     io.on('connection', (socket) => {
         var id = makeid()
-        socket.emit('welcome', id)
+        socket.emit('welcome', {roomID : id, address : IP})
 
         socket.on('disconnect', function(){
+            console.log('socket', socket.id, "disconnected")
             
             for (var i = 0; i < publicRooms.length; i++){
                 for (var j = 0; j < publicRooms[i].sockets.length; j++){
                     if (publicRooms[i].sockets[j].id == socket.id){
                         publicRooms[i].sockets.splice(j, 1)
                         io.in(publicRooms[i].id).emit('disconnect')
+                    }
+                }
+            }
+
+            for (var i = 0; i < privateRooms.length; i++){
+                for (var j = 0; j < privateRooms[i].socketIDs.length; j++){
+                    if (privateRooms[i].socketIDs[j] == socket.id){
+                        privateRooms[i].socketIDs.splice(j, 1)
                     }
                 }
             }
@@ -26,7 +35,7 @@ module.exports = function(server){
         })
 
         socket.on('userChosePrivateRoom', (data) => {
-            privateRooms.push({id : data})
+            privateRooms.push({roomID : data, socketIDs : [socket.id]})
             socket.join(data)
             console.log(privateRooms)
         })
@@ -44,6 +53,13 @@ module.exports = function(server){
 
 
 function connectToPrivateRoom(id, socket){
+    //loop through all private rooms and add this new socket where appropriate
+    for (var i = 0; i < privateRooms.length; i++){
+        if (privateRooms[i].roomID == id){
+            privateRooms[i].socketIDs.push(socket.id)
+        }
+    }
+    console.log(privateRooms)
     socket.join(id)
     io.in(id).emit('gameStarted')
 }
@@ -87,6 +103,7 @@ function connectToPublicRoom(socket){
             socket.emit('welcomeToPublic', {numUsers : 1, id : roomID})
         }
     }
+    console.log(publicRooms)
 }
 
 function makeid() {

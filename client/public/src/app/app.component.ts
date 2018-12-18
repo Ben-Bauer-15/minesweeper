@@ -13,14 +13,14 @@ export class AppComponent {
   currentPage;
   confirmPopUpVisible;
   pageToGoTo;
-
-  hasVisitedMulti;
+  initialVisit;
 
   constructor(private _titleService : Title, private _router : Router){
     this.setTitle()
   }
-
+  
   ngOnInit(){
+    this.initialVisit = true
     this.confirmPopUpVisible = false
   }
 
@@ -37,6 +37,7 @@ export class AppComponent {
   }
 
   confirmSingle(){
+    this.initialVisit = false
     if (this.currentPage != 'single'){
       this.confirmPopUpVisible = true
       this.pageToGoTo = ''
@@ -44,6 +45,7 @@ export class AppComponent {
   }
   
   confirmMulti(){
+    this.initialVisit = false
     if (this.currentPage != 'multi'){
       this.confirmPopUpVisible = true
       this.pageToGoTo = 'multi'
@@ -51,6 +53,7 @@ export class AppComponent {
   }
 
   confirmLogin(){
+    this.initialVisit = false
     if (this.currentPage != 'login'){
       this.confirmPopUpVisible = true
       this.pageToGoTo = 'login'
@@ -58,14 +61,13 @@ export class AppComponent {
   }
 
   navigate(page){
-    if (!this.hasVisitedMulti){
-      this.hasVisitedMulti = true
-    }
+    this.initialVisit = false
     this._router.navigate([page])
     this.confirmPopUpVisible = false
   }
 
   dismiss(){
+    this.initialVisit = false
     this.confirmPopUpVisible = false
   }
 }

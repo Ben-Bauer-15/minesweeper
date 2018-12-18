@@ -16,12 +16,14 @@ export class SingleComponent implements OnInit {
   flaggingEnabled;
   colorCode;
   hoveredCell = [-1, -1]
+  initialLoad;
 
   constructor(private _component : AppComponent) { }
 
   ngOnInit() {
     this._component.currentPage = 'single'
     this.dropdownHidden = true
+    this.initialLoad = true
     this.difficulty = "easy"
     this.flaggingEnabled = false
 
@@ -54,6 +56,7 @@ export class SingleComponent implements OnInit {
   }
 
   toggleDropdown(){
+    this.initialLoad = false
 
     if (!this.dropdownHidden){
       if (this.minesweeper.gameStarted){

@@ -31,7 +31,7 @@
   <a href = 'mailto:benjaminbauer15@gmail.com'><img id = 'mail' src = '../assets/mail.png'></a>
 </div>
 
-<div *ngIf = 'confirmPopUpVisible' id = 'confirm'>
+<div id = 'confirm' [ngClass] = "{'hide' : initialVisit, 'showAnimation' : confirmPopUpVisible, 'hiddenAnimation' : !confirmPopUpVisible}">
   <h2>Are you sure you want to leave this page?</h2>
   <button (click) = 'navigate(pageToGoTo)'>Yes</button>
   <button (click) = 'dismiss()'>No</button>

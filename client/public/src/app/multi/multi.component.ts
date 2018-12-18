@@ -1,9 +1,10 @@
+
+//Imports
 import { Component, OnInit } from '@angular/core';
 import { Minesweeper } from "../minesweeper";
 import { HostListener } from "@angular/core";
 import { AppComponent } from "../app.component";
 import { ActivatedRoute, Params } from '@angular/router'
-
 import * as io from 'socket.io-client'
 
 
@@ -14,6 +15,8 @@ import * as io from 'socket.io-client'
 })
 export class MultiComponent implements OnInit {
 
+
+  //neccessary variables
   difficulty : string
   minesweeper : Minesweeper
   dropdownHidden : boolean
@@ -31,11 +34,16 @@ export class MultiComponent implements OnInit {
   linkToShare : string
   hoveredCell = [-1,-1]
   shareWindowDisplay;
+  initialLoad = true
+  IP : string
 
   constructor(private _component : AppComponent, private _route : ActivatedRoute) {
    }
 
   ngOnInit() {
+
+    this.opponentBoard = new Minesweeper('easy', 'multi')
+    this.opponentTime = 0
 
     this._route.params.subscribe((params : Params) => {
       if (params['id']){
@@ -125,19 +133,19 @@ export class MultiComponent implements OnInit {
   }
 
   choosePrivateGame(){
-    this.userChose = true
 
+    this.initialLoad = false
+
+    this.userChose = true
     this.socket = io()
 
-    this.opponentBoard = new Minesweeper('easy', 'multi')
-    this.opponentTime = 0
 
     this.socket.on('welcome', (data) => {
-      // console.log(data)
-      this.socket.emit("userChosePrivateRoom", data)
-      this.roomID = data
+      this.socket.emit("userChosePrivateRoom", data.roomID)
+      this.roomID = data.roomID
+      this.IP = data.address
       this.shareWindowDisplay = true
-      this.linkToShare = 'http://192.168.0.212:8000/room/' + data
+      this.linkToShare = 'http://' + this.IP  + ':8000/room/' + data.roomID
     })
     
     this.socket.on('gameStarted', () => {
@@ -167,12 +175,12 @@ export class MultiComponent implements OnInit {
   }
   
   choosePublicGame(){
+    this.initialLoad = false
+
+
     this.userChose = true
     this.socket = io()
-    
-    this.opponentBoard = new Minesweeper('easy', 'multi')
-    this.opponentTime = 0
-    
+
     this.socket.on('welcome', ()  => {
       this.socket.emit('connectToPublicRoom')
     })
@@ -206,9 +214,6 @@ export class MultiComponent implements OnInit {
     })
 
     this.socket.on('gameStarted', () =>{
-      console.log('huzzah!')
-      this.opponentTime = 0
-      this.opponentBoard = new Minesweeper('easy', 'multi')
       this.otherUser = true
     })
 
@@ -236,6 +241,7 @@ export class MultiComponent implements OnInit {
   }
 
   copyToClipboard(val: string){
+    this.shareWindowDisplay = false
     let selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';

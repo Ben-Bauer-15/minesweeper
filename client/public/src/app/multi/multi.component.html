@@ -1,4 +1,3 @@
-<h1 class = 'multiplayer'>Multiplayer</h1>
 
 <div id = 'playerBoard'>
     <div class = 'ticker' id = 'numMines'>
@@ -55,7 +54,7 @@
     <a (click) = 'displayShareWindow()' class = 'shareLink'><img src = '../../assets/link2.png'></a>
   </div>
 
-  <div *ngIf = 'shareWindowDisplay' class = 'linkToShare'>
+  <div class = 'linkToShare' [ngClass] = "{'hiddenAnimation' : !shareWindowDisplay, 'hide' : initialLoad }">
     <h3>Share this link with a friend to start the game</h3>
     <h6>{{linkToShare}}</h6>
     <button (click) = 'closeShareWindow()'>Close</button>

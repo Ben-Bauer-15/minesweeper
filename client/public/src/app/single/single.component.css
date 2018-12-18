@@ -108,9 +108,64 @@ li a{
     outline: none;
 }
 
-.hidden {
+.hide {
     display: none;
 }
+
+.hiddenAnimation {
+    animation: hideOptions 0.5s 1 ease-in forwards;
+}
+
+
+@keyframes hideOptions {
+    0% {
+        top : 21%;
+        opacity: 1;
+    }   
+    99% {
+        top: -59%;
+        opacity: 1;
+    }
+    100% {
+        top: -60%;
+        opacity: 0;
+        display: none;
+    }
+}
+
+@-webkit-keyframes hideOptions {
+    0% {
+      top: 21%;
+      opacity: 1;
+    }
+    99% {
+      top: 99%;
+      opacity: 1;
+    }
+    100% {
+      top: 100%;
+      opacity: 0;
+      display: none;
+    }
+}
+
+
+.showAnimation {
+    animation: showOptions 1s 1 ease-in  forwards ;
+}
+
+@keyframes showOptions {
+    0% {
+        opacity: 0;
+    }
+    99% {
+        opacity: 0.99;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 .dropdownDisplayed {
     margin-bottom: 0%;
