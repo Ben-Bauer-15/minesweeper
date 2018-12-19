@@ -1,125 +1,125 @@
 
-<div id = 'playerBoard'>
-    <div class = 'ticker' id = 'numMines'>
-      <h2>{{minesweeper.numMines}}</h2>
-      <h6>Mines Remaining</h6>
-    </div>
-    
-    <div class = 'ticker name'>
-      <h2 class = 'playerName'>You</h2>
-    </div>
-
-    <div class = 'ticker' id = 'timer'>
-      <h2>{{minesweeper.displayedTime}}</h2>
-      <h6>Current Game Time</h6>
-    </div>
-  
-    <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>
-      
-      <div *ngFor = 'let column of minesweeper.gameArray; index as j' 
-      class = 'cell'
-      (click) = 'uncover(i,j)'
-      (mouseenter) = 'hoverOnCell(i, j)'
-      (mouseleave) = 'mouseLeaveCell()'
-      [ngClass]= "{'uncovered' : minesweeper.gameArray[i][j].clicked && !minesweeper.gameArray[i][j].mine, 'cellHover' : hoveredCell[0] == i && hoveredCell[1] == j}">
-      
-      <p *ngIf = 'minesweeper.gameArray[i][j].clicked && 
-      !minesweeper.gameArray[i][j].mine && 
-      minesweeper.gameArray[i][j].adjacentMines > 0'
-      [ngClass] = "colorCode[minesweeper.gameArray[i][j].adjacentMines]"
-      >{{minesweeper.gameArray[i][j].adjacentMines}}</p>
-      
-      <img *ngIf = 'minesweeper.gameArray[i][j].clicked && 
-      minesweeper.gameArray[i][j].mine'
-      src = '../../assets/download.png' class = 'mine'>
-  
-      <img *ngIf = 'flaggingEnabled && 
-      !minesweeper.gameArray[i][j].clicked &&
-      !minesweeper.gameArray[i][j].flagged'
-      src = '../../assets/flagging.png'
-      class = 'flagging'>
-  
-      <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&
-      minesweeper.gameArray[i][j].flagged' 
-      src = '../../assets/flag2.png'
-      class = 'flagged'>
-      
-    </div>
-  </div>
-
-  </div>
-
-  
-  <div *ngIf = 'linkToShare' class = 'dropdown'>
-    <a (click) = 'displayShareWindow()' class = 'shareLink'><img src = '../../assets/link2.png'></a>
-  </div>
-
-  <div class = 'linkToShare' [ngClass] = "{'hiddenAnimation' : !shareWindowDisplay, 'hide' : initialLoad }">
-    <h3>Share this link with a friend to start the game</h3>
-    <h6>{{linkToShare}}</h6>
-    <button (click) = 'closeShareWindow()'>Close</button>
-    <button (click) = 'copyToClipboard(linkToShare)'>Copy to Clipboard</button>
-  </div>
-
-  
-    <div id = 'options' [ngClass] = "{'hidden' : dropdownHidden }">
-      <ul>
-        <li><a (click) = 'changeDiff("expert")' [ngClass] = "{'selectedDifficulty' : difficulty == 'expert'}" >Expert</a></li>
-        <li><a (click) = 'changeDiff("hard")' [ngClass] = "{'selectedDifficulty' : difficulty == 'hard'}" >Hard</a></li>
-        <li><a (click) = 'changeDiff("normal")' [ngClass] = "{'selectedDifficulty' : difficulty == 'normal'}" >Normal</a></li>
-        <li><a (click) = 'changeDiff("easy")' [ngClass] = "{'selectedDifficulty' : difficulty == 'easy'}" >Easy</a></li>
-        <li><a (click) = 'changeDiff("beginner")' [ngClass] = "{'selectedDifficulty' : difficulty == 'beginner'}" >Beginner</a></li>
-      </ul>
-      <button (click) = 'toggleDropdown()' id = 'cancel'>Cancel</button>
-    </div>
-
-  <div id = 'opponentBoard' *ngIf = 'opponentBoard'>
+<div id = 'container'>
+  <div id = 'playerBoard'>
       <div class = 'ticker' id = 'numMines'>
-        <h2 class = 'opponentLabel' >{{opponentBoard.numMines}}</h2>
-        <h6 class = 'opponentName'>Mines Remaining</h6>
+        <h2>{{minesweeper.numMines}}</h2>
+        <h6>Mines Remaining</h6>
       </div>
-    
+      
       <div class = 'ticker name'>
-          <h2 class = 'opponentName'>Opponent</h2>
-        </div>
-
+        <h2 class = 'playerName'>You</h2>
+      </div>
+  
       <div class = 'ticker' id = 'timer'>
-        <h2 class = 'opponentLabel'>{{opponentTime}}</h2>
-        <h6 class = 'opponentName'>Current Game Time</h6>
+        <h2>{{minesweeper.displayedTime}}</h2>
+        <h6>Current Game Time</h6>
       </div>
     
-      <div *ngFor = 'let row of opponentBoard.gameArray; index as i' class = 'row'>
+      <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>
         
-        <div *ngFor = 'let column of opponentBoard.gameArray; index as j' 
+        <div *ngFor = 'let column of minesweeper.gameArray; index as j' 
         class = 'cell'
-        [ngClass]= "{'uncovered' : opponentBoard.gameArray[i][j].clicked && !opponentBoard.gameArray[i][j].mine}">
+        (click) = 'uncover(i,j)'
+        (mouseenter) = 'hoverOnCell(i, j)'
+        (mouseleave) = 'mouseLeaveCell()'
+        [ngClass]= "{'uncovered' : minesweeper.gameArray[i][j].clicked && !minesweeper.gameArray[i][j].mine, 'cellHover' : hoveredCell[0] == i && hoveredCell[1] == j && !minesweeper.gameArray[i][j].clicked}">
         
-        <p *ngIf = 'opponentBoard.gameArray[i][j].clicked && 
-        !opponentBoard.gameArray[i][j].mine && 
-        opponentBoard.gameArray[i][j].adjacentMines > 0'
-        >{{opponentBoard.gameArray[i][j].adjacentMines}}</p>
+        <p *ngIf = 'minesweeper.gameArray[i][j].clicked && 
+        !minesweeper.gameArray[i][j].mine && 
+        minesweeper.gameArray[i][j].adjacentMines > 0'
+        [ngClass] = "colorCode[minesweeper.gameArray[i][j].adjacentMines]"
+        >{{minesweeper.gameArray[i][j].adjacentMines}}</p>
         
-        <img *ngIf = 'opponentBoard.gameArray[i][j].clicked && 
-        opponentBoard.gameArray[i][j].mine'
+        <img *ngIf = 'minesweeper.gameArray[i][j].clicked && 
+        minesweeper.gameArray[i][j].mine'
         src = '../../assets/download.png' class = 'mine'>
     
         <img *ngIf = 'flaggingEnabled && 
-        !opponentBoard.gameArray[i][j].clicked &&
-        !opponentBoard.gameArray[i][j].flagged'
+        !minesweeper.gameArray[i][j].clicked &&
+        !minesweeper.gameArray[i][j].flagged'
         src = '../../assets/flagging.png'
         class = 'flagging'>
     
-        <img *ngIf = '!opponentBoard.gameArray[i][j].clicked &&
-        opponentBoard.gameArray[i][j].flagged' 
+        <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&
+        minesweeper.gameArray[i][j].flagged' 
         src = '../../assets/flag2.png'
         class = 'flagged'>
         
       </div>
     </div>
-    
+  
     </div>
+  
+    
+    <div class = 'dropdown'>
+      <a (click) = 'displayShareWindow()' class = 'shareLink'><img src = '../../assets/link2.png'></a>
+    </div>
+  
+    <div class = 'linkToShare' [ngClass] = "{'hiddenAnimation' : !shareWindowDisplay, 'hide' : initialLoad }">
+      <h3>Share this link with a friend to start the game</h3>
+      <h6>{{linkToShare}}</h6>
+      <button (click) = 'closeShareWindow()'>Close</button>
+      <button (click) = 'copyToClipboard(linkToShare)'>Copy to Clipboard</button>
+    </div>
+  
+    
+  
+    <div id = 'opponentBoard' *ngIf = 'opponentBoard'>
+        <div class = 'ticker' id = 'numMines'>
+          <h2 class = 'opponentLabel' >{{opponentBoard.numMines}}</h2>
+          <h6 class = 'opponentName'>Mines Remaining</h6>
+        </div>
+      
+        <div class = 'ticker name'>
+            <h2 class = 'opponentName'>Opponent</h2>
+        </div>
+  
+        <div class = 'ticker' id = 'timer'>
+          <h2 class = 'opponentLabel'>{{opponentTime}}</h2>
+          <h6 class = 'opponentName'>Current Game Time</h6>
+        </div>
+      
+        <div *ngIf = 'otherUser'>
+          <div *ngFor = 'let row of opponentBoard.gameArray; index as i' class = 'row'>
+            
+            <div *ngFor = 'let column of opponentBoard.gameArray; index as j' 
+              class = 'cell'
+              [ngClass]= "{'uncovered' : opponentBoard.gameArray[i][j].clicked && !opponentBoard.gameArray[i][j].mine}">
+              
+              <p *ngIf = 'opponentBoard.gameArray[i][j].clicked && 
+              !opponentBoard.gameArray[i][j].mine && 
+              opponentBoard.gameArray[i][j].adjacentMines > 0'
+              >{{opponentBoard.gameArray[i][j].adjacentMines}}</p>
+              
+              <img *ngIf = 'opponentBoard.gameArray[i][j].clicked && 
+              opponentBoard.gameArray[i][j].mine'
+              src = '../../assets/download.png' class = 'mine'>
+          
+              <img *ngIf = '!opponentBoard.gameArray[i][j].clicked &&
+              opponentBoard.gameArray[i][j].flagged' 
+              src = '../../assets/flag2.png'
+              class = 'flagged'>
+            
+            </div>
+          </div>
+        </div>
+
+        <h2 *ngIf = '!otherUser && userChose' id = 'waitingForUser'>Waiting for another player</h2>
+      
+      </div>
+</div>
 
     
+  <div id = 'options' [ngClass] = "{'hidden' : dropdownHidden }">
+    <ul>
+      <li><a (click) = 'changeDiff("expert")' [ngClass] = "{'selectedDifficulty' : difficulty == 'expert'}" >Expert</a></li>
+      <li><a (click) = 'changeDiff("hard")' [ngClass] = "{'selectedDifficulty' : difficulty == 'hard'}" >Hard</a></li>
+      <li><a (click) = 'changeDiff("normal")' [ngClass] = "{'selectedDifficulty' : difficulty == 'normal'}" >Normal</a></li>
+      <li><a (click) = 'changeDiff("easy")' [ngClass] = "{'selectedDifficulty' : difficulty == 'easy'}" >Easy</a></li>
+      <li><a (click) = 'changeDiff("beginner")' [ngClass] = "{'selectedDifficulty' : difficulty == 'beginner'}" >Beginner</a></li>
+    </ul>
+    <button (click) = 'toggleDropdown()' id = 'cancel'>Cancel</button>
+  </div>
 
   <div id = 'winner' *ngIf = 'minesweeper.winner'>
       <h2>Awww yeah!! :)</h2>
@@ -127,7 +127,6 @@
       <button (click) = 'reset()' >Play again</button>
   </div>
 
-  <h2 *ngIf = '!otherUser' id = 'waitingForUser'>Waiting for another player</h2>
 
 
   <div *ngIf = '!userChose' class = 'choice'>

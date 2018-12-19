@@ -1,6 +1,15 @@
 var express = require('express')
 var app = express()
-var IP = '10.0.0.2'
+var session = require('express-session')
+app.use(session({
+    secret : 'kittens',
+    resave : false,
+    saveUninitialized : true,
+    cookie : {maxAge : 600000}
+}))
+
+// DONT FORGET TO CHANGE THIS
+var IP = '192.168.0.212'
 var bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser({extended : true}))

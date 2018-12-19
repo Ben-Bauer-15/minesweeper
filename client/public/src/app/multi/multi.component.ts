@@ -36,6 +36,7 @@ export class MultiComponent implements OnInit {
   shareWindowDisplay;
   initialLoad = true
   IP : string
+  gameMode : string
 
   constructor(private _component : AppComponent, private _route : ActivatedRoute) {
    }
@@ -76,11 +77,15 @@ export class MultiComponent implements OnInit {
 
   uncover(i, j){
     if (this.flaggingEnabled){
-      this.minesweeper.flag(i,j)
-      this.socket.emit('clicked', {board : this.minesweeper, id : this.roomID})
+      if (this.otherUser){
+        this._component.gameStarted = true
+        this.minesweeper.flag(i,j)
+        this.socket.emit('clicked', {board : this.minesweeper, id : this.roomID})
+      }
     }
     else {
       if (this.otherUser){
+        this._component.gameStarted = true
         this.minesweeper.uncover(i,j)
         this.socket.emit('clicked', {board : this.minesweeper, id : this.roomID})
       }
@@ -115,7 +120,7 @@ export class MultiComponent implements OnInit {
   //this method toggles the users ability to place flags
   @HostListener('window:keyup', ['$event'])
   handleKeyBoardEvent(event : KeyboardEvent){
-    if (event.key == 'f'){
+    if (event.key == 'f' && this.otherUser){
       this.flaggingEnabled = !this.flaggingEnabled
     }
   }
@@ -133,6 +138,8 @@ export class MultiComponent implements OnInit {
   }
 
   choosePrivateGame(){
+
+    this.gameMode = 'private'
 
     this.initialLoad = false
 
@@ -176,7 +183,6 @@ export class MultiComponent implements OnInit {
   
   choosePublicGame(){
     this.initialLoad = false
-
 
     this.userChose = true
     this.socket = io()
@@ -269,7 +275,9 @@ export class MultiComponent implements OnInit {
   }
 
   displayShareWindow(){
-    this.shareWindowDisplay = true
+    if (this.gameMode == 'private'){
+      this.shareWindowDisplay = true
+    }
   }
 
 }

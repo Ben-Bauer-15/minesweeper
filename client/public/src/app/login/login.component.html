@@ -3,15 +3,15 @@
 
   <div class = 'login'>
     <h4>Login</h4>
-    <form>
+    <form (submit) = 'submitLogin()'>
       <div>
         <mat-form-field class = 'fullWidth'>
-            <input matInput placeholder="Email">
+            <input [(ngModel)] = 'returningUser.email' matInput placeholder="Email" name = 'email'>
           </mat-form-field>
       </div>
       <div>
         <mat-form-field class = 'fullWidth'>
-          <input matInput placeholder="Password">
+          <input [(ngModel)] = 'returningUser.password' matInput [type]="hide ? 'password' : 'text'" placeholder="Password" name = 'password'>
         </mat-form-field>
       </div>
       <button mat-raised-button color="primary">Login</button>
@@ -20,29 +20,29 @@
   
   <div class = 'login'>
     <h4>Register</h4>
-    <form (submit) = 'submit()'>
+    <form (submit) = 'submitRegister()'>
         
       <div>
         <mat-form-field class = 'fullWidth'>
-            <input [(ngModel)] = 'newUser.userName' name = 'userName' matInput placeholder="Username">
+            <input [(ngModel)] = 'newUser.userName' name = 'userName' matInput placeholder="Username" [formControl] = 'userName' required>
+            <mat-error *ngIf = 'userName.invalid'>{{getUserNameErrorMessage()}} </mat-error>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field class = 'fullWidth'>
-            <input [(ngModel)] = 'newUser.email' name = 'email' matInput placeholder="Email Address">
+            <input (keyup) = 'keyup()' [(ngModel)] = 'newUser.email' name = 'email' matInput placeholder="Email Address" [formControl] = 'email' required>
+            <mat-error *ngIf = 'email.invalid'>{{getEmailErrorMessage()}} </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field class = 'fullWidth'>
+            <input [(ngModel)] = 'newUser.password' name = 'PW' matInput [type]="hide ? 'password' : 'text'" placeholder="Password" [formControl] = 'password' required minlength = '8'>
+            <mat-error *ngIf = 'password.invalid'>{{getPasswordErrorMessage()}} </mat-error>
         </mat-form-field>
       </div>
-      <div>
-        <mat-form-field class = 'fullWidth'>
-            <input [(ngModel)] = 'newUser.password' name = 'PW' matInput [type]="hide ? 'password' : 'text'" placeholder="Password">
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field class = 'fullWidth'>
-            <input matInput [(ngModel)] = 'newUser.confirm' [type]="hide ? 'password' : 'text'" name = 'pwConfirm' placeholder="Confirm Password">
-        </mat-form-field>
-      </div>
-      <button type = 'submit' mat-raised-button color="primary">Register</button>
+      <button (mouseenter) = 'mouseEnter()' (mouseleave) = 'mouseleave()' type = 'submit' mat-raised-button color="primary"
+      [disabled] = 'email.invalid || password.invalid || userName.invalid || emailExists' >
+      Register</button>
       </form>
   </div>
 </div>

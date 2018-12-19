@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Minesweeper } from "../minesweeper";
 import { HostListener } from "@angular/core";
 import { AppComponent } from "../app.component";
+import { Params, ActivatedRoute } from "@angular/router";
+import { HttpService } from "../http.service";
 
 
 @Component({
@@ -12,15 +14,31 @@ import { AppComponent } from "../app.component";
 export class SingleComponent implements OnInit {
   difficulty;
   minesweeper;
+  topScores;
   dropdownHidden;
   flaggingEnabled;
   colorCode;
   hoveredCell = [-1, -1]
   initialLoad;
 
-  constructor(private _component : AppComponent) { }
+  constructor(private _component : AppComponent,
+    private _route : ActivatedRoute,
+    private _http : HttpService) { }
 
   ngOnInit() {
+    this._route.params.subscribe((params : Params) => {
+
+      if (params['newUserID']){
+        this._component.user = params['newUserID']
+      }
+
+      else if (params['returningUserID']){
+        this._component.user = params['returningUserID']
+      }
+
+    })
+
+
     this._component.currentPage = 'single'
     this.dropdownHidden = true
     this.initialLoad = true
@@ -42,11 +60,26 @@ export class SingleComponent implements OnInit {
   }
 
   uncover(i, j){
+    this._component.gameStarted = true
     if (this.flaggingEnabled){
       this.minesweeper.flag(i,j)
     }
     else {
       this.minesweeper.uncover(i,j)
+    }
+
+    var self = this
+    if (this.minesweeper.winner && this._component.user){
+      this._component.gameStarted = false
+      let postObj = {userID : this._component.user, difficulty : this.minesweeper.difficulty, time : this.minesweeper.gamePlayTime}
+      let obs = this._http.saveSinglePlayerGame(postObj)
+      obs.subscribe(data => {
+        let topScores = this._http.getGlobalScores(this.minesweeper.difficulty)
+        topScores.subscribe(data => {
+          console.log(data)
+          self.topScores = data.data
+        })
+      })
     }
   }
 

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatButtonModule, MatCheckboxModule, MatInputModule, MatFormFieldModule, MatIconModule } from "@angular/material";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SingleComponent } from './single/single.component';
@@ -28,6 +28,7 @@ import { HttpClientModule } from "@angular/common/http";
     MatFormFieldModule,
     MatIconModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [HttpService],

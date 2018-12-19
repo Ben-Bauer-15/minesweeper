@@ -17,7 +17,7 @@
     (click) = 'uncover(i,j)'
     (mouseenter) = 'mouseEnter(i, j)'
     (mouseleave) = 'mouseLeave()'
-    [ngClass]= "{'uncovered' : minesweeper.gameArray[i][j].clicked && !minesweeper.gameArray[i][j].mine, 'cellHover' : hoveredCell[0] == i && hoveredCell[1] == j}">
+    [ngClass]= "{'uncovered' : minesweeper.gameArray[i][j].clicked && !minesweeper.gameArray[i][j].mine, 'cellHover' : hoveredCell[0] == i && hoveredCell[1] == j && !minesweeper.gameArray[i][j].clicked}">
     
     <p *ngIf = 'minesweeper.gameArray[i][j].clicked && 
     !minesweeper.gameArray[i][j].mine && 
@@ -60,6 +60,10 @@
 <div id = 'winner' *ngIf = 'minesweeper.winner'>
   <h2>Awww yeah!! :)</h2>
   <h4>Nice work! Your time was: {{minesweeper.gamePlayTime}} seconds</h4>
+  <h4>Top scores for {{difficulty}}</h4>
+  <ul id = 'topScores'>
+    <li *ngFor = 'let score of topScores' class = 'topScoreItem'>{{score.time}} s</li>
+  </ul>
   <button (click) = 'reset()' >Play again</button>
 </div>
 

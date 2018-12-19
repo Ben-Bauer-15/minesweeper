@@ -1,15 +1,17 @@
-#playerBoard, #opponentBoard{
+#playerBoard, #opponentBoard {
     width: 40%;
     display: inline-block;
-    margin-left: 3%;
     vertical-align: top;
     text-align: center;
     padding-top: 10px;
 }
 
+#container {
+    text-align: center;
+}
+
 #playerBoard{
-    margin-left: 3%;
-    margin-right: 3%;
+   margin-right: 5%;
 }
 
 .cell{
@@ -23,7 +25,7 @@
 }
 
 .uncovered{
-    background-color: gray;
+    background-color: #353535;
 }
 
 .test{
@@ -46,9 +48,10 @@
 
 .dropdown {
     font-size: 23px;
-    margin-left: 0%;
     text-decoration: none;
     color: #f0a554;
+    margin-right: 4%;
+    margin-left: 4%;
     margin-top: 15%;
     display: inline-block;
 }
@@ -64,7 +67,6 @@
 }
 
 .shareLink {
-    margin-left: 29%;
     margin-top: 38%;
 }
 
@@ -140,41 +142,41 @@ li a{
 }
 
 .cell p {
-    font-size: 22px;
-    margin-bottom: 2px;
-    margin-top: 6px;
+    font-size: 29px;
+    margin-top: 0px;
+    font-family: "Quicksand","Lucida Grande","Helvetica","Arial","Verdana","sans-serif";
 }
 
 .one{
-    color: rgb(0, 97, 0)
+    color: rgb(34, 109, 34);
 }
 
 .two {
-    color: rgb(0, 0, 193)
+    color: #00AAC4;
 }
 
 .three {
-    color: rgb(103, 0, 0)
+    color: #DD6B55;
 }
 
 .four {
-    color: darkblue;
+    color: #C2A5CF;
 }
 
 .five {
-    color: darkred;
+    color: #BF812D;
 }
 
 .six {
-    color: darkslategray;
+    color: #66FFFF;
 }
 
 .seven {
-    color: black
+    color: #FFFF99
 }
 
 .eight {
-    color: rgb(116, 31, 0);
+    color: #FF9900;
 }
 
 #winner {
@@ -352,10 +354,8 @@ li a{
 #waitingForUser {
     color: white;
     font-size: 30px;
-    position: absolute;
-    left: 62.5%;
-    top: 50%;
 }
+
 
 #waitingForUser:after {
     overflow: hidden;
@@ -411,7 +411,7 @@ li a{
 
 
 .cellHover {
-    background-color: rgb(70, 70, 70);
+    background-color: rgb(18, 18, 18);
 }
 
 @keyframes ellipsis {
