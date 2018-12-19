@@ -30,8 +30,13 @@ module.exports = function(app){
     app.post('/newSingle', function(req, res){
         controller.saveSinglePlayerGame(req, res)
     })
+    
+    app.post('/emailFriend', function(req, res){
+        controller.emailFriend(req, res)
+    })
 
     app.all('*', function(req, res){
         res.sendFile(path.resolve("client/public/dist/public/index.html"))
     })
+
 }

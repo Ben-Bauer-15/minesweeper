@@ -8,6 +8,7 @@ app.use(session({
     cookie : {maxAge : 600000}
 }))
 
+
 // DONT FORGET TO CHANGE THIS
 var IP = '192.168.0.212'
 var bodyParser = require('body-parser')

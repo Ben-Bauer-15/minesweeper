@@ -44,7 +44,7 @@
 </div>
 
   <a class = 'dropdown' (click) = 'toggleDropdown()' [ngClass] = "{'dropdownDisplayed' : !dropdownHidden}"><div class = 'dropdown'>Game Options</div></a>
-  <div id = 'options' [ngClass] = "{'hiddenAnimation' : dropdownHidden, 'hide' : initialLoad, 'showAnimation' : !dropdownHidden}">
+  <div class = 'options' [ngClass] = "{'hiddenAnimation' : dropdownHidden, 'hide' : initialDropdownLoad, 'showAnimation' : !dropdownHidden}">
     <ul>
       <li><a (click) = 'changeDiff("expert")' [ngClass] = "{'selectedDifficulty' : difficulty == 'expert'}" >Expert</a></li>
       <li><a (click) = 'changeDiff("hard")' [ngClass] = "{'selectedDifficulty' : difficulty == 'hard'}" >Hard</a></li>
@@ -52,7 +52,7 @@
       <li><a (click) = 'changeDiff("easy")' [ngClass] = "{'selectedDifficulty' : difficulty == 'easy'}" >Easy</a></li>
       <li><a (click) = 'changeDiff("beginner")' [ngClass] = "{'selectedDifficulty' : difficulty == 'beginner'}" >Beginner</a></li>
     </ul>
-    <button (click) = 'toggleDropdown()' id = 'cancel'>Cancel</button>
+    <button (click) = 'toggleDropdown()' class = 'cancel'>Cancel</button>
   </div>
 
 </div>
@@ -67,8 +67,16 @@
   <button (click) = 'reset()' >Play again</button>
 </div>
 
-<div id = 'confirm' *ngIf = 'changeGame'>
-
+<div [ngClass] = "{'hiddenAnimation' : !infoPopUp, 'hide' : initialPopUpLoad, 'showAnimation' : infoPopUp}" class = 'options info'>
+  <h2>Welcome to minesweeper!</h2>
+  <p>Find all of the buried mines to win the game, but be careful to not step on them!
+    Instead, flag them by pressing the 'F' key and clicking where you think they are.
+    Numbered cells tell you how many mines are adjacent (including diagonals).
+    Hit the green refresh button to start a new game, and select 'Options' if you'd like to change the difficulty.
+    Good luck!
+  </p>
+  <button (click) = 'displayInfo()' class = 'cancel infoButton'>Ok, I got it</button>
 </div>
 
-<a (click) = 'reset()'><img id = 'refresh' src = '../../assets//refresh.png'></a>
+<a (click) = 'reset()'><img class = 'refresh' src = '../../assets//refresh.png'></a>
+<a (click) = 'displayInfo()'><img id = 'info' class = 'refresh' src = '../../assets/information-icon-3.png'></a>

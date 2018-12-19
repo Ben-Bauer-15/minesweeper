@@ -13,7 +13,7 @@ export class AppComponent {
   currentPage;
   confirmPopUpVisible;
   pageToGoTo;
-  initialVisit;
+  showDismissAnimation = false
   user;
   gameStarted = false
 
@@ -22,7 +22,6 @@ export class AppComponent {
   }
   
   ngOnInit(){
-    this.initialVisit = true
     this.confirmPopUpVisible = false
   }
 
@@ -39,7 +38,6 @@ export class AppComponent {
   }
 
   confirmSingle(){
-    this.initialVisit = false
     if (this.currentPage != 'single' && this.gameStarted){
       this.confirmPopUpVisible = true
       this.pageToGoTo = ''
@@ -51,7 +49,6 @@ export class AppComponent {
   }
   
   confirmMulti(){
-    this.initialVisit = false
     if (this.currentPage != 'multi' && this.gameStarted){
       this.confirmPopUpVisible = true
       this.pageToGoTo = 'multi'
@@ -63,7 +60,6 @@ export class AppComponent {
   }
   
   confirmLogin(){
-    this.initialVisit = false
     if (this.currentPage != 'login' && this.gameStarted){
       this.confirmPopUpVisible = true
       this.pageToGoTo = 'login'
@@ -76,13 +72,15 @@ export class AppComponent {
   
   navigate(page){
     this.gameStarted = false
-    this.initialVisit = false
     this._router.navigate([page])
     this.confirmPopUpVisible = false
   }
   
   dismiss(){
-    this.initialVisit = false
-    this.confirmPopUpVisible = false
+    this.showDismissAnimation = true
+    setTimeout(() => {
+      this.confirmPopUpVisible = false
+      this.showDismissAnimation = false
+    }, 500);
   }
 }

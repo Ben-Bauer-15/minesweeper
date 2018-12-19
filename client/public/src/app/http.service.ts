@@ -36,5 +36,8 @@ export class HttpService {
     return this._http.post('/newSingle', obj)
   }
 
+  sendEmailTo(obj){
+    return this._http.post('/emailFriend', obj)
+  }
   
 }

@@ -55,11 +55,18 @@
       <a (click) = 'displayShareWindow()' class = 'shareLink'><img src = '../../assets/link2.png'></a>
     </div>
   
-    <div class = 'linkToShare' [ngClass] = "{'hiddenAnimation' : !shareWindowDisplay, 'hide' : initialLoad }">
+    <div class = 'linkToShare' [ngClass] = "{'hide' : initialLoad || !shareWindowDisplay}">
       <h3>Share this link with a friend to start the game</h3>
       <h6>{{linkToShare}}</h6>
       <button (click) = 'closeShareWindow()'>Close</button>
       <button (click) = 'copyToClipboard(linkToShare)'>Copy to Clipboard</button>
+      <button (click) = 'sendEmailTo()'>Share Via Email</button>
+      <br>
+      <div class = 'emailContainer'>
+        <mat-form-field  class = 'fullWidth' >
+            <input [(ngModel)] = 'friendEmail' matInput  placeholder="Email Address" name = 'Email_Address'>
+          </mat-form-field>
+      </div>
     </div>
   
     
@@ -145,3 +152,5 @@
     </div>
 
   </div>
+
+  <div [ngClass] = "{'countdown': otherUser}">{{countdown}}</div>

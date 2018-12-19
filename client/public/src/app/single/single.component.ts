@@ -15,11 +15,13 @@ export class SingleComponent implements OnInit {
   difficulty;
   minesweeper;
   topScores;
-  dropdownHidden;
-  flaggingEnabled;
+  dropdownHidden = true
+  flaggingEnabled = false
   colorCode;
   hoveredCell = [-1, -1]
-  initialLoad;
+  initialDropdownLoad = true
+  initialPopUpLoad = true
+  infoPopUp = false;
 
   constructor(private _component : AppComponent,
     private _route : ActivatedRoute,
@@ -40,10 +42,7 @@ export class SingleComponent implements OnInit {
 
 
     this._component.currentPage = 'single'
-    this.dropdownHidden = true
-    this.initialLoad = true
     this.difficulty = "easy"
-    this.flaggingEnabled = false
 
     this.colorCode = {
     1 : 'one', 
@@ -84,12 +83,13 @@ export class SingleComponent implements OnInit {
   }
 
   reset(){
+    this._component.gameStarted = false
     this.minesweeper = new Minesweeper(this.difficulty, 'single')
     this.flaggingEnabled = false
   }
 
   toggleDropdown(){
-    this.initialLoad = false
+    this.initialDropdownLoad = false
 
     if (!this.dropdownHidden){
       if (this.minesweeper.gameStarted){
@@ -127,4 +127,8 @@ export class SingleComponent implements OnInit {
     this.hoveredCell = [-1, -1]
   }
 
+  displayInfo(){
+    this.initialPopUpLoad = false
+    this.infoPopUp = !this.infoPopUp
+  }
 }

@@ -45,12 +45,20 @@
 }
 
 
-#refresh{
+.refresh{
     margin-bottom: 0%;
     width: 40px;
-    margin-left: 47%;
+    margin-left: 45.6%;
     height: 40px;
     cursor: pointer;
+}
+
+#info {
+    margin-left: 1% !important;
+}
+
+.infoButton {
+    margin-top: 26% !important;
 }
 
 .dropdown {
@@ -62,13 +70,13 @@
     cursor: pointer;
 }
 
-#options ul {
+.options ul {
     list-style-type: none;
     padding: 0;
     text-align: center;
 }
 
-#options {
+.options {
     text-align: center;
     position: absolute;
     box-shadow: 0px 0px 177px 61px black;
@@ -110,7 +118,7 @@ li a{
     cursor: pointer;
 }
 
-#cancel{
+.cancel{
     margin-top: 40%;
     font-size: 19px;
     background-image: linear-gradient(blue, #5b5bff);
@@ -121,6 +129,21 @@ li a{
     color: white;
     cursor: pointer;
     outline: none;
+}
+
+.info {
+    width: 500px !important;
+    left: 32% !important;
+    top: 28% !important;
+}
+
+.info p {
+    line-height: 35px;
+    color : #b5b5b5;
+}
+
+.info h2 {
+    color: #b5b5b5;
 }
 
 .hide {

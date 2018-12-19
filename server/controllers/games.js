@@ -2,6 +2,16 @@ var User = require('../models/game').user
 var Game = require('../models/game').game
 var bcrypt = require('bcrypt')
 
+var nodemailer = require('nodemailer')
+
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'benjaminbauer15@gmail.com',
+      pass: 'Panthers11*'
+    }
+  });
+
 
 module.exports = {
     createNewUser : function(req, res){
@@ -116,5 +126,23 @@ module.exports = {
                 })
             }
         })
+    },
+
+    emailFriend : function(req, res){
+        var mailOptions = {
+            from: 'benjaminbauer15@gmail.com',
+            to: req.body.email,
+            subject: 'Play me on a game of minesweeper!',
+            text: req.body.link
+        };
+        
+        transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
     }
+
 }

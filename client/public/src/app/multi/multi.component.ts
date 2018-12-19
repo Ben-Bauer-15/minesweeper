@@ -6,6 +6,7 @@ import { HostListener } from "@angular/core";
 import { AppComponent } from "../app.component";
 import { ActivatedRoute, Params } from '@angular/router'
 import * as io from 'socket.io-client'
+import { HttpService } from "../http.service";
 
 
 @Component({
@@ -36,18 +37,25 @@ export class MultiComponent implements OnInit {
   shareWindowDisplay;
   initialLoad = true
   IP : string
+  countdown : any
   gameMode : string
+  friendEmail = ""
 
-  constructor(private _component : AppComponent, private _route : ActivatedRoute) {
+  constructor(private _component : AppComponent, 
+    private _route : ActivatedRoute,
+    private _http : HttpService) {
    }
 
   ngOnInit() {
+
+    this.countdown = 3
 
     this.opponentBoard = new Minesweeper('easy', 'multi')
     this.opponentTime = 0
 
     this._route.params.subscribe((params : Params) => {
       if (params['id']){
+        this.countdownToStart()
         this.userChose = true
         this.roomID = params['id']
         this.connectToPrivateRoom()
@@ -77,14 +85,14 @@ export class MultiComponent implements OnInit {
 
   uncover(i, j){
     if (this.flaggingEnabled){
-      if (this.otherUser){
+      if (this.otherUser && this.countdown == "Go!"){
         this._component.gameStarted = true
         this.minesweeper.flag(i,j)
         this.socket.emit('clicked', {board : this.minesweeper, id : this.roomID})
       }
     }
     else {
-      if (this.otherUser){
+      if (this.otherUser && this.countdown == "Go!"){
         this._component.gameStarted = true
         this.minesweeper.uncover(i,j)
         this.socket.emit('clicked', {board : this.minesweeper, id : this.roomID})
@@ -157,6 +165,7 @@ export class MultiComponent implements OnInit {
     
     this.socket.on('gameStarted', () => {
       this.otherUser = true
+      this.countdownToStart()
     })
     
     this.socket.on('clicked', (data) => {
@@ -194,6 +203,7 @@ export class MultiComponent implements OnInit {
     this.socket.on('welcomeToPublic', (data) => {
       this.roomID = data.id
       if (data.numUsers == 2){
+        this.countdownToStart()
         this.otherUser = true
       }
     })
@@ -236,15 +246,6 @@ export class MultiComponent implements OnInit {
     })
   }
 
-  makeid() {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for (var i = 0; i < 15; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-    return text;
-  }
 
   copyToClipboard(val: string){
     this.shareWindowDisplay = false
@@ -260,6 +261,17 @@ export class MultiComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(selBox);
   }
+
+  sendEmailTo(){
+    let obj = {link : this.linkToShare, email : this.friendEmail}
+    let obs = this._http.sendEmailTo(obj)
+    obs.subscribe(data => {
+
+    })
+    this.shareWindowDisplay = false
+    this.friendEmail = ''
+  }
+
 
 
   hoverOnCell(i, j){
@@ -278,6 +290,18 @@ export class MultiComponent implements OnInit {
     if (this.gameMode == 'private'){
       this.shareWindowDisplay = true
     }
+  }
+
+  countdownToStart(){
+    var x = setInterval(() => {
+      if (this.countdown - 1 == 0){
+        this.countdown = "Go!"
+        clearInterval(x)
+      }
+      else {
+        this.countdown--
+      }
+    }, 1000)
   }
 
 }
