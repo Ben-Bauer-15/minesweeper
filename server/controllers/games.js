@@ -7,10 +7,12 @@ var nodemailer = require('nodemailer')
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'benjaminbauer15@gmail.com',
+      user: 'minesweeper000@gmail.com',
       pass: 'Panthers11*'
     }
   });
+
+var validator = require('validator')
 
 
 module.exports = {
@@ -47,7 +49,11 @@ module.exports = {
             if (err){
                 console.log("Something went wrong: ", err)
             }
+            if (arr.length == 0){
+                res.json({message : "Failure"})
+            }
             else {
+                
                 
                 bcrypt.compare(req.body.password, user.password, function(err, same){
                     if (err){
@@ -129,20 +135,22 @@ module.exports = {
     },
 
     emailFriend : function(req, res){
-        var mailOptions = {
-            from: 'benjaminbauer15@gmail.com',
-            to: req.body.email,
-            subject: 'Play me on a game of minesweeper!',
-            text: req.body.link
-        };
-        
-        transporter.sendMail(mailOptions, function(error, info){
-            if (error) {
-              console.log(error);
-            } else {
-              console.log('Email sent: ' + info.response);
-            }
-          });
+        if (validator.isEmail(req.body.email)) {
+            var mailOptions = {
+                from: 'minesweeper000@gmail.com',
+                to: req.body.email,
+                subject: 'Play me on a game of minesweeper!',
+                text: "Hi there! A friend of yours wants to compete against you in a game of minesweeper. Click on this link to start!\n" + req.body.link
+            };
+            
+            transporter.sendMail(mailOptions, function(error, info){
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log('Email sent: ' + info.response);
+                }
+              });
+        }
     }
 
 }

@@ -68,18 +68,23 @@ export class SingleComponent implements OnInit {
     }
 
     var self = this
-    if (this.minesweeper.winner && this._component.user){
-      this._component.gameStarted = false
-      let postObj = {userID : this._component.user, difficulty : this.minesweeper.difficulty, time : this.minesweeper.gamePlayTime}
-      let obs = this._http.saveSinglePlayerGame(postObj)
-      obs.subscribe(data => {
-        let topScores = this._http.getGlobalScores(this.minesweeper.difficulty)
-        topScores.subscribe(data => {
-          console.log(data)
-          self.topScores = data.data
+
+    if (this.minesweeper.winner){
+      if (this._component.user){
+        this._component.gameStarted = false
+        let postObj = {userID : this._component.user, difficulty : this.minesweeper.difficulty, time : this.minesweeper.gamePlayTime}
+        let obs = this._http.saveSinglePlayerGame(postObj)
+        obs.subscribe(data => {
         })
+      }
+      let topScores = this._http.getGlobalScores(this.minesweeper.difficulty)
+      console.log('getting scores')
+      topScores.subscribe(data => {
+        console.log(data)
+        self.topScores = data.data
       })
     }
+
   }
 
   reset(){

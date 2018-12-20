@@ -1,20 +1,12 @@
 
 <div id = 'container'>
   <div id = 'playerBoard'>
+
       <div class = 'ticker' id = 'numMines'>
         <h2>{{minesweeper.numMines}}</h2>
         <h6>Mines Remaining</h6>
       </div>
-      
-      <div class = 'ticker name'>
-        <h2 class = 'playerName'>You</h2>
-      </div>
   
-      <div class = 'ticker' id = 'timer'>
-        <h2>{{minesweeper.displayedTime}}</h2>
-        <h6>Current Game Time</h6>
-      </div>
-    
       <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>
         
         <div *ngFor = 'let column of minesweeper.gameArray; index as j' 
@@ -72,20 +64,12 @@
     
   
     <div id = 'opponentBoard' *ngIf = 'opponentBoard'>
-        <div class = 'ticker' id = 'numMines'>
-          <h2 class = 'opponentLabel' >{{opponentBoard.numMines}}</h2>
-          <h6 class = 'opponentName'>Mines Remaining</h6>
-        </div>
       
-        <div class = 'ticker name'>
-            <h2 class = 'opponentName'>Opponent</h2>
-        </div>
+      <div class = 'ticker' id = 'numMines'>
+        <h2 class = 'opponentLabel' >{{opponentBoard.numMines}}</h2>
+        <h6 class = 'opponentName'>Mines Remaining</h6>
+      </div>
   
-        <div class = 'ticker' id = 'timer'>
-          <h2 class = 'opponentLabel'>{{opponentTime}}</h2>
-          <h6 class = 'opponentName'>Current Game Time</h6>
-        </div>
-      
         <div *ngIf = 'otherUser'>
           <div *ngFor = 'let row of opponentBoard.gameArray; index as i' class = 'row'>
             
@@ -115,22 +99,14 @@
       
       </div>
 </div>
-
     
-  <div id = 'options' [ngClass] = "{'hidden' : dropdownHidden }">
-    <ul>
-      <li><a (click) = 'changeDiff("expert")' [ngClass] = "{'selectedDifficulty' : difficulty == 'expert'}" >Expert</a></li>
-      <li><a (click) = 'changeDiff("hard")' [ngClass] = "{'selectedDifficulty' : difficulty == 'hard'}" >Hard</a></li>
-      <li><a (click) = 'changeDiff("normal")' [ngClass] = "{'selectedDifficulty' : difficulty == 'normal'}" >Normal</a></li>
-      <li><a (click) = 'changeDiff("easy")' [ngClass] = "{'selectedDifficulty' : difficulty == 'easy'}" >Easy</a></li>
-      <li><a (click) = 'changeDiff("beginner")' [ngClass] = "{'selectedDifficulty' : difficulty == 'beginner'}" >Beginner</a></li>
-    </ul>
-    <button (click) = 'toggleDropdown()' id = 'cancel'>Cancel</button>
-  </div>
-
   <div id = 'winner' *ngIf = 'minesweeper.winner'>
       <h2>Awww yeah!! :)</h2>
       <h4>Nice work! Your time was: {{minesweeper.gamePlayTime}} seconds</h4>
+      <h4>Top scores for {{difficulty}}</h4>
+      <ul id = 'topScores'>
+        <li *ngFor = 'let score of topScores' class = 'topScoreItem'>{{score.time}} s</li>
+      </ul>
       <button (click) = 'reset()' >Play again</button>
   </div>
 
@@ -150,7 +126,25 @@
       (click) = 'choosePublicGame()'>Public Game</button>
       <h5 id = 'publicH5' *ngIf = 'hoveredButton == "public"'>You are randomly assigned an opponent</h5>
     </div>
-
   </div>
 
-  <div [ngClass] = "{'countdown': otherUser}">{{countdown}}</div>
+
+  <div class = 'options' *ngIf = '!dropdownHidden'>
+    <h3>Choose a difficulty</h3>
+      <ul>
+        <li><a (click) = 'changeDiff("expert")' [ngClass] = "{'selectedDifficulty' : difficulty == 'expert'}" >Expert</a></li>
+        <li><a (click) = 'changeDiff("hard")' [ngClass] = "{'selectedDifficulty' : difficulty == 'hard'}" >Hard</a></li>
+        <li><a (click) = 'changeDiff("normal")' [ngClass] = "{'selectedDifficulty' : difficulty == 'normal'}" >Normal</a></li>
+        <li><a (click) = 'changeDiff("easy")' [ngClass] = "{'selectedDifficulty' : difficulty == 'easy'}" >Easy</a></li>
+        <li><a (click) = 'changeDiff("beginner")' [ngClass] = "{'selectedDifficulty' : difficulty == 'beginner'}" >Beginner</a></li>
+      </ul>
+      <button (click) = 'confirmDiff()' class = 'cancel'>Ok</button>
+  </div>
+
+  <div class = 'options' *ngIf = 'minesweeper.gameOver && !minesweeper.winner'>
+    <h3>Game Over :(</h3>
+    <h3>Please wait for opponent to finish their game</h3>
+  </div>
+
+  
+

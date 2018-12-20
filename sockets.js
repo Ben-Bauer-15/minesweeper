@@ -17,6 +17,7 @@ module.exports = function(server, IP){
                     if (publicRooms[i].sockets[j].id == socket.id){
                         publicRooms[i].sockets.splice(j, 1)
                         io.in(publicRooms[i].id).emit('disconnect')
+                        console.log(publicRooms)
                     }
                 }
             }
@@ -25,9 +26,15 @@ module.exports = function(server, IP){
                 for (var j = 0; j < privateRooms[i].socketIDs.length; j++){
                     if (privateRooms[i].socketIDs[j] == socket.id){
                         privateRooms[i].socketIDs.splice(j, 1)
+                        io.in(privateRooms[i].roomID).emit('disconnect')
+                        console.log(privateRooms)
                     }
                 }
             }
+        })
+
+        socket.on('difficulty', (data) => {
+            socket.to(data.room).emit('difficulty', data.difficulty)
         })
         
         socket.on('clicked', (data) => {
@@ -37,16 +44,18 @@ module.exports = function(server, IP){
         socket.on('userChosePrivateRoom', (data) => {
             privateRooms.push({roomID : data, socketIDs : [socket.id]})
             socket.join(data)
-            console.log(privateRooms)
         })
         
         socket.on('connectToPrivateRoom', (data) => {
-            console.log(data)
             connectToPrivateRoom(data, socket)
         })
 
         socket.on('connectToPublicRoom', () => {
             connectToPublicRoom(socket)
+        })
+
+        socket.on('reset', (data) => {
+            socket.to(data.roomID).emit('reset')
         })
     })
 }
@@ -59,7 +68,6 @@ function connectToPrivateRoom(id, socket){
             privateRooms[i].socketIDs.push(socket.id)
         }
     }
-    console.log(privateRooms)
     socket.join(id)
     io.in(id).emit('gameStarted')
 }

@@ -6,15 +6,19 @@
     <form (submit) = 'submitLogin()'>
       <div>
         <mat-form-field class = 'fullWidth'>
-            <input [(ngModel)] = 'returningUser.email' matInput placeholder="Email" name = 'email'>
+            <input [(ngModel)] = 'returningUser.email' matInput placeholder="Email" name = 'returnEmail' required [formControl] = 'returnEmail'>
+            <mat-error *ngIf = 'returnEmail.invalid'>{{getReturningEmailErrorMessage()}} </mat-error>
           </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field class = 'fullWidth'>
-          <input [(ngModel)] = 'returningUser.password' matInput [type]="hide ? 'password' : 'text'" placeholder="Password" name = 'password'>
+        </div>
+        <div>
+          <mat-form-field class = 'fullWidth'>
+            <input [(ngModel)] = 'returningUser.password' matInput [type]="hide ? 'password' : 'text'" placeholder="Password" name = 'returnPassword' required [formControl] = 'returnPassword'>
+            <mat-error *ngIf = 'returnPassword.invalid'>{{getReturnPasswordErrorMessage()}} </mat-error>
         </mat-form-field>
       </div>
-      <button mat-raised-button color="primary">Login</button>
+      <p class = 'error' *ngIf = 'badCombo'>Email/password combination doesn't match</p>
+      <button type = 'submit' mat-raised-button color="primary"
+      [disabled] = 'returnEmail.invalid || returnPassword.invalid' >Login</button>
     </form>
   </div>
   
@@ -40,7 +44,7 @@
             <mat-error *ngIf = 'password.invalid'>{{getPasswordErrorMessage()}} </mat-error>
         </mat-form-field>
       </div>
-      <button (mouseenter) = 'mouseEnter()' (mouseleave) = 'mouseleave()' type = 'submit' mat-raised-button color="primary"
+      <button type = 'submit' mat-raised-button color="primary"
       [disabled] = 'email.invalid || password.invalid || userName.invalid || emailExists' >
       Register</button>
       </form>

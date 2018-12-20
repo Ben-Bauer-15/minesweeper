@@ -12,11 +12,15 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   hide = true
   returningUser = {email : "", password : ""}
+  badCombo = false
   emailExists = false
   newUser = {userName : "", password : "", confirm : "", email : ""}
   email = new FormControl('', [Validators.required, Validators.email])
   password = new FormControl('', [Validators.required, Validators.minLength(8)])
   userName = new FormControl('', [Validators.required])
+  
+  returnEmail = new FormControl('', [Validators.required, Validators.email])
+  returnPassword = new FormControl('', [Validators.required])
 
   constructor(private _component : AppComponent, 
     private _http : HttpService,
@@ -40,11 +44,16 @@ export class LoginComponent implements OnInit {
     obs.subscribe(data => {
       if (data.message == 'Success'){
         this._router.navigate(['/returningUser/' + data.data])
+        this.badCombo = false
+      }
+      else {
+        this.badCombo = true
       }
     })
   }
 
   getEmailErrorMessage(){
+    console.log("error")
     if(this.email.hasError('required')){
       return 'You must enter a value'
     }
@@ -61,6 +70,17 @@ export class LoginComponent implements OnInit {
     return this.password.hasError('required') ? 'You must enter a value' : 
       this.password.hasError('minlength') ? 'Password is too short' : '';
   }
+
+  getReturnPasswordErrorMessage(){
+    return this.returnPassword.hasError('required') ? 'You must enter a value' : ""
+  }
+
+  getReturningEmailErrorMessage(){
+    // console.log("error")
+    return this.returnEmail.hasError('required') ? 'You must enter a value' : 
+      this.returnEmail.hasError('email') ? 'Not a valid email' : '';
+  }
+
 
   getUserNameErrorMessage(){
     return this.userName.hasError('required') ? 'You must enter a value' : '';

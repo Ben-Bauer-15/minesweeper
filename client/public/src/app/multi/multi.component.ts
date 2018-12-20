@@ -19,6 +19,7 @@ export class MultiComponent implements OnInit {
 
   //neccessary variables
   difficulty : string
+  diffConfirmed = false
   minesweeper : Minesweeper
   dropdownHidden : boolean
   flaggingEnabled : boolean
@@ -26,9 +27,6 @@ export class MultiComponent implements OnInit {
   socket;
   otherUser : boolean
   opponentBoard : Minesweeper
-  opponentTime : number
-  otherUserFirstClick : boolean
-  timerID;
   roomID : string
   hoveredButton;
   userChose = false
@@ -37,9 +35,10 @@ export class MultiComponent implements OnInit {
   shareWindowDisplay;
   initialLoad = true
   IP : string
-  countdown : any
   gameMode : string
   friendEmail = ""
+  firstUserToPublic = false
+  topScores;
 
   constructor(private _component : AppComponent, 
     private _route : ActivatedRoute,
@@ -48,14 +47,11 @@ export class MultiComponent implements OnInit {
 
   ngOnInit() {
 
-    this.countdown = 3
 
     this.opponentBoard = new Minesweeper('easy', 'multi')
-    this.opponentTime = 0
 
     this._route.params.subscribe((params : Params) => {
       if (params['id']){
-        this.countdownToStart()
         this.userChose = true
         this.roomID = params['id']
         this.connectToPrivateRoom()
@@ -67,7 +63,6 @@ export class MultiComponent implements OnInit {
     this.difficulty = "easy"
     this.flaggingEnabled = false
     this.otherUser = false
-    this.otherUserFirstClick = false
 
     this.colorCode = {
       1 : 'one', 
@@ -83,68 +78,73 @@ export class MultiComponent implements OnInit {
 
   }
 
+
+  //minesweeper game logic functions
   uncover(i, j){
-    if (this.flaggingEnabled){
-      if (this.otherUser && this.countdown == "Go!"){
+    if (this.flaggingEnabled && this.otherUser){
         this._component.gameStarted = true
         this.minesweeper.flag(i,j)
         this.socket.emit('clicked', {board : this.minesweeper, id : this.roomID})
-      }
+
+        if (this.minesweeper.winner){
+          var self = this
+          if (this._component.user){
+            this._component.gameStarted = false
+            let postObj = {userID : this._component.user, difficulty : this.minesweeper.difficulty, time : this.minesweeper.gamePlayTime}
+            let obs = this._http.saveSinglePlayerGame(postObj)
+            obs.subscribe(data => {
+            })
+          }
+          let topScores = this._http.getGlobalScores(this.minesweeper.difficulty)
+          console.log('getting scores')
+          topScores.subscribe(data => {
+            console.log(data)
+            self.topScores = data.data
+          })
+        }
     }
-    else {
-      if (this.otherUser && this.countdown == "Go!"){
+    else if (this.otherUser) {
         this._component.gameStarted = true
         this.minesweeper.uncover(i,j)
         this.socket.emit('clicked', {board : this.minesweeper, id : this.roomID})
-      }
     }
   }
 
   reset(){
     this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+    this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+    this.socket.emit('reset', {roomID : this.roomID})
     this.flaggingEnabled = false
-  }
-
-  toggleDropdown(){
-    if (!this.dropdownHidden){
-      if (this.minesweeper.gameStarted){
-        this.minesweeper.startTimer()
-      }
-      this.dropdownHidden = true
-    }
-    else {
-      this.dropdownHidden = false
-      this.minesweeper.stopTimer()
-    }
   }
 
   changeDiff(diff){
     this.difficulty = diff
-    this.dropdownHidden = true 
-    this.minesweeper = new Minesweeper(this.difficulty, 'multi')
-  }
-
-
-  //this method toggles the users ability to place flags
-  @HostListener('window:keyup', ['$event'])
-  handleKeyBoardEvent(event : KeyboardEvent){
-    if (event.key == 'f' && this.otherUser){
-      this.flaggingEnabled = !this.flaggingEnabled
+    if (this.otherUser){
+      this.socket.emit('difficulty', {room : this.roomID, difficulty : this.difficulty})
     }
+    this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+    this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
   }
 
-  incrementOpponentTime(){
-    this.opponentTime += 1
-  }
-
-  mouseEnter(buttonName){
-    this.hoveredButton = buttonName
+  confirmDiff(){ 
+    this.diffConfirmed = true
+    this.toggleDifficultyWindow()
   }
   
-  mouseLeave(){
-    this.hoveredButton = ""
-  }
+  //this method toggles the users ability to place flags
+  @HostListener('window:keyup', ['$event'])
+    handleKeyBoardEvent(event : KeyboardEvent){
+        if (event.key == 'f' && this.otherUser){
+          this.flaggingEnabled = !this.flaggingEnabled
+        }
+    }
 
+ 
+  
+
+  //socket room functions
+  
+  //this is for the user who initially connects
   choosePrivateGame(){
 
     this.gameMode = 'private'
@@ -165,30 +165,77 @@ export class MultiComponent implements OnInit {
     
     this.socket.on('gameStarted', () => {
       this.otherUser = true
-      this.countdownToStart()
+      this.socket.emit('difficulty', {room : this.roomID, difficulty : this.difficulty})
     })
     
     this.socket.on('clicked', (data) => {
-      if (!this.otherUserFirstClick){
-        
-        this.timerID = setInterval(() => {
-          this.opponentTime += 1
-        }, 1000)
-        
-        this.otherUserFirstClick = true
-      }
       this.opponentBoard = data
+      console.log(data)
+
+      if (data.gameOver && !data.winner &&  this.minesweeper.gameOver){
+        this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+        this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+        this.socket.emit('reset', {roomID : this.roomID})
+      }
     })
     
     this.socket.on('disconnect', () => {
       this.otherUser = false
-      this.opponentTime = 0
-      clearInterval(this.timerID)
-      this.opponentBoard = new Minesweeper('easy', 'multi')
-      this.minesweeper = new Minesweeper('easy', 'multi')
+      this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+      this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+    })
+
+    this.socket.on('reset', () => {
+      console.log('reset')
+      this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+      this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+    })
+    
+    
+    
+  }
+  
+  //this is for the user who was invited to play
+  connectToPrivateRoom(){
+    this.socket = io()
+    console.log(this.roomID)
+    this.socket.on('welcome', () => {
+      this.socket.emit('connectToPrivateRoom', this.roomID)
+    })
+    
+    this.socket.on('gameStarted', () =>{
+      this.otherUser = true
+    })
+    
+    this.socket.on('difficulty', (data) => {
+      this.difficulty = data
+      this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+      this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+    })
+    
+    this.socket.on('clicked', (data) => {
+      this.opponentBoard = data
+      console.log(data)
+      if (data.gameOver && !data.winner && this.minesweeper.gameOver){
+        this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+        this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+        this.socket.emit('reset', {roomID : this.roomID})
+      }
+    })
+    
+    this.socket.on('reset', () => {
+      this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+      this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+    })
+
+    this.socket.on('disconnect', () => {
+      this.otherUser = false
+      this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+      this.minesweeper = new Minesweeper(this.difficulty, 'multi')
     })
     
   }
+  
   
   choosePublicGame(){
     this.initialLoad = false
@@ -203,50 +250,50 @@ export class MultiComponent implements OnInit {
     this.socket.on('welcomeToPublic', (data) => {
       this.roomID = data.id
       if (data.numUsers == 2){
-        this.countdownToStart()
+        if (this.firstUserToPublic){
+          this.socket.emit('difficulty', {room : this.roomID, difficulty : this.difficulty})
+        }
         this.otherUser = true
       }
+      else {
+        this.toggleDifficultyWindow()
+        this.firstUserToPublic = true
+      }
+    })
+
+    this.socket.on('difficulty', (data) => {
+      this.difficulty = data
+      this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+      this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
     })
 
     this.socket.on('clicked', (data) => {
-      if (!this.otherUserFirstClick){
-        
-        this.timerID = setInterval(() => {
-          this.opponentTime += 1
-        }, 1000)
-        
-        this.otherUserFirstClick = true
-      }
       this.opponentBoard = data
+      console.log(data)
+      if (data.gameOver && !data.winner && this.minesweeper.gameOver){
+        this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+        this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+        this.socket.emit('reset', {roomID : this.roomID})
+      }
+    })
+
+    this.socket.on('reset', () => {
+      this.minesweeper = new Minesweeper(this.difficulty, 'multi')
+      this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+    })
+
+    this.socket.on('disconnect', () => {
+      this.otherUser = false
+      this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
+      this.minesweeper = new Minesweeper(this.difficulty, 'multi')
     })
   }
   
+
   
-  connectToPrivateRoom(){
-    this.socket = io()
-    console.log(this.roomID)
-    this.socket.on('welcome', () => {
-      this.socket.emit('connectToPrivateRoom', this.roomID)
-    })
-
-    this.socket.on('gameStarted', () =>{
-      this.otherUser = true
-    })
-
-    this.socket.on('clicked', (data) => {
-      if (!this.otherUserFirstClick){
-
-        this.timerID = setInterval(() => {
-          this.opponentTime += 1
-        }, 1000)
-
-        this.otherUserFirstClick = true
-      }
-      this.opponentBoard = data
-    })
-  }
 
 
+  //sharing link functions
   copyToClipboard(val: string){
     this.shareWindowDisplay = false
     let selBox = document.createElement('textarea');
@@ -260,6 +307,8 @@ export class MultiComponent implements OnInit {
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
+
+    this.toggleDifficultyWindow()
   }
 
   sendEmailTo(){
@@ -270,9 +319,21 @@ export class MultiComponent implements OnInit {
     })
     this.shareWindowDisplay = false
     this.friendEmail = ''
+
+    this.toggleDifficultyWindow()
   }
 
 
+
+
+  //mouse hovering functions
+  mouseEnter(buttonName){
+    this.hoveredButton = buttonName
+  }
+  
+  mouseLeave(){
+    this.hoveredButton = ""
+  }
 
   hoverOnCell(i, j){
     this.hoveredCell = [i, j]
@@ -282,8 +343,13 @@ export class MultiComponent implements OnInit {
     this.hoveredCell = [-1, -1]
   }
 
+
+
+
+  //various pop up window display functions
   closeShareWindow(){
     this.shareWindowDisplay = false
+    this.toggleDifficultyWindow()
   }
 
   displayShareWindow(){
@@ -292,16 +358,12 @@ export class MultiComponent implements OnInit {
     }
   }
 
-  countdownToStart(){
-    var x = setInterval(() => {
-      if (this.countdown - 1 == 0){
-        this.countdown = "Go!"
-        clearInterval(x)
-      }
-      else {
-        this.countdown--
-      }
-    }, 1000)
+  closeGoWindow(){
+    this.diffConfirmed = false
+  }
+
+  toggleDifficultyWindow(){
+    this.dropdownHidden = !this.dropdownHidden
   }
 
 }
