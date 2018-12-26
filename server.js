@@ -10,7 +10,7 @@ app.use(session({
 
 
 // DONT FORGET TO CHANGE THIS
-var IP = '13.59.90.2'
+var IP = '192.168.1.9'
 
 
 var bodyParser = require('body-parser')
@@ -21,7 +21,7 @@ app.use(bodyParser({extended : true}))
 app.use(express.static(__dirname + '/client/public/dist/public'))
 require('./server/config/routes')(app)
 
-const server = app.listen(8000, () => {
+const server = app.listen(8000, IP, () => {
     console.log("Listening on port 8000")
 })
 

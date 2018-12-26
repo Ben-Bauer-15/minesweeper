@@ -965,7 +965,8 @@ var MultiComponent = /** @class */ (function () {
             _this.roomID = data.roomID;
             _this.IP = data.address;
             _this.shareWindowDisplay = true;
-            _this.linkToShare = 'http://' + _this.IP + ':8000/room/' + data.roomID;
+            _this.linkToShare = 'http://' + _this.IP + '/room/' + data.roomID;
+            console.log(_this.linkToShare);
         });
         this.socket.on('gameStarted', function () {
             _this.otherUser = true;
