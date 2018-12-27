@@ -118,7 +118,7 @@ export class Minesweeper{
       //increase the number of mines the user is keeping tabs on 
       this.numMines++
     }
-    else {
+    else if (!this.gameArray[i][j].flagged && !this.gameArray[i][j].clicked){
 
       //user has flagged a cell, switch its boolean variable to true
       this.gameArray[i][j].flagged = true
@@ -144,7 +144,6 @@ export class Minesweeper{
       //decrease the number of mines the user has to keep tabs on
       this.numMines--
     }
-    console.log(this.mines)
   }
 
   uncoverMines(i,j){

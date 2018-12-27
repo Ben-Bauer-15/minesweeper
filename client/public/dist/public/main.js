@@ -566,7 +566,7 @@ var Minesweeper = /** @class */ (function () {
             //increase the number of mines the user is keeping tabs on 
             this.numMines++;
         }
-        else {
+        else if (!this.gameArray[i][j].flagged && !this.gameArray[i][j].clicked) {
             //user has flagged a cell, switch its boolean variable to true
             this.gameArray[i][j].flagged = true;
             //if the user was correct in that this was a mine, remove it from the list of mines
@@ -587,8 +587,8 @@ var Minesweeper = /** @class */ (function () {
             }
             //decrease the number of mines the user has to keep tabs on
             this.numMines--;
+            console.log(this.mines);
         }
-        console.log(this.mines);
     };
     Minesweeper.prototype.uncoverMines = function (i, j) {
         if (!this.gameArray[i][j].clicked) {
