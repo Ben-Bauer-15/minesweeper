@@ -7,6 +7,9 @@ export class Minesweeper{
     //holds a record of the indices that the mines are located at on the grid
     mines;
 
+    //holds a record of all non-mine indices
+    empties;
+
     //an object containing info on the size of the grid and number of mines for various game difficulties
     difficulties;
 
@@ -128,14 +131,14 @@ export class Minesweeper{
         for (var idx = 0; idx < this.mines.length; idx++){
           // console.log(this.mines[idx])
           if (this.mines[idx][0] == i && this.mines[idx][1] == j){
-            console.log("found the mine")
+            // console.log("found the mine")
             this.mines.splice(idx, 1)
           }
         }
       }
 
       if (this.mines.length == 0){
-        console.log("you won!!!")
+        // console.log("you won!!!")
         this.winner = true
         this.gameOver = true
         this.stopTimer()
@@ -209,12 +212,15 @@ export class Minesweeper{
 
                 this.uncover(neighbor.x, neighbor.y)
 
+                this.removeFromEmpties(i,j)
                 }
             }
             else {
               //uncover this cell but don't call this function again, since it has > 0 adjacent
               this.gameArray[i][j].clicked = true
+              this.removeFromEmpties(i,j)
             }
+
         }, 50);
       }
 
@@ -236,11 +242,13 @@ export class Minesweeper{
 
             this.uncover(neighbor.x, neighbor.y)
 
+            this.removeFromEmpties(i,j)
             }
         }
         else {
           //uncover this cell but don't call this function again, since it has > 0 adjacent
           this.gameArray[i][j].clicked = true
+          this.removeFromEmpties(i,j)
         }
       }
     }
@@ -262,6 +270,9 @@ export class Minesweeper{
 
     //this will store all the indices for the mines
     this.mines = []
+
+    //this will store all the indices for non mines
+    this.empties = []
 
     //loop through the array dummy numMines times
     for (var i = 0; i < numMines; i++){
@@ -290,6 +301,17 @@ export class Minesweeper{
       var column = this.mines[i][1]
       this.increaseAdjacents(this.gameArray[row][column])
     }
+    
+    //finally, loop through game array and push all non mine cells to empties
+    for (var i = 0; i < this.gameArray.length; i++){
+      for (var j = 0; j < this.gameArray[i].length; j++){
+        if (!this.gameArray[i][j].mine){
+          this.empties.push([i, j])
+        }
+      }
+    }
+    // console.log(this.empties)
+    
 
     //this will help the user keep track of how many flags they've placed
     //when the game starts, this figure will be the maximum (depending on difficulty),
@@ -414,6 +436,21 @@ export class Minesweeper{
         neighbor.adjacentMines ++
       }
     }
+  }
+
+  removeFromEmpties(i,j){
+    // console.log(i,j)
+    for (var idx = 0; idx < this.empties.length; idx++){
+      if (this.empties[idx][0] == i && this.empties[idx][1] == j){
+        this.empties.splice(idx, 1)
+        if (this.empties.length == 0){
+          this.gameOver = true
+          this.winner = true 
+          this.stopTimer()
+        }
+      }
+    }
+    // console.log(this.empties)
   }
 
 }

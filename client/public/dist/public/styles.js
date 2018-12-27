@@ -550,7 +550,7 @@ if(false) {}
 
 /***/ }),
 
-/***/ 3:
+/***/ 2:
 /*!******************************!*\
   !*** multi ./src/styles.css ***!
   \******************************/
@@ -562,5 +562,5 @@ module.exports = __webpack_require__(/*! /Users/bbauer/Desktop/minesweeper/clien
 
 /***/ })
 
-},[[3,"runtime"]]]);
+},[[2,"runtime"]]]);
 //# sourceMappingURL=styles.js.map

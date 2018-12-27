@@ -70,10 +70,18 @@ export class SingleComponent implements OnInit {
 
     var self = this
 
-    if (this.minesweeper.winner){
+    if (this.minesweeper.winner && this._component.gameStarted){
+      this._component.gameStarted = false
+      var postObj = {userID : undefined, difficulty : this.minesweeper.difficulty, time : this.minesweeper.gamePlayTime}
       if (this._component.user){
-        this._component.gameStarted = false
-        let postObj = {userID : this._component.user, difficulty : this.minesweeper.difficulty, time : this.minesweeper.gamePlayTime}
+        postObj.userID = this._component.user
+        let obs = this._http.saveSinglePlayerGame(postObj)
+        obs.subscribe(data => {
+        })
+      }
+      
+      else {
+        console.log(postObj)
         let obs = this._http.saveSinglePlayerGame(postObj)
         obs.subscribe(data => {
         })
@@ -85,7 +93,6 @@ export class SingleComponent implements OnInit {
         self.topScores = data.data
       })
     }
-
   }
 
   reset(){
@@ -111,8 +118,10 @@ export class SingleComponent implements OnInit {
 
   changeDiff(diff){
     this.difficulty = diff
+    console.log(this.difficulty)
     this.dropdownHidden = true 
     this.minesweeper = new Minesweeper(this.difficulty, 'single')
+    console.log(this.minesweeper.difficulty)
   }
 
 

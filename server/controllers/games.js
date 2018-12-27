@@ -107,31 +107,44 @@ module.exports = {
     },
 
     saveSinglePlayerGame : function(req, res){
-
-        let newGame = new Game({
+        var newGame = new Game({
             difficulty : req.body.difficulty,
             time : req.body.time,
             createdAt : new Date(),
-            userID : req.body.userID
+            userID : "Anonymous"
         })
-
-        newGame.save(function(err){
-            if(err){
-                console.log("Something went wrong: ", err)
-            }
-            else {
-
-                User.updateOne({_id : Object(req.body.userID)}, {$push : {games : newGame}}, function(err){
-                    if(err){
-                        console.log("Something went wrong: ", err)
-                    }
-                    else {
-                        console.log(newGame)
-                        res.json({message : "Success"})
-                    }
-                })
-            }
-        })
+        if (!req.body.userID){
+            newGame.save(function(err){
+                if(err){
+                    console.log("Something went wrong: ", err)
+                }
+                else {
+                    console.log(newGame)
+                    res.json({message : "Success"})
+                }
+            })
+        }
+        else {
+            newGame.userID = req.body.userID
+            
+            newGame.save(function(err){
+                if(err){
+                    console.log("Something went wrong: ", err)
+                }
+                else {
+    
+                    User.updateOne({_id : Object(req.body.userID)}, {$push : {games : newGame}}, function(err){
+                        if(err){
+                            console.log("Something went wrong: ", err)
+                        }
+                        else {
+                            console.log(newGame)
+                            res.json({message : "Success"})
+                        }
+                    })
+                }
+            })
+        }
     },
 
     emailFriend : function(req, res){
