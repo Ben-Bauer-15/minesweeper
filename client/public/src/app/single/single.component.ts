@@ -28,6 +28,7 @@ export class SingleComponent implements OnInit {
     private _http : HttpService) { }
 
   ngOnInit() {
+    // console.log('line 31')
     this._route.params.subscribe((params : Params) => {
 
       if (params['newUserID']){
@@ -60,6 +61,7 @@ export class SingleComponent implements OnInit {
   }
 
   uncover(i, j){
+    
     this._component.gameStarted = true
     if (this.flaggingEnabled){
       this.minesweeper.flag(i,j)
@@ -67,31 +69,41 @@ export class SingleComponent implements OnInit {
     else {
       this.minesweeper.uncover(i,j)
     }
+    // console.log(this._component.gameStarted)
+    // console.log(this.minesweeper.winner)
 
     var self = this
 
     if (this.minesweeper.winner && this._component.gameStarted){
       this._component.gameStarted = false
+      // console.log('line 75')
+
       var postObj = {userID : undefined, difficulty : this.minesweeper.difficulty, time : this.minesweeper.gamePlayTime}
       if (this._component.user){
         postObj.userID = this._component.user
-        let obs = this._http.saveSinglePlayerGame(postObj)
+        var obs = this._http.saveSinglePlayerGame(postObj)
         obs.subscribe(data => {
+          var topScoresObs = this._http.getGlobalScores(this.difficulty)
+          // console.log('getting scores')
+          topScoresObs.subscribe(data => {
+            // console.log(data)
+            self.topScores = data.data
+          })
         })
       }
       
       else {
-        console.log(postObj)
-        let obs = this._http.saveSinglePlayerGame(postObj)
+        // console.log(postObj)
+        var obs = this._http.saveSinglePlayerGame(postObj)
         obs.subscribe(data => {
+          var topScoresObs = this._http.getGlobalScores(this.difficulty)
+          // console.log('getting scores')
+          topScoresObs.subscribe(data => {
+            // console.log(data)
+            self.topScores = data.data
+          })
         })
       }
-      let topScores = this._http.getGlobalScores(this.minesweeper.difficulty)
-      console.log('getting scores')
-      topScores.subscribe(data => {
-        console.log(data)
-        self.topScores = data.data
-      })
     }
   }
 
@@ -118,10 +130,11 @@ export class SingleComponent implements OnInit {
 
   changeDiff(diff){
     this.difficulty = diff
-    console.log(this.difficulty)
+    this._component.gameStarted = false
+    // console.log(this.difficulty)
     this.dropdownHidden = true 
     this.minesweeper = new Minesweeper(this.difficulty, 'single')
-    console.log(this.minesweeper.difficulty)
+    // console.log(this.minesweeper.difficulty)
   }
 
 
@@ -130,7 +143,7 @@ export class SingleComponent implements OnInit {
   handleKeyBoardEvent(event : KeyboardEvent){
     if (event.key == 'f'){
       this.flaggingEnabled = !this.flaggingEnabled
-      console.log(this.flaggingEnabled)
+      // console.log(this.flaggingEnabled)
     }
   }
 

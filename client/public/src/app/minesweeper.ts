@@ -212,13 +212,13 @@ export class Minesweeper{
 
                 this.uncover(neighbor.x, neighbor.y)
 
-                this.removeFromEmpties(i,j)
+                // this.removeFromEmpties(i,j)
                 }
             }
             else {
               //uncover this cell but don't call this function again, since it has > 0 adjacent
               this.gameArray[i][j].clicked = true
-              this.removeFromEmpties(i,j)
+              // this.removeFromEmpties(i,j)
             }
 
         }, 50);
@@ -242,15 +242,30 @@ export class Minesweeper{
 
             this.uncover(neighbor.x, neighbor.y)
 
-            this.removeFromEmpties(i,j)
+            // this.removeFromEmpties(i,j)
             }
         }
         else {
           //uncover this cell but don't call this function again, since it has > 0 adjacent
           this.gameArray[i][j].clicked = true
-          this.removeFromEmpties(i,j)
+          // this.removeFromEmpties(i,j)
         }
       }
+
+      for (var idx = 0; idx < this.empties.length; idx++){
+        if (this.empties[idx][0] == i && this.empties[idx][1] == j){
+  
+          this.empties.splice(idx, 1)
+          // console.log(this.empties)
+        }
+      }
+      if (this.empties.length == 0){
+        this.gameOver = true
+        this.winner = true 
+        this.stopTimer()
+        // console.log(this.winner)
+      }
+      // console.log(this.empties)
     }
   }
 
@@ -436,21 +451,6 @@ export class Minesweeper{
         neighbor.adjacentMines ++
       }
     }
-  }
-
-  removeFromEmpties(i,j){
-    // console.log(i,j)
-    for (var idx = 0; idx < this.empties.length; idx++){
-      if (this.empties[idx][0] == i && this.empties[idx][1] == j){
-        this.empties.splice(idx, 1)
-        if (this.empties.length == 0){
-          this.gameOver = true
-          this.winner = true 
-          this.stopTimer()
-        }
-      }
-    }
-    // console.log(this.empties)
   }
 
 }
