@@ -216,7 +216,7 @@ export class Minesweeper{
               //uncover this cell but don't call this function again, since it has > 0 adjacent
               this.gameArray[i][j].clicked = true
             }
-        }, 0);
+        }, 50);
       }
 
     else {

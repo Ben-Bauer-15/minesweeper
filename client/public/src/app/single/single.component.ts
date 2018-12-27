@@ -41,6 +41,7 @@ export class SingleComponent implements OnInit {
     })
 
 
+
     this._component.currentPage = 'single'
     this.difficulty = "easy"
 

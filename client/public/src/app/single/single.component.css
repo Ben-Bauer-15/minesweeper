@@ -30,7 +30,7 @@
 
 .uncovered{
     animation-name: uncover;
-    animation-duration: 1s;
+    animation-duration: 0.5s;
     background-color: #353535;
 }
 
