@@ -10,7 +10,7 @@ app.use(session({
 
 
 // DONT FORGET TO CHANGE THIS
-var IP = '13.59.90.2'
+var IP = '18.225.33.119'
 
 
 var bodyParser = require('body-parser')
