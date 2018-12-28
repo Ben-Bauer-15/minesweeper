@@ -1234,7 +1234,7 @@ var SingleComponent = /** @class */ (function () {
     }
     SingleComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // console.log('line 31')
+        console.log('hello world!');
         this._route.params.subscribe(function (params) {
             if (params['newUserID']) {
                 _this._component.user = params['newUserID'];
@@ -1431,7 +1431,7 @@ module.exports = __webpack_require__(/*! /Users/bbauer/Desktop/minesweeper/clien
 
 /***/ }),
 
-/***/ 1:
+/***/ 3:
 /*!********************!*\
   !*** ws (ignored) ***!
   \********************/

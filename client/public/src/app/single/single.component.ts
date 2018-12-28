@@ -28,6 +28,7 @@ export class SingleComponent implements OnInit {
     private _http : HttpService) { }
 
   ngOnInit() {
+    console.log('hello world!')
     this._route.params.subscribe((params : Params) => {
 
       if (params['newUserID']){
