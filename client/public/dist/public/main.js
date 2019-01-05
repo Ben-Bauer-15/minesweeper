@@ -46,12 +46,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: 'single', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
-    { path: 'newUser/:newUserID', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
-    { path: 'returningUser/:returningUserID', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
-    { path: '', component: _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
-    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
-    { path: 'room/:id', component: _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] }
+    { path: 'minesweeper/single', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
+    { path: 'minesweeper/newUser/:newUserID', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
+    { path: 'minesweeper/returningUser/:returningUserID', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
+    { path: 'minesweeper', component: _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
+    { path: 'minesweeper/login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
+    { path: 'minesweeper/room/:id', component: _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -134,28 +134,28 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.confirmSingle = function () {
         if (this.currentPage != 'single' && this.gameStarted) {
             this.confirmPopUpVisible = true;
-            this.pageToGoTo = 'single';
+            this.pageToGoTo = 'minesweeper/single';
         }
         else if (this.currentPage != 'single' && !this.gameStarted) {
-            this.navigate('single');
+            this.navigate('minesweeper/single');
         }
     };
     AppComponent.prototype.confirmMulti = function () {
         if (this.currentPage != 'multi' && this.gameStarted) {
             this.confirmPopUpVisible = true;
-            this.pageToGoTo = '';
+            this.pageToGoTo = 'minesweeper';
         }
         else if (this.currentPage != 'multi' && !this.gameStarted) {
-            this.navigate('');
+            this.navigate('minesweeper');
         }
     };
     AppComponent.prototype.confirmLogin = function () {
         if (this.currentPage != 'login' && this.gameStarted) {
             this.confirmPopUpVisible = true;
-            this.pageToGoTo = 'login';
+            this.pageToGoTo = 'minesweeper/login';
         }
         else if (this.currentPage != 'login' && !this.gameStarted) {
-            this.navigate('login');
+            this.navigate('minesweeper/login');
         }
     };
     AppComponent.prototype.navigate = function (page) {

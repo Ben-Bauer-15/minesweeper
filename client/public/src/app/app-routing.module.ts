@@ -5,12 +5,12 @@ import { MultiComponent } from './multi/multi.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path : 'single', component : SingleComponent},
-  { path : 'newUser/:newUserID', component : SingleComponent},
-  { path : 'returningUser/:returningUserID', component : SingleComponent},
-  { path : '', component : MultiComponent},
-  { path : 'login', component : LoginComponent},
-  { path : 'room/:id', component : MultiComponent}
+  { path : 'minesweeper/single', component : SingleComponent},
+  { path : 'minesweeper/newUser/:newUserID', component : SingleComponent},
+  { path : 'minesweeper/returningUser/:returningUserID', component : SingleComponent},
+  { path : 'minesweeper', component : MultiComponent},
+  { path : 'minesweeper/login', component : LoginComponent},
+  { path : 'minesweeper/room/:id', component : MultiComponent}
 ];
 
 @NgModule({

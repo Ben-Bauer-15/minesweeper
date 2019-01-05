@@ -40,10 +40,10 @@ export class AppComponent {
   confirmSingle(){
     if (this.currentPage != 'single' && this.gameStarted){
       this.confirmPopUpVisible = true
-      this.pageToGoTo = 'single'
+      this.pageToGoTo = 'minesweeper/single'
     }
     else if (this.currentPage != 'single' && !this.gameStarted){
-      this.navigate('single')
+      this.navigate('minesweeper/single')
       
     }
   }
@@ -51,10 +51,10 @@ export class AppComponent {
   confirmMulti(){
     if (this.currentPage != 'multi' && this.gameStarted){
       this.confirmPopUpVisible = true
-      this.pageToGoTo = ''
+      this.pageToGoTo = 'minesweeper'
     }
     else if (this.currentPage != 'multi' && !this.gameStarted){
-      this.navigate('')
+      this.navigate('minesweeper')
       
     }
   }
@@ -62,10 +62,10 @@ export class AppComponent {
   confirmLogin(){
     if (this.currentPage != 'login' && this.gameStarted){
       this.confirmPopUpVisible = true
-      this.pageToGoTo = 'login'
+      this.pageToGoTo = 'minesweeper/login'
     }
     else if (this.currentPage != 'login' && !this.gameStarted){
-      this.navigate('login')
+      this.navigate('minesweeper/login')
       
     }
   }
