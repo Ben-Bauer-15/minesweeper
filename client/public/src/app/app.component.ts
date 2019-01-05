@@ -40,10 +40,10 @@ export class AppComponent {
   confirmSingle(){
     if (this.currentPage != 'single' && this.gameStarted){
       this.confirmPopUpVisible = true
-      this.pageToGoTo = ''
+      this.pageToGoTo = 'single'
     }
     else if (this.currentPage != 'single' && !this.gameStarted){
-      this.navigate('')
+      this.navigate('single')
       
     }
   }
@@ -51,10 +51,10 @@ export class AppComponent {
   confirmMulti(){
     if (this.currentPage != 'multi' && this.gameStarted){
       this.confirmPopUpVisible = true
-      this.pageToGoTo = 'multi'
+      this.pageToGoTo = ''
     }
     else if (this.currentPage != 'multi' && !this.gameStarted){
-      this.navigate('multi')
+      this.navigate('')
       
     }
   }

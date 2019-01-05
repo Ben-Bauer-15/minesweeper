@@ -5,10 +5,10 @@ import { MultiComponent } from './multi/multi.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path : '', component : SingleComponent},
+  { path : 'single', component : SingleComponent},
   { path : 'newUser/:newUserID', component : SingleComponent},
   { path : 'returningUser/:returningUserID', component : SingleComponent},
-  { path : 'multi', component : MultiComponent},
+  { path : '', component : MultiComponent},
   { path : 'login', component : LoginComponent},
   { path : 'room/:id', component : MultiComponent}
 ];

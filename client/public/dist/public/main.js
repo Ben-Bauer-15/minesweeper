@@ -46,10 +46,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: '', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
+    { path: 'single', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
     { path: 'newUser/:newUserID', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
     { path: 'returningUser/:returningUserID', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
-    { path: 'multi', component: _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
+    { path: '', component: _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
     { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
     { path: 'room/:id', component: _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] }
 ];
@@ -134,19 +134,19 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.confirmSingle = function () {
         if (this.currentPage != 'single' && this.gameStarted) {
             this.confirmPopUpVisible = true;
-            this.pageToGoTo = '';
+            this.pageToGoTo = 'single';
         }
         else if (this.currentPage != 'single' && !this.gameStarted) {
-            this.navigate('');
+            this.navigate('single');
         }
     };
     AppComponent.prototype.confirmMulti = function () {
         if (this.currentPage != 'multi' && this.gameStarted) {
             this.confirmPopUpVisible = true;
-            this.pageToGoTo = 'multi';
+            this.pageToGoTo = '';
         }
         else if (this.currentPage != 'multi' && !this.gameStarted) {
-            this.navigate('multi');
+            this.navigate('');
         }
     };
     AppComponent.prototype.confirmLogin = function () {
@@ -408,7 +408,6 @@ var LoginComponent = /** @class */ (function () {
         this._component.currentPage = 'login';
     };
     LoginComponent.prototype.submitRegister = function () {
-        console.log(this.newUser);
         var obs = this._http.newUser(this.newUser);
         obs.subscribe(function (data) {
         });
@@ -429,7 +428,6 @@ var LoginComponent = /** @class */ (function () {
         });
     };
     LoginComponent.prototype.getEmailErrorMessage = function () {
-        console.log("error");
         if (this.email.hasError('required')) {
             return 'You must enter a value';
         }
@@ -448,7 +446,6 @@ var LoginComponent = /** @class */ (function () {
         return this.returnPassword.hasError('required') ? 'You must enter a value' : "";
     };
     LoginComponent.prototype.getReturningEmailErrorMessage = function () {
-        // console.log("error")
         return this.returnEmail.hasError('required') ? 'You must enter a value' :
             this.returnEmail.hasError('email') ? 'Not a valid email' : '';
     };
@@ -460,7 +457,6 @@ var LoginComponent = /** @class */ (function () {
         if (this.newUser.email != "") {
             var obs = this._http.checkForExistingEmail(this.newUser.email);
             obs.subscribe(function (data) {
-                console.log(data.data[0]);
                 if (data.data[0] != undefined) {
                     _this.emailExists = true;
                 }
@@ -992,7 +988,7 @@ var MultiComponent = /** @class */ (function () {
             _this.roomID = data.roomID;
             _this.IP = data.address;
             _this.shareWindowDisplay = true;
-            _this.linkToShare = 'http://' + _this.IP + '/room/' + data.roomID;
+            _this.linkToShare = 'http://ben-bauer.net/room/' + data.roomID;
         });
         this.socket.on('gameStarted', function () {
             _this.otherUser = true;
@@ -1234,7 +1230,6 @@ var SingleComponent = /** @class */ (function () {
     }
     SingleComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log('hello world!');
         this._route.params.subscribe(function (params) {
             if (params['newUserID']) {
                 _this._component.user = params['newUserID'];
@@ -1431,7 +1426,7 @@ module.exports = __webpack_require__(/*! /Users/bbauer/Desktop/minesweeper/clien
 
 /***/ }),
 
-/***/ 3:
+/***/ 1:
 /*!********************!*\
   !*** ws (ignored) ***!
   \********************/

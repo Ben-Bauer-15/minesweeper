@@ -160,7 +160,7 @@ export class MultiComponent implements OnInit {
       this.roomID = data.roomID
       this.IP = data.address
       this.shareWindowDisplay = true
-      this.linkToShare = 'http://' + this.IP  + '/room/' + data.roomID
+      this.linkToShare = 'http://ben-bauer.net/room/' + data.roomID
     })
     
     this.socket.on('gameStarted', () => {

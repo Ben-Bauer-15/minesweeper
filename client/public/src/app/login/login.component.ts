@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
   }
 
   submitRegister(){
-    console.log(this.newUser)
     let obs = this._http.newUser(this.newUser)
     obs.subscribe(data => {
     })
@@ -53,7 +52,6 @@ export class LoginComponent implements OnInit {
   }
 
   getEmailErrorMessage(){
-    console.log("error")
     if(this.email.hasError('required')){
       return 'You must enter a value'
     }
@@ -76,7 +74,6 @@ export class LoginComponent implements OnInit {
   }
 
   getReturningEmailErrorMessage(){
-    // console.log("error")
     return this.returnEmail.hasError('required') ? 'You must enter a value' : 
       this.returnEmail.hasError('email') ? 'Not a valid email' : '';
   }
@@ -90,7 +87,6 @@ export class LoginComponent implements OnInit {
     if (this.newUser.email != ""){
       let obs = this._http.checkForExistingEmail(this.newUser.email)
       obs.subscribe(data => {
-        console.log(data.data[0])
         if (data.data[0] != undefined){
           this.emailExists = true
         }
