@@ -39,6 +39,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _single_single_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./single/single.component */ "./src/app/single/single.component.ts");
 /* harmony import */ var _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./multi/multi.component */ "./src/app/multi/multi.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./benbauer/benbauer.component */ "./src/app/benbauer/benbauer.component.ts");
+
 
 
 
@@ -46,6 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
+    { path: '', component: _benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_6__["BenbauerComponent"] },
     { path: 'minesweeper/single', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
     { path: 'minesweeper/newUser/:newUserID', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
     { path: 'minesweeper/returningUser/:returningUserID', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
@@ -209,6 +212,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./http.service */ "./src/app/http.service.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./benbauer/benbauer.component */ "./src/app/benbauer/benbauer.component.ts");
+/* harmony import */ var _minesweeper_header_minesweeper_header_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./minesweeper-header/minesweeper-header.component */ "./src/app/minesweeper-header/minesweeper-header.component.ts");
+/* harmony import */ var _minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./minesweeper-footer/minesweeper-footer.component */ "./src/app/minesweeper-footer/minesweeper-footer.component.ts");
+
+
+
 
 
 
@@ -232,6 +241,9 @@ var AppModule = /** @class */ (function () {
                 _single_single_component__WEBPACK_IMPORTED_MODULE_8__["SingleComponent"],
                 _multi_multi_component__WEBPACK_IMPORTED_MODULE_9__["MultiComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
+                _benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_13__["BenbauerComponent"],
+                _minesweeper_header_minesweeper_header_component__WEBPACK_IMPORTED_MODULE_14__["MinesweeperHeaderComponent"],
+                _minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__["MinesweeperFooterComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -251,6 +263,62 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/benbauer/benbauer.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/benbauer/benbauer.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2JlbmJhdWVyL2JlbmJhdWVyLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/benbauer/benbauer.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/benbauer/benbauer.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<a [routerLink] = \"['minesweeper']\">Minesweeper</a>"
+
+/***/ }),
+
+/***/ "./src/app/benbauer/benbauer.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/benbauer/benbauer.component.ts ***!
+  \************************************************/
+/*! exports provided: BenbauerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BenbauerComponent", function() { return BenbauerComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var BenbauerComponent = /** @class */ (function () {
+    function BenbauerComponent() {
+    }
+    BenbauerComponent.prototype.ngOnInit = function () {
+    };
+    BenbauerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-benbauer',
+            template: __webpack_require__(/*! ./benbauer.component.html */ "./src/app/benbauer/benbauer.component.html"),
+            styles: [__webpack_require__(/*! ./benbauer.component.css */ "./src/app/benbauer/benbauer.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], BenbauerComponent);
+    return BenbauerComponent;
 }());
 
 
@@ -480,6 +548,179 @@ var LoginComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], LoginComponent);
     return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/minesweeper-footer/minesweeper-footer.component.css":
+/*!*********************************************************************!*\
+  !*** ./src/app/minesweeper-footer/minesweeper-footer.component.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21pbmVzd2VlcGVyLWZvb3Rlci9taW5lc3dlZXBlci1mb290ZXIuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/minesweeper-footer/minesweeper-footer.component.html":
+/*!**********************************************************************!*\
+  !*** ./src/app/minesweeper-footer/minesweeper-footer.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class = 'footer'>\n    <p>© Benjamin Bauer 2018</p>\n    <a href = 'https://github.com/Ben-Bauer-15/minesweeper'><img id = 'github' src = '../assets/githublogo_copy.png'></a>\n    <a href = 'mailto:benjaminbauer15@gmail.com'><img id = 'mail' src = '../assets/mail.png'></a>\n  </div>\n  \n  <div id = 'confirm' [ngClass] = \"{'hide' : !gameStarted || !confirmPopUpVisible, 'showAnimation' : confirmPopUpVisible, 'hiddenAnimation' : showDismissAnimation}\">\n    <h2>Are you sure you want to leave this page?</h2>\n    <button (click) = 'navigate(pageToGoTo)'>Yes</button>\n    <button (click) = 'dismiss()'>No</button>\n  </div>"
+
+/***/ }),
+
+/***/ "./src/app/minesweeper-footer/minesweeper-footer.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/minesweeper-footer/minesweeper-footer.component.ts ***!
+  \********************************************************************/
+/*! exports provided: MinesweeperFooterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MinesweeperFooterComponent", function() { return MinesweeperFooterComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var MinesweeperFooterComponent = /** @class */ (function () {
+    function MinesweeperFooterComponent() {
+    }
+    MinesweeperFooterComponent.prototype.ngOnInit = function () {
+    };
+    MinesweeperFooterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-minesweeper-footer',
+            template: __webpack_require__(/*! ./minesweeper-footer.component.html */ "./src/app/minesweeper-footer/minesweeper-footer.component.html"),
+            styles: [__webpack_require__(/*! ./minesweeper-footer.component.css */ "./src/app/minesweeper-footer/minesweeper-footer.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], MinesweeperFooterComponent);
+    return MinesweeperFooterComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/minesweeper-header/minesweeper-header.component.css":
+/*!*********************************************************************!*\
+  !*** ./src/app/minesweeper-header/minesweeper-header.component.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".navbar {\n    padding-right: 14px;\n    box-sizing: border-box;\n    width: 100%;\n    padding-top: 9px;\n    height: 50px;\n    border-bottom: 1px solid lightslategray;\n    text-align: right;\n    background-color: darkslategray;\n}\n\n.navbar a{\n    text-decoration: none;\n    color: #f0a554;\n    padding: 17px;\n    font-size: 20px;\n    cursor: pointer;\n}\n\n.hover {\n    border-bottom: 3px solid #f0a554;\n}\n\n#title{\n    display: inline-block;\n    vertical-align: top;\n    margin-top: -6px;\n    margin-right: 50%;\n    margin-bottom: 0px;\n    color: #969696;\n}\n\n#title span {\n    color: #f0a554;\n}\n\n#confirm {\n    position: absolute;\n    left: 34%;\n    top: 24%;\n    text-align: center;\n    box-shadow: 0px 0px 177px 61px black;\n    padding: 82px;\n    border-radius: 8px;\n    border: 1px solid gray;\n    background-color: rgba(47, 79, 79, 0.9);\n}\n\n#confirm button {\n    margin-left: 5%;\n    margin-top: 10%;\n    font-size: 19px;\n    margin-right: 7%;\n    background-image: linear-gradient(blue, #5b5bff);\n    box-shadow: 0px 3px 18px 3px black;\n    padding: 12px;\n    border: 1px solid black;\n    border-radius: 5px;\n    color: white;\n    cursor: pointer;\n    outline: none;\n}\n\n#confirm h2 {\n    color: white;\n}\n\n@media only screen and (max-width : 949px){\n    #title {\n        margin-right: 15% !important;\n    }\n}\n\n@media only screen and (min-width : 950px){\n    #title {\n        margin-right: 30% !important;\n    }\n}\n\n@media only screen and (min-width : 1200px){\n    #title {\n        margin-right: 54% !important;\n    }\n}\n\n@media only screen and (min-width : 1600px){\n    #title {\n        margin-right: 61% !important;\n    }\n}\n\n@media only screen and (max-width : 1600px){\n    #confirm {\n        left : 28% !important;\n    }\n    \n}\n\n.showAnimation {\n    -webkit-animation: showOptions 0.75s 1 ease-in  forwards ;\n            animation: showOptions 0.75s 1 ease-in  forwards ;\n}\n\n@-webkit-keyframes showOptions {\n    0% {\n        opacity: 0;\n    }\n    99% {\n        opacity: 0.99;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n@keyframes showOptions {\n    0% {\n        opacity: 0;\n    }\n    99% {\n        opacity: 0.99;\n    }\n    100% {\n        opacity: 1;\n    }\n}\n\n.hide {\n    display: none;\n}\n\n.hiddenAnimation {\n    -webkit-animation: hideOptions 0.5s 1 ease-in forwards;\n            animation: hideOptions 0.5s 1 ease-in forwards;\n}\n\n@keyframes hideOptions {\n    0% {\n        top : 21%;\n        opacity: 1;\n    }   \n    99% {\n        top: -59%;\n        opacity: 1;\n    }\n    100% {\n        top: -60%;\n        opacity: 0;\n        display: none;\n    }\n}\n\n@-webkit-keyframes hideOptions {\n    0% {\n      top: 0%;\n    opacity: 1;\n    }\n    99% {\n      top: 99%;\n      opacity: 1;\n    }\n    100% {\n      top: 100%;\n      opacity: 0;\n      display: none;\n    }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWluZXN3ZWVwZXItaGVhZGVyL21pbmVzd2VlcGVyLWhlYWRlci5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksb0JBQW9CO0lBQ3BCLHVCQUF1QjtJQUN2QixZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLGFBQWE7SUFDYix3Q0FBd0M7SUFDeEMsa0JBQWtCO0lBQ2xCLGdDQUFnQztDQUNuQzs7QUFFRDtJQUNJLHNCQUFzQjtJQUN0QixlQUFlO0lBQ2YsY0FBYztJQUNkLGdCQUFnQjtJQUNoQixnQkFBZ0I7Q0FDbkI7O0FBRUQ7SUFDSSxpQ0FBaUM7Q0FDcEM7O0FBRUQ7SUFDSSxzQkFBc0I7SUFDdEIsb0JBQW9CO0lBQ3BCLGlCQUFpQjtJQUNqQixrQkFBa0I7SUFDbEIsbUJBQW1CO0lBQ25CLGVBQWU7Q0FDbEI7O0FBRUQ7SUFDSSxlQUFlO0NBQ2xCOztBQUVEO0lBQ0ksbUJBQW1CO0lBQ25CLFVBQVU7SUFDVixTQUFTO0lBQ1QsbUJBQW1CO0lBQ25CLHFDQUFxQztJQUNyQyxjQUFjO0lBQ2QsbUJBQW1CO0lBQ25CLHVCQUF1QjtJQUN2Qix3Q0FBd0M7Q0FDM0M7O0FBRUQ7SUFDSSxnQkFBZ0I7SUFDaEIsZ0JBQWdCO0lBQ2hCLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsaURBQWlEO0lBQ2pELG1DQUFtQztJQUNuQyxjQUFjO0lBQ2Qsd0JBQXdCO0lBQ3hCLG1CQUFtQjtJQUNuQixhQUFhO0lBQ2IsZ0JBQWdCO0lBQ2hCLGNBQWM7Q0FDakI7O0FBRUQ7SUFDSSxhQUFhO0NBQ2hCOztBQUVEO0lBQ0k7UUFDSSw2QkFBNkI7S0FDaEM7Q0FDSjs7QUFFRDtJQUNJO1FBQ0ksNkJBQTZCO0tBQ2hDO0NBQ0o7O0FBRUQ7SUFDSTtRQUNJLDZCQUE2QjtLQUNoQztDQUNKOztBQUVEO0lBQ0k7UUFDSSw2QkFBNkI7S0FDaEM7Q0FDSjs7QUFFRDtJQUNJO1FBQ0ksc0JBQXNCO0tBQ3pCOztDQUVKOztBQUVEO0lBQ0ksMERBQWtEO1lBQWxELGtEQUFrRDtDQUNyRDs7QUFDRDtJQUNJO1FBQ0ksV0FBVztLQUNkO0lBQ0Q7UUFDSSxjQUFjO0tBQ2pCO0lBQ0Q7UUFDSSxXQUFXO0tBQ2Q7Q0FDSjs7QUFWRDtJQUNJO1FBQ0ksV0FBVztLQUNkO0lBQ0Q7UUFDSSxjQUFjO0tBQ2pCO0lBQ0Q7UUFDSSxXQUFXO0tBQ2Q7Q0FDSjs7QUFFRDtJQUNJLGNBQWM7Q0FDakI7O0FBRUQ7SUFDSSx1REFBK0M7WUFBL0MsK0NBQStDO0NBQ2xEOztBQUdEO0lBQ0k7UUFDSSxVQUFVO1FBQ1YsV0FBVztLQUNkO0lBQ0Q7UUFDSSxVQUFVO1FBQ1YsV0FBVztLQUNkO0lBQ0Q7UUFDSSxVQUFVO1FBQ1YsV0FBVztRQUNYLGNBQWM7S0FDakI7Q0FDSjs7QUFFRDtJQUNJO01BQ0UsUUFBUTtJQUNWLFdBQVc7S0FDVjtJQUNEO01BQ0UsU0FBUztNQUNULFdBQVc7S0FDWjtJQUNEO01BQ0UsVUFBVTtNQUNWLFdBQVc7TUFDWCxjQUFjO0tBQ2Y7Q0FDSiIsImZpbGUiOiJzcmMvYXBwL21pbmVzd2VlcGVyLWhlYWRlci9taW5lc3dlZXBlci1oZWFkZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5uYXZiYXIge1xuICAgIHBhZGRpbmctcmlnaHQ6IDE0cHg7XG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBwYWRkaW5nLXRvcDogOXB4O1xuICAgIGhlaWdodDogNTBweDtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgbGlnaHRzbGF0ZWdyYXk7XG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogZGFya3NsYXRlZ3JheTtcbn1cblxuLm5hdmJhciBhe1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICBjb2xvcjogI2YwYTU1NDtcbiAgICBwYWRkaW5nOiAxN3B4O1xuICAgIGZvbnQtc2l6ZTogMjBweDtcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG59XG5cbi5ob3ZlciB7XG4gICAgYm9yZGVyLWJvdHRvbTogM3B4IHNvbGlkICNmMGE1NTQ7XG59XG5cbiN0aXRsZXtcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgdmVydGljYWwtYWxpZ246IHRvcDtcbiAgICBtYXJnaW4tdG9wOiAtNnB4O1xuICAgIG1hcmdpbi1yaWdodDogNTAlO1xuICAgIG1hcmdpbi1ib3R0b206IDBweDtcbiAgICBjb2xvcjogIzk2OTY5Njtcbn1cblxuI3RpdGxlIHNwYW4ge1xuICAgIGNvbG9yOiAjZjBhNTU0O1xufVxuXG4jY29uZmlybSB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIGxlZnQ6IDM0JTtcbiAgICB0b3A6IDI0JTtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgYm94LXNoYWRvdzogMHB4IDBweCAxNzdweCA2MXB4IGJsYWNrO1xuICAgIHBhZGRpbmc6IDgycHg7XG4gICAgYm9yZGVyLXJhZGl1czogOHB4O1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIGdyYXk7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSg0NywgNzksIDc5LCAwLjkpO1xufVxuXG4jY29uZmlybSBidXR0b24ge1xuICAgIG1hcmdpbi1sZWZ0OiA1JTtcbiAgICBtYXJnaW4tdG9wOiAxMCU7XG4gICAgZm9udC1zaXplOiAxOXB4O1xuICAgIG1hcmdpbi1yaWdodDogNyU7XG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KGJsdWUsICM1YjViZmYpO1xuICAgIGJveC1zaGFkb3c6IDBweCAzcHggMThweCAzcHggYmxhY2s7XG4gICAgcGFkZGluZzogMTJweDtcbiAgICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XG4gICAgY29sb3I6IHdoaXRlO1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBvdXRsaW5lOiBub25lO1xufVxuXG4jY29uZmlybSBoMiB7XG4gICAgY29sb3I6IHdoaXRlO1xufVxuXG5AbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGggOiA5NDlweCl7XG4gICAgI3RpdGxlIHtcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiAxNSUgIWltcG9ydGFudDtcbiAgICB9XG59XG5cbkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1pbi13aWR0aCA6IDk1MHB4KXtcbiAgICAjdGl0bGUge1xuICAgICAgICBtYXJnaW4tcmlnaHQ6IDMwJSAhaW1wb3J0YW50O1xuICAgIH1cbn1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXdpZHRoIDogMTIwMHB4KXtcbiAgICAjdGl0bGUge1xuICAgICAgICBtYXJnaW4tcmlnaHQ6IDU0JSAhaW1wb3J0YW50O1xuICAgIH1cbn1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWluLXdpZHRoIDogMTYwMHB4KXtcbiAgICAjdGl0bGUge1xuICAgICAgICBtYXJnaW4tcmlnaHQ6IDYxJSAhaW1wb3J0YW50O1xuICAgIH1cbn1cblxuQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoIDogMTYwMHB4KXtcbiAgICAjY29uZmlybSB7XG4gICAgICAgIGxlZnQgOiAyOCUgIWltcG9ydGFudDtcbiAgICB9XG4gICAgXG59XG5cbi5zaG93QW5pbWF0aW9uIHtcbiAgICBhbmltYXRpb246IHNob3dPcHRpb25zIDAuNzVzIDEgZWFzZS1pbiAgZm9yd2FyZHMgO1xufVxuQGtleWZyYW1lcyBzaG93T3B0aW9ucyB7XG4gICAgMCUge1xuICAgICAgICBvcGFjaXR5OiAwO1xuICAgIH1cbiAgICA5OSUge1xuICAgICAgICBvcGFjaXR5OiAwLjk5O1xuICAgIH1cbiAgICAxMDAlIHtcbiAgICAgICAgb3BhY2l0eTogMTtcbiAgICB9XG59XG5cbi5oaWRlIHtcbiAgICBkaXNwbGF5OiBub25lO1xufVxuXG4uaGlkZGVuQW5pbWF0aW9uIHtcbiAgICBhbmltYXRpb246IGhpZGVPcHRpb25zIDAuNXMgMSBlYXNlLWluIGZvcndhcmRzO1xufVxuXG5cbkBrZXlmcmFtZXMgaGlkZU9wdGlvbnMge1xuICAgIDAlIHtcbiAgICAgICAgdG9wIDogMjElO1xuICAgICAgICBvcGFjaXR5OiAxO1xuICAgIH0gICBcbiAgICA5OSUge1xuICAgICAgICB0b3A6IC01OSU7XG4gICAgICAgIG9wYWNpdHk6IDE7XG4gICAgfVxuICAgIDEwMCUge1xuICAgICAgICB0b3A6IC02MCU7XG4gICAgICAgIG9wYWNpdHk6IDA7XG4gICAgICAgIGRpc3BsYXk6IG5vbmU7XG4gICAgfVxufVxuXG5ALXdlYmtpdC1rZXlmcmFtZXMgaGlkZU9wdGlvbnMge1xuICAgIDAlIHtcbiAgICAgIHRvcDogMCU7XG4gICAgb3BhY2l0eTogMTtcbiAgICB9XG4gICAgOTklIHtcbiAgICAgIHRvcDogOTklO1xuICAgICAgb3BhY2l0eTogMTtcbiAgICB9XG4gICAgMTAwJSB7XG4gICAgICB0b3A6IDEwMCU7XG4gICAgICBvcGFjaXR5OiAwO1xuICAgICAgZGlzcGxheTogbm9uZTtcbiAgICB9XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/minesweeper-header/minesweeper-header.component.html":
+/*!**********************************************************************!*\
+  !*** ./src/app/minesweeper-header/minesweeper-header.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class = 'navbar'>\n  \n    <h1 id = 'title'> mine<span>sweeper</span> </h1>\n    <a (mouseenter) = 'mouseEnter(\"single\")'\n     (mouseleave) = 'mouseLeave()' \n     [ngClass] = \"{'hover' : selected == 'single'}\" \n     (click) = 'confirmSingle()'>\n     Single Player</a>\n  \n    <a (mouseenter) = 'mouseEnter(\"multi\")'\n     (mouseleave) = 'mouseLeave()' \n     [ngClass] = \"{'hover' : selected == 'multi'}\" \n     (click) = 'confirmMulti()'>\n     Multiplayer</a>\n  \n    <a (mouseenter) = 'mouseEnter(\"login\")' \n    (mouseleave) = 'mouseLeave()' \n    [ngClass] = \"{'hover' : selected == 'login'}\" \n    (click) = 'confirmLogin()'\n    >\n    Login</a>\n  \n  </div> \n\n  <div id = 'confirm' [ngClass] = \"{'hide' : !gameStarted || !confirmPopUpVisible, 'showAnimation' : confirmPopUpVisible, 'hiddenAnimation' : showDismissAnimation}\">\n      <h2>Are you sure you want to leave this page?</h2>\n      <button (click) = 'navigate(pageToGoTo)'>Yes</button>\n      <button (click) = 'dismiss()'>No</button>\n  </div>"
+
+/***/ }),
+
+/***/ "./src/app/minesweeper-header/minesweeper-header.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/minesweeper-header/minesweeper-header.component.ts ***!
+  \********************************************************************/
+/*! exports provided: MinesweeperHeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MinesweeperHeaderComponent", function() { return MinesweeperHeaderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+//This component will control navigation inside the minesweeper app
+
+
+
+
+var MinesweeperHeaderComponent = /** @class */ (function () {
+    function MinesweeperHeaderComponent(_titleService, _router) {
+        this._titleService = _titleService;
+        this._router = _router;
+        this.title = 'Minesweeper';
+        this.selected = '';
+        this.showDismissAnimation = false;
+        this.gameStarted = false;
+    }
+    MinesweeperHeaderComponent.prototype.ngOnInit = function () {
+        this.setTitle();
+    };
+    MinesweeperHeaderComponent.prototype.setTitle = function () {
+        this._titleService.setTitle("Minesweeper");
+    };
+    MinesweeperHeaderComponent.prototype.mouseEnter = function (elem) {
+        this.selected = elem;
+    };
+    MinesweeperHeaderComponent.prototype.mouseLeave = function () {
+        this.selected = '';
+    };
+    MinesweeperHeaderComponent.prototype.confirmSingle = function () {
+        if (this.currentPage != 'single' && this.gameStarted) {
+            this.confirmPopUpVisible = true;
+            this.pageToGoTo = 'minesweeper/single';
+        }
+        else if (this.currentPage != 'single' && !this.gameStarted) {
+            this.navigate('minesweeper/single');
+        }
+    };
+    MinesweeperHeaderComponent.prototype.confirmMulti = function () {
+        if (this.currentPage != 'multi' && this.gameStarted) {
+            this.confirmPopUpVisible = true;
+            this.pageToGoTo = 'minesweeper';
+        }
+        else if (this.currentPage != 'multi' && !this.gameStarted) {
+            this.navigate('minesweeper');
+        }
+    };
+    MinesweeperHeaderComponent.prototype.confirmLogin = function () {
+        if (this.currentPage != 'login' && this.gameStarted) {
+            this.confirmPopUpVisible = true;
+            this.pageToGoTo = 'minesweeper/login';
+        }
+        else if (this.currentPage != 'login' && !this.gameStarted) {
+            this.navigate('minesweeper/login');
+        }
+    };
+    MinesweeperHeaderComponent.prototype.navigate = function (page) {
+        this.gameStarted = false;
+        this._router.navigate([page]);
+        this.confirmPopUpVisible = false;
+    };
+    MinesweeperHeaderComponent.prototype.dismiss = function () {
+        var _this = this;
+        this.showDismissAnimation = true;
+        setTimeout(function () {
+            _this.confirmPopUpVisible = false;
+            _this.showDismissAnimation = false;
+        }, 500);
+    };
+    MinesweeperHeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-minesweeper-header',
+            template: __webpack_require__(/*! ./minesweeper-header.component.html */ "./src/app/minesweeper-header/minesweeper-header.component.html"),
+            styles: [__webpack_require__(/*! ./minesweeper-header.component.css */ "./src/app/minesweeper-header/minesweeper-header.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["Title"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], MinesweeperHeaderComponent);
+    return MinesweeperHeaderComponent;
 }());
 
 

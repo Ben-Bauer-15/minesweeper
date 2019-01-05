@@ -3,8 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { SingleComponent } from "./single/single.component";
 import { MultiComponent } from './multi/multi.component';
 import { LoginComponent } from './login/login.component';
+import { BenbauerComponent } from './benbauer/benbauer.component';
 
 const routes: Routes = [
+  { path : '', component : BenbauerComponent},
   { path : 'minesweeper/single', component : SingleComponent},
   { path : 'minesweeper/newUser/:newUserID', component : SingleComponent},
   { path : 'minesweeper/returningUser/:returningUserID', component : SingleComponent},
