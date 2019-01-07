@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BenbauerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _title : Title) { }
 
   ngOnInit() {
+    this.setTitle()
+  }
+
+  setTitle(){
+    this._title.setTitle("Ben Bauer")
   }
 
 }

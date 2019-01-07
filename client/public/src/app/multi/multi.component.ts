@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Minesweeper } from "../minesweeper";
 import { HostListener } from "@angular/core";
 import { AppComponent } from "../app.component";
+import { MinesweeperHeaderComponent } from "../minesweeper-header/minesweeper-header.component";
 import { ActivatedRoute, Params } from '@angular/router'
 import * as io from 'socket.io-client'
 import { HttpService } from "../http.service";
@@ -40,7 +41,7 @@ export class MultiComponent implements OnInit {
   firstUserToPublic = false
   topScores;
 
-  constructor(private _component : AppComponent, 
+  constructor(private _component : MinesweeperHeaderComponent, 
     private _route : ActivatedRoute,
     private _http : HttpService) {
    }
@@ -58,7 +59,6 @@ export class MultiComponent implements OnInit {
       }
     })
     
-    this._component.currentPage = 'multi'
     this.dropdownHidden = true
     this.difficulty = "easy"
     this.flaggingEnabled = false

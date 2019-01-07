@@ -187,7 +187,7 @@ export class Minesweeper{
       }
 
       //if the gameplay is singleplayer, go ahead and do the 'fancy' reveal of cell
-      //otherwise, do it the fast way
+      //otherwise, do it the faster way
 
       if (this.gamePlayMode == 'single'){
         //this delays the recursive calls so that the user can see the recursion in action!

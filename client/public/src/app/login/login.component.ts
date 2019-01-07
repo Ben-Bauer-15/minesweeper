@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from "../app.component";
+import { MinesweeperHeaderComponent } from "../minesweeper-header/minesweeper-header.component";
 import { HttpService } from "../http.service";
 import { FormControl, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
@@ -22,19 +23,18 @@ export class LoginComponent implements OnInit {
   returnEmail = new FormControl('', [Validators.required, Validators.email])
   returnPassword = new FormControl('', [Validators.required])
 
-  constructor(private _component : AppComponent, 
+  constructor(private _component : MinesweeperHeaderComponent, 
     private _http : HttpService,
     private _router : Router) { }
 
   ngOnInit() {
-    this._component.currentPage = 'login'
   }
 
   submitRegister(){
     let obs = this._http.newUser(this.newUser)
     obs.subscribe(data => {
     })
-    this._router.navigate(['/newUser/' + this.newUser.userName])
+    this._router.navigate(['minesweeper/newUser/' + this.newUser.userName])
     this.newUser = {userName : "", password : "", email : "", confirm : ""}
   }
   
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     let obs = this._http.loginUser(this.returningUser)
     obs.subscribe(data => {
       if (data.message == 'Success'){
-        this._router.navigate(['/returningUser/' + data.data])
+        this._router.navigate(['minesweeper/returningUser/' + data.data])
         this.badCombo = false
       }
       else {

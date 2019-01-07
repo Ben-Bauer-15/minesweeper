@@ -4,6 +4,7 @@ import { SingleComponent } from "./single/single.component";
 import { MultiComponent } from './multi/multi.component';
 import { LoginComponent } from './login/login.component';
 import { BenbauerComponent } from './benbauer/benbauer.component';
+import { HangmanComponent } from './hangman/hangman.component';
 
 const routes: Routes = [
   { path : '', component : BenbauerComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path : 'minesweeper/returningUser/:returningUserID', component : SingleComponent},
   { path : 'minesweeper', component : MultiComponent},
   { path : 'minesweeper/login', component : LoginComponent},
-  { path : 'minesweeper/room/:id', component : MultiComponent}
+  { path : 'minesweeper/room/:id', component : MultiComponent},
+  { path : 'hangman', component : HangmanComponent}
 ];
 
 @NgModule({

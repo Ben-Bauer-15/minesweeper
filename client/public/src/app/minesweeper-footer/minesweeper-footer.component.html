@@ -3,9 +3,3 @@
     <a href = 'https://github.com/Ben-Bauer-15/minesweeper'><img id = 'github' src = '../assets/githublogo_copy.png'></a>
     <a href = 'mailto:benjaminbauer15@gmail.com'><img id = 'mail' src = '../assets/mail.png'></a>
   </div>
-  
-  <div id = 'confirm' [ngClass] = "{'hide' : !gameStarted || !confirmPopUpVisible, 'showAnimation' : confirmPopUpVisible, 'hiddenAnimation' : showDismissAnimation}">
-    <h2>Are you sure you want to leave this page?</h2>
-    <button (click) = 'navigate(pageToGoTo)'>Yes</button>
-    <button (click) = 'dismiss()'>No</button>
-  </div>

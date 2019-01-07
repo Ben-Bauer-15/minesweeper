@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Minesweeper } from "../minesweeper";
 import { HostListener } from "@angular/core";
 import { AppComponent } from "../app.component";
+import { MinesweeperHeaderComponent } from "../minesweeper-header/minesweeper-header.component";
 import { Params, ActivatedRoute } from "@angular/router";
 import { HttpService } from "../http.service";
 
@@ -23,7 +24,7 @@ export class SingleComponent implements OnInit {
   initialPopUpLoad = true
   infoPopUp = false;
 
-  constructor(private _component : AppComponent,
+  constructor(private _component : MinesweeperHeaderComponent,
     private _route : ActivatedRoute,
     private _http : HttpService) { }
 
@@ -42,7 +43,6 @@ export class SingleComponent implements OnInit {
 
 
 
-    this._component.currentPage = 'single'
     this.difficulty = "easy"
 
     this.colorCode = {

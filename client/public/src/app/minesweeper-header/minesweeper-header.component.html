@@ -4,26 +4,20 @@
     <a (mouseenter) = 'mouseEnter("single")'
      (mouseleave) = 'mouseLeave()' 
      [ngClass] = "{'hover' : selected == 'single'}" 
-     (click) = 'confirmSingle()'>
+     [routerLink] = "['/minesweeper/single']">
      Single Player</a>
   
     <a (mouseenter) = 'mouseEnter("multi")'
      (mouseleave) = 'mouseLeave()' 
      [ngClass] = "{'hover' : selected == 'multi'}" 
-     (click) = 'confirmMulti()'>
+     [routerLink] = "['/minesweeper/']">
      Multiplayer</a>
   
     <a (mouseenter) = 'mouseEnter("login")' 
     (mouseleave) = 'mouseLeave()' 
     [ngClass] = "{'hover' : selected == 'login'}" 
-    (click) = 'confirmLogin()'
+    [routerLink] = "['/minesweeper/login']"
     >
     Login</a>
   
   </div> 
-
-  <div id = 'confirm' [ngClass] = "{'hide' : !gameStarted || !confirmPopUpVisible, 'showAnimation' : confirmPopUpVisible, 'hiddenAnimation' : showDismissAnimation}">
-      <h2>Are you sure you want to leave this page?</h2>
-      <button (click) = 'navigate(pageToGoTo)'>Yes</button>
-      <button (click) = 'dismiss()'>No</button>
-  </div>

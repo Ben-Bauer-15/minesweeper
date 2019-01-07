@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BenbauerComponent } from './benbauer/benbauer.component';
 import { MinesweeperHeaderComponent } from './minesweeper-header/minesweeper-header.component';
 import { MinesweeperFooterComponent } from './minesweeper-footer/minesweeper-footer.component';
+import { HangmanComponent } from './hangman/hangman.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MinesweeperFooterComponent } from './minesweeper-footer/minesweeper-foo
     BenbauerComponent,
     MinesweeperHeaderComponent,
     MinesweeperFooterComponent,
+    HangmanComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ import { MinesweeperFooterComponent } from './minesweeper-footer/minesweeper-foo
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, MinesweeperHeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
