@@ -13,7 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BenbauerComponent } from './benbauer/benbauer.component';
 import { MinesweeperHeaderComponent } from './minesweeper-header/minesweeper-header.component';
 import { MinesweeperFooterComponent } from './minesweeper-footer/minesweeper-footer.component';
-import { HangmanComponent } from './hangman/hangman.component';
+
 
 @NgModule({
   declarations: [
@@ -23,8 +23,7 @@ import { HangmanComponent } from './hangman/hangman.component';
     LoginComponent,
     BenbauerComponent,
     MinesweeperHeaderComponent,
-    MinesweeperFooterComponent,
-    HangmanComponent,
+    MinesweeperFooterComponent
   ],
   imports: [
     BrowserModule,

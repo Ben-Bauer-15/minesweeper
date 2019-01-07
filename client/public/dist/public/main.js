@@ -40,8 +40,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./multi/multi.component */ "./src/app/multi/multi.component.ts");
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./benbauer/benbauer.component */ "./src/app/benbauer/benbauer.component.ts");
-/* harmony import */ var _hangman_hangman_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./hangman/hangman.component */ "./src/app/hangman/hangman.component.ts");
-
 
 
 
@@ -56,8 +54,7 @@ var routes = [
     { path: 'minesweeper/returningUser/:returningUserID', component: _single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
     { path: 'minesweeper', component: _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
     { path: 'minesweeper/login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
-    { path: 'minesweeper/room/:id', component: _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
-    { path: 'hangman', component: _hangman_hangman_component__WEBPACK_IMPORTED_MODULE_7__["HangmanComponent"] }
+    { path: 'minesweeper/room/:id', component: _multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -218,8 +215,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./benbauer/benbauer.component */ "./src/app/benbauer/benbauer.component.ts");
 /* harmony import */ var _minesweeper_header_minesweeper_header_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./minesweeper-header/minesweeper-header.component */ "./src/app/minesweeper-header/minesweeper-header.component.ts");
 /* harmony import */ var _minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./minesweeper-footer/minesweeper-footer.component */ "./src/app/minesweeper-footer/minesweeper-footer.component.ts");
-/* harmony import */ var _hangman_hangman_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./hangman/hangman.component */ "./src/app/hangman/hangman.component.ts");
-
 
 
 
@@ -248,8 +243,7 @@ var AppModule = /** @class */ (function () {
                 _login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
                 _benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_13__["BenbauerComponent"],
                 _minesweeper_header_minesweeper_header_component__WEBPACK_IMPORTED_MODULE_14__["MinesweeperHeaderComponent"],
-                _minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__["MinesweeperFooterComponent"],
-                _hangman_hangman_component__WEBPACK_IMPORTED_MODULE_16__["HangmanComponent"],
+                _minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__["MinesweeperFooterComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -282,7 +276,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".backgroundContainer {\n    padding: 1% 15% 1% 15%;\n    background-image: url('bg.png');\n    background-repeat: no-repeat;\n    background-size: 100% auto;\n    width: 70% !important;\n    /* min-height: 1000px !important; */\n    box-shadow: 0px 0px 80px 30px black inset;\n    opacity: 0.8;\n}\n\n.name {\n    margin: 2% 0px 0px 2%;\n    text-transform: uppercase;\n    font-size: 18px;\n    font-weight: 400;\n    line-height: 20px;\n}\n\nh3 {\n    font-family: Montserrat,\"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    color: white;\n}\n\n.projects {\n    margin-top: 8%;\n    text-transform: uppercase;\n    text-align: center;\n    font-weight: 700;\n    letter-spacing: 1px;\n}\n\n.projectsDetail {\n    text-align: center;\n}\n\n.projectsContainer{\n    text-align: center;\n    margin-bottom: 25%;\n}\n\n.projectsContainer a img{\n    width: 30%;\n    margin: 1%;\n}\n\n.aboutMe {\n    text-align: center;\n    color: white;\n}\n\n.blackContainer {\n    background-color: black;\n    margin-top: -8%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYmVuYmF1ZXIvYmVuYmF1ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHVCQUF1QjtJQUN2QixnQ0FBNkM7SUFDN0MsNkJBQTZCO0lBQzdCLDJCQUEyQjtJQUMzQixzQkFBc0I7SUFDdEIsb0NBQW9DO0lBQ3BDLDBDQUEwQztJQUMxQyxhQUFhO0NBQ2hCOztBQUVEO0lBQ0ksc0JBQXNCO0lBQ3RCLDBCQUEwQjtJQUMxQixnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLGtCQUFrQjtDQUNyQjs7QUFFRDtJQUNJLG9FQUFvRTtJQUNwRSxhQUFhO0NBQ2hCOztBQUVEO0lBQ0ksZUFBZTtJQUNmLDBCQUEwQjtJQUMxQixtQkFBbUI7SUFDbkIsaUJBQWlCO0lBQ2pCLG9CQUFvQjtDQUN2Qjs7QUFFRDtJQUNJLG1CQUFtQjtDQUN0Qjs7QUFFRDtJQUNJLG1CQUFtQjtJQUNuQixtQkFBbUI7Q0FDdEI7O0FBRUQ7SUFDSSxXQUFXO0lBQ1gsV0FBVztDQUNkOztBQUVEO0lBQ0ksbUJBQW1CO0lBQ25CLGFBQWE7Q0FDaEI7O0FBRUQ7SUFDSSx3QkFBd0I7SUFDeEIsZ0JBQWdCO0NBQ25CIiwiZmlsZSI6InNyYy9hcHAvYmVuYmF1ZXIvYmVuYmF1ZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5iYWNrZ3JvdW5kQ29udGFpbmVyIHtcbiAgICBwYWRkaW5nOiAxJSAxNSUgMSUgMTUlO1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vLi4vYXNzZXRzL2JnLnBuZycpO1xuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgYmFja2dyb3VuZC1zaXplOiAxMDAlIGF1dG87XG4gICAgd2lkdGg6IDcwJSAhaW1wb3J0YW50O1xuICAgIC8qIG1pbi1oZWlnaHQ6IDEwMDBweCAhaW1wb3J0YW50OyAqL1xuICAgIGJveC1zaGFkb3c6IDBweCAwcHggODBweCAzMHB4IGJsYWNrIGluc2V0O1xuICAgIG9wYWNpdHk6IDAuODtcbn1cblxuLm5hbWUge1xuICAgIG1hcmdpbjogMiUgMHB4IDBweCAyJTtcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICAgIGZvbnQtc2l6ZTogMThweDtcbiAgICBmb250LXdlaWdodDogNDAwO1xuICAgIGxpbmUtaGVpZ2h0OiAyMHB4O1xufVxuXG5oMyB7XG4gICAgZm9udC1mYW1pbHk6IE1vbnRzZXJyYXQsXCJIZWx2ZXRpY2EgTmV1ZVwiLEhlbHZldGljYSxBcmlhbCxzYW5zLXNlcmlmO1xuICAgIGNvbG9yOiB3aGl0ZTtcbn1cblxuLnByb2plY3RzIHtcbiAgICBtYXJnaW4tdG9wOiA4JTtcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXdlaWdodDogNzAwO1xuICAgIGxldHRlci1zcGFjaW5nOiAxcHg7XG59XG5cbi5wcm9qZWN0c0RldGFpbCB7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4ucHJvamVjdHNDb250YWluZXJ7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIG1hcmdpbi1ib3R0b206IDI1JTtcbn1cblxuLnByb2plY3RzQ29udGFpbmVyIGEgaW1ne1xuICAgIHdpZHRoOiAzMCU7XG4gICAgbWFyZ2luOiAxJTtcbn1cblxuLmFib3V0TWUge1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBjb2xvcjogd2hpdGU7XG59XG5cbi5ibGFja0NvbnRhaW5lciB7XG4gICAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XG4gICAgbWFyZ2luLXRvcDogLTglO1xufSJdfQ== */"
+module.exports = ".backgroundContainer {\n    padding: 1% 15% 1% 15%;\n    background-image: url('bg.png');\n    background-repeat: no-repeat;\n    background-size: 100% auto;\n    width: 70% !important;\n    /* min-height: 1000px !important; */\n    box-shadow: 0px -39px 80px 23px black inset;\n    opacity: 0.8;\n}\n\n.name {\n    margin: 2% 0px 0px 2%;\n    text-transform: uppercase;\n    font-size: 18px;\n    font-weight: 400;\n    line-height: 20px;\n}\n\nh3 {\n    font-family: Montserrat,\"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    color: white;\n}\n\n.projects {\n    margin-top: 8%;\n    text-transform: uppercase;\n    text-align: center;\n    font-weight: 700;\n    letter-spacing: 1px;\n}\n\n.projectsDetail {\n    text-align: center;\n}\n\n.projectsContainer{\n    text-align: center;\n    margin-bottom: 25%;\n}\n\n.projectsContainer a img{\n    width: 30%;\n    margin: 1%;\n}\n\n.aboutMe {\n    text-align: center;\n    color: white;\n}\n\n.blackContainer {\n    background-color: #030303;\n    margin-top: -8%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYmVuYmF1ZXIvYmVuYmF1ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHVCQUF1QjtJQUN2QixnQ0FBNkM7SUFDN0MsNkJBQTZCO0lBQzdCLDJCQUEyQjtJQUMzQixzQkFBc0I7SUFDdEIsb0NBQW9DO0lBQ3BDLDRDQUE0QztJQUM1QyxhQUFhO0NBQ2hCOztBQUVEO0lBQ0ksc0JBQXNCO0lBQ3RCLDBCQUEwQjtJQUMxQixnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLGtCQUFrQjtDQUNyQjs7QUFFRDtJQUNJLG9FQUFvRTtJQUNwRSxhQUFhO0NBQ2hCOztBQUVEO0lBQ0ksZUFBZTtJQUNmLDBCQUEwQjtJQUMxQixtQkFBbUI7SUFDbkIsaUJBQWlCO0lBQ2pCLG9CQUFvQjtDQUN2Qjs7QUFFRDtJQUNJLG1CQUFtQjtDQUN0Qjs7QUFFRDtJQUNJLG1CQUFtQjtJQUNuQixtQkFBbUI7Q0FDdEI7O0FBRUQ7SUFDSSxXQUFXO0lBQ1gsV0FBVztDQUNkOztBQUVEO0lBQ0ksbUJBQW1CO0lBQ25CLGFBQWE7Q0FDaEI7O0FBRUQ7SUFDSSwwQkFBMEI7SUFDMUIsZ0JBQWdCO0NBQ25CIiwiZmlsZSI6InNyYy9hcHAvYmVuYmF1ZXIvYmVuYmF1ZXIuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5iYWNrZ3JvdW5kQ29udGFpbmVyIHtcbiAgICBwYWRkaW5nOiAxJSAxNSUgMSUgMTUlO1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vLi4vYXNzZXRzL2JnLnBuZycpO1xuICAgIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgYmFja2dyb3VuZC1zaXplOiAxMDAlIGF1dG87XG4gICAgd2lkdGg6IDcwJSAhaW1wb3J0YW50O1xuICAgIC8qIG1pbi1oZWlnaHQ6IDEwMDBweCAhaW1wb3J0YW50OyAqL1xuICAgIGJveC1zaGFkb3c6IDBweCAtMzlweCA4MHB4IDIzcHggYmxhY2sgaW5zZXQ7XG4gICAgb3BhY2l0eTogMC44O1xufVxuXG4ubmFtZSB7XG4gICAgbWFyZ2luOiAyJSAwcHggMHB4IDIlO1xuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gICAgZm9udC1zaXplOiAxOHB4O1xuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XG4gICAgbGluZS1oZWlnaHQ6IDIwcHg7XG59XG5cbmgzIHtcbiAgICBmb250LWZhbWlseTogTW9udHNlcnJhdCxcIkhlbHZldGljYSBOZXVlXCIsSGVsdmV0aWNhLEFyaWFsLHNhbnMtc2VyaWY7XG4gICAgY29sb3I6IHdoaXRlO1xufVxuXG4ucHJvamVjdHMge1xuICAgIG1hcmdpbi10b3A6IDglO1xuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGZvbnQtd2VpZ2h0OiA3MDA7XG4gICAgbGV0dGVyLXNwYWNpbmc6IDFweDtcbn1cblxuLnByb2plY3RzRGV0YWlsIHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5wcm9qZWN0c0NvbnRhaW5lcntcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgbWFyZ2luLWJvdHRvbTogMjUlO1xufVxuXG4ucHJvamVjdHNDb250YWluZXIgYSBpbWd7XG4gICAgd2lkdGg6IDMwJTtcbiAgICBtYXJnaW46IDElO1xufVxuXG4uYWJvdXRNZSB7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGNvbG9yOiB3aGl0ZTtcbn1cblxuLmJsYWNrQ29udGFpbmVyIHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDMwMzAzO1xuICAgIG1hcmdpbi10b3A6IC04JTtcbn0iXX0= */"
 
 /***/ }),
 
@@ -361,105 +355,6 @@ var Cell = /** @class */ (function () {
         this.flagged = false;
     }
     return Cell;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/hangman.ts":
-/*!****************************!*\
-  !*** ./src/app/hangman.ts ***!
-  \****************************/
-/*! exports provided: Hangman */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hangman", function() { return Hangman; });
-var Hangman = /** @class */ (function () {
-    function Hangman() {
-        this.guessesRemaining = 5;
-        this.readTextFile('../assets/words.txt');
-        var idx = Math.floor(Math.random() * (this.allWords.length - 1));
-        this.wordToGuess = this.allWords[idx];
-        console.log(this.wordToGuess);
-    }
-    Hangman.prototype.readTextFile = function (file) {
-        var _this = this;
-        var rawFile = new XMLHttpRequest();
-        rawFile.open("GET", file, false);
-        rawFile.onreadystatechange = function () {
-            if (rawFile.readyState === 4) {
-                if (rawFile.status === 200 || rawFile.status == 0) {
-                    var rawWords = rawFile.responseText;
-                    _this.allWords = rawWords.split(' ');
-                    // console.log(this.allWords);
-                }
-            }
-        };
-        rawFile.send(null);
-    };
-    return Hangman;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/hangman/hangman.component.css":
-/*!***********************************************!*\
-  !*** ./src/app/hangman/hangman.component.css ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hhbmdtYW4vaGFuZ21hbi5jb21wb25lbnQuY3NzIn0= */"
-
-/***/ }),
-
-/***/ "./src/app/hangman/hangman.component.html":
-/*!************************************************!*\
-  !*** ./src/app/hangman/hangman.component.html ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  hangman works!\n</p>\n"
-
-/***/ }),
-
-/***/ "./src/app/hangman/hangman.component.ts":
-/*!**********************************************!*\
-  !*** ./src/app/hangman/hangman.component.ts ***!
-  \**********************************************/
-/*! exports provided: HangmanComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HangmanComponent", function() { return HangmanComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _hangman__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hangman */ "./src/app/hangman.ts");
-
-
-
-var HangmanComponent = /** @class */ (function () {
-    function HangmanComponent() {
-        this.hangman = new _hangman__WEBPACK_IMPORTED_MODULE_2__["Hangman"]();
-    }
-    HangmanComponent.prototype.ngOnInit = function () {
-    };
-    HangmanComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-hangman',
-            template: __webpack_require__(/*! ./hangman.component.html */ "./src/app/hangman/hangman.component.html"),
-            styles: [__webpack_require__(/*! ./hangman.component.css */ "./src/app/hangman/hangman.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], HangmanComponent);
-    return HangmanComponent;
 }());
 
 
