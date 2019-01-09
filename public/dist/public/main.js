@@ -40,8 +40,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./minesweeper/multi/multi.component */ "./src/app/minesweeper/multi/multi.component.ts");
 /* harmony import */ var _minesweeper_login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./minesweeper/login/login.component */ "./src/app/minesweeper/login/login.component.ts");
 /* harmony import */ var _landingPage_benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./landingPage/benbauer/benbauer.component */ "./src/app/landingPage/benbauer/benbauer.component.ts");
-/* harmony import */ var _hangman_hangman_hangman_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./hangman/hangman/hangman.component */ "./src/app/hangman/hangman/hangman.component.ts");
-
 
 
 
@@ -56,8 +54,7 @@ var routes = [
     { path: 'minesweeper/returningUser/:returningUserID', component: _minesweeper_single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
     { path: 'minesweeper', component: _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
     { path: 'minesweeper/login', component: _minesweeper_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
-    { path: 'minesweeper/room/:id', component: _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
-    { path: 'hangman', component: _hangman_hangman_hangman_component__WEBPACK_IMPORTED_MODULE_7__["HangmanComponent"] }
+    { path: 'minesweeper/room/:id', component: _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -210,8 +207,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _landingPage_benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./landingPage/benbauer/benbauer.component */ "./src/app/landingPage/benbauer/benbauer.component.ts");
 /* harmony import */ var _minesweeper_minesweeper_header_minesweeper_header_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./minesweeper/minesweeper-header/minesweeper-header.component */ "./src/app/minesweeper/minesweeper-header/minesweeper-header.component.ts");
 /* harmony import */ var _minesweeper_minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./minesweeper/minesweeper-footer/minesweeper-footer.component */ "./src/app/minesweeper/minesweeper-footer/minesweeper-footer.component.ts");
-/* harmony import */ var _hangman_hangman_hangman_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./hangman/hangman/hangman.component */ "./src/app/hangman/hangman/hangman.component.ts");
-
 
 
 
@@ -240,8 +235,7 @@ var AppModule = /** @class */ (function () {
                 _minesweeper_login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
                 _landingPage_benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_13__["BenbauerComponent"],
                 _minesweeper_minesweeper_header_minesweeper_header_component__WEBPACK_IMPORTED_MODULE_14__["MinesweeperHeaderComponent"],
-                _minesweeper_minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__["MinesweeperFooterComponent"],
-                _hangman_hangman_hangman_component__WEBPACK_IMPORTED_MODULE_16__["HangmanComponent"]
+                _minesweeper_minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__["MinesweeperFooterComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -261,112 +255,6 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/hangman/hangman.ts":
-/*!************************************!*\
-  !*** ./src/app/hangman/hangman.ts ***!
-  \************************************/
-/*! exports provided: Hangman */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hangman", function() { return Hangman; });
-var Hangman = /** @class */ (function () {
-    function Hangman() {
-        this.guessesRemaining = 5;
-        this.readTextFile('./assets/words.txt');
-        var idx = Math.floor(Math.random() * (this.allWords.length - 1));
-        this.wordToGuess = this.allWords[idx];
-        console.log(this.wordToGuess);
-    }
-    Hangman.prototype.readTextFile = function (file) {
-        var _this = this;
-        var rawFile = new XMLHttpRequest();
-        rawFile.open("GET", file, false);
-        rawFile.onreadystatechange = function () {
-            if (rawFile.readyState === 4) {
-                if (rawFile.status === 200 || rawFile.status == 0) {
-                    var rawWords = rawFile.responseText;
-                    _this.allWords = rawWords.split(' ');
-                    // console.log(this.allWords);
-                }
-            }
-        };
-        rawFile.send(null);
-    };
-    return Hangman;
-}());
-
-
-
-/***/ }),
-
-/***/ "./src/app/hangman/hangman/hangman.component.css":
-/*!*******************************************************!*\
-  !*** ./src/app/hangman/hangman/hangman.component.css ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hhbmdtYW4vaGFuZ21hbi9oYW5nbWFuLmNvbXBvbmVudC5jc3MifQ== */"
-
-/***/ }),
-
-/***/ "./src/app/hangman/hangman/hangman.component.html":
-/*!********************************************************!*\
-  !*** ./src/app/hangman/hangman/hangman.component.html ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  hangman works!\n</p>\n"
-
-/***/ }),
-
-/***/ "./src/app/hangman/hangman/hangman.component.ts":
-/*!******************************************************!*\
-  !*** ./src/app/hangman/hangman/hangman.component.ts ***!
-  \******************************************************/
-/*! exports provided: HangmanComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HangmanComponent", function() { return HangmanComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _hangman__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hangman */ "./src/app/hangman/hangman.ts");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-
-
-
-
-var HangmanComponent = /** @class */ (function () {
-    function HangmanComponent(_titleService) {
-        this._titleService = _titleService;
-        this.hangman = new _hangman__WEBPACK_IMPORTED_MODULE_2__["Hangman"]();
-        this.setTitle();
-    }
-    HangmanComponent.prototype.ngOnInit = function () {
-    };
-    HangmanComponent.prototype.setTitle = function () {
-        this._titleService.setTitle("Hangman");
-    };
-    HangmanComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-hangman',
-            template: __webpack_require__(/*! ./hangman.component.html */ "./src/app/hangman/hangman/hangman.component.html"),
-            styles: [__webpack_require__(/*! ./hangman.component.css */ "./src/app/hangman/hangman/hangman.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["Title"]])
-    ], HangmanComponent);
-    return HangmanComponent;
 }());
 
 
