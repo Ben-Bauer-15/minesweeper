@@ -24,17 +24,17 @@
         
         <img *ngIf = 'minesweeper.gameArray[i][j].clicked && 
         minesweeper.gameArray[i][j].mine'
-        src = '../../assets/download.png' class = 'mine'>
+        src = '../assets/download.png' class = 'mine'>
     
         <img *ngIf = 'flaggingEnabled && 
         !minesweeper.gameArray[i][j].clicked &&
         !minesweeper.gameArray[i][j].flagged'
-        src = '../../assets/flagging.png'
+        src = '../assets/flagging.png'
         class = 'flagging'>
     
         <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&
         minesweeper.gameArray[i][j].flagged' 
-        src = '../../assets/flag2.png'
+        src = '../assets/flag2.png'
         class = 'flagged'>
         
       </div>
@@ -44,7 +44,7 @@
   
     
     <div class = 'dropdown'>
-      <a (click) = 'displayShareWindow()' class = 'shareLink'><img src = '../../assets/link2.png'></a>
+      <a (click) = 'displayShareWindow()' class = 'shareLink'><img src = '../assets/link2.png'></a>
     </div>
   
     <div class = 'linkToShare' [ngClass] = "{'hide' : initialLoad || !shareWindowDisplay}">
@@ -84,11 +84,11 @@
               
               <img *ngIf = 'opponentBoard.gameArray[i][j].clicked && 
               opponentBoard.gameArray[i][j].mine'
-              src = '../../assets/download.png' class = 'mine'>
+              src = '../assets/download.png' class = 'mine'>
           
               <img *ngIf = '!opponentBoard.gameArray[i][j].clicked &&
               opponentBoard.gameArray[i][j].flagged' 
-              src = '../../assets/flag2.png'
+              src = '../assets/flag2.png'
               class = 'flagged'>
             
             </div>

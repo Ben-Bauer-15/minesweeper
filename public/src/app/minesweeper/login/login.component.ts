@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from "../../app.component";
 import { MinesweeperHeaderComponent } from "../minesweeper-header/minesweeper-header.component";
 import { HttpService } from "../../http.service";
 import { FormControl, Validators } from "@angular/forms";

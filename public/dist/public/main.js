@@ -40,6 +40,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./minesweeper/multi/multi.component */ "./src/app/minesweeper/multi/multi.component.ts");
 /* harmony import */ var _minesweeper_login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./minesweeper/login/login.component */ "./src/app/minesweeper/login/login.component.ts");
 /* harmony import */ var _landingPage_benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./landingPage/benbauer/benbauer.component */ "./src/app/landingPage/benbauer/benbauer.component.ts");
+/* harmony import */ var _hangman_hangman_hangman_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./hangman/hangman/hangman.component */ "./src/app/hangman/hangman/hangman.component.ts");
+
 
 
 
@@ -54,7 +56,8 @@ var routes = [
     { path: 'minesweeper/returningUser/:returningUserID', component: _minesweeper_single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
     { path: 'minesweeper', component: _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
     { path: 'minesweeper/login', component: _minesweeper_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
-    { path: 'minesweeper/room/:id', component: _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] }
+    { path: 'minesweeper/room/:id', component: _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
+    { path: 'hangman', component: _hangman_hangman_hangman_component__WEBPACK_IMPORTED_MODULE_7__["HangmanComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -106,27 +109,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(_titleService, _router) {
-        this._titleService = _titleService;
+    function AppComponent(_router) {
         this._router = _router;
-        this.title = 'Minesweeper';
         this.selected = '';
         this.showDismissAnimation = false;
         this.gameStarted = false;
-        this.setTitle();
     }
     AppComponent.prototype.ngOnInit = function () {
         this.confirmPopUpVisible = false;
-    };
-    AppComponent.prototype.setTitle = function () {
-        this._titleService.setTitle("Minesweeper");
     };
     AppComponent.prototype.mouseEnter = function (elem) {
         this.selected = elem;
@@ -180,7 +175,7 @@ var AppComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["Title"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -215,6 +210,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _landingPage_benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./landingPage/benbauer/benbauer.component */ "./src/app/landingPage/benbauer/benbauer.component.ts");
 /* harmony import */ var _minesweeper_minesweeper_header_minesweeper_header_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./minesweeper/minesweeper-header/minesweeper-header.component */ "./src/app/minesweeper/minesweeper-header/minesweeper-header.component.ts");
 /* harmony import */ var _minesweeper_minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./minesweeper/minesweeper-footer/minesweeper-footer.component */ "./src/app/minesweeper/minesweeper-footer/minesweeper-footer.component.ts");
+/* harmony import */ var _hangman_hangman_hangman_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./hangman/hangman/hangman.component */ "./src/app/hangman/hangman/hangman.component.ts");
+
 
 
 
@@ -243,7 +240,8 @@ var AppModule = /** @class */ (function () {
                 _minesweeper_login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
                 _landingPage_benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_13__["BenbauerComponent"],
                 _minesweeper_minesweeper_header_minesweeper_header_component__WEBPACK_IMPORTED_MODULE_14__["MinesweeperHeaderComponent"],
-                _minesweeper_minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__["MinesweeperFooterComponent"]
+                _minesweeper_minesweeper_footer_minesweeper_footer_component__WEBPACK_IMPORTED_MODULE_15__["MinesweeperFooterComponent"],
+                _hangman_hangman_hangman_component__WEBPACK_IMPORTED_MODULE_16__["HangmanComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -263,6 +261,112 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/hangman/hangman.ts":
+/*!************************************!*\
+  !*** ./src/app/hangman/hangman.ts ***!
+  \************************************/
+/*! exports provided: Hangman */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hangman", function() { return Hangman; });
+var Hangman = /** @class */ (function () {
+    function Hangman() {
+        this.guessesRemaining = 5;
+        this.readTextFile('./assets/words.txt');
+        var idx = Math.floor(Math.random() * (this.allWords.length - 1));
+        this.wordToGuess = this.allWords[idx];
+        console.log(this.wordToGuess);
+    }
+    Hangman.prototype.readTextFile = function (file) {
+        var _this = this;
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET", file, false);
+        rawFile.onreadystatechange = function () {
+            if (rawFile.readyState === 4) {
+                if (rawFile.status === 200 || rawFile.status == 0) {
+                    var rawWords = rawFile.responseText;
+                    _this.allWords = rawWords.split(' ');
+                    // console.log(this.allWords);
+                }
+            }
+        };
+        rawFile.send(null);
+    };
+    return Hangman;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/hangman/hangman/hangman.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/hangman/hangman/hangman.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hhbmdtYW4vaGFuZ21hbi9oYW5nbWFuLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/hangman/hangman/hangman.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/hangman/hangman/hangman.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  hangman works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/hangman/hangman/hangman.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/hangman/hangman/hangman.component.ts ***!
+  \******************************************************/
+/*! exports provided: HangmanComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HangmanComponent", function() { return HangmanComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _hangman__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../hangman */ "./src/app/hangman/hangman.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+
+
+
+
+var HangmanComponent = /** @class */ (function () {
+    function HangmanComponent(_titleService) {
+        this._titleService = _titleService;
+        this.hangman = new _hangman__WEBPACK_IMPORTED_MODULE_2__["Hangman"]();
+        this.setTitle();
+    }
+    HangmanComponent.prototype.ngOnInit = function () {
+    };
+    HangmanComponent.prototype.setTitle = function () {
+        this._titleService.setTitle("Hangman");
+    };
+    HangmanComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-hangman',
+            template: __webpack_require__(/*! ./hangman.component.html */ "./src/app/hangman/hangman/hangman.component.html"),
+            styles: [__webpack_require__(/*! ./hangman.component.css */ "./src/app/hangman/hangman/hangman.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["Title"]])
+    ], HangmanComponent);
+    return HangmanComponent;
 }());
 
 
@@ -345,7 +449,7 @@ module.exports = ".backgroundContainer {\n    padding: 1% 15% 1% 15%;\n    backg
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class = 'backgroundContainer'>\n    <h3 class = 'name'>Ben Bauer</h3>\n    <h3 class = 'projects'>Projects</h3>\n    <h3 class = 'projectsDetail'>Here are some projects that I've worked on. Feel free to take a look.</h3>\n    <div class = 'projectsContainer'>\n\n        <a [routerLink] = \"['minesweeper']\"><img src = '../../assets/minesweeper.png'></a>\n        \n        <a [routerLink] = \"['hangman']\"><img src = '../../assets/minesweeper.png'></a>\n        <a [routerLink] = \"['hangman']\"><img src = '../../assets/minesweeper.png'></a>\n    </div>\n\n</div>\n<div class = 'blackContainer'>\n    <h3 class = 'projects'>About Me</h3>\n    \n    <p class = 'aboutMe'>ContentContentContentContentContentContentContentContentContentContentContent</p>\n    \n    <h3 class = 'projects'>Contact</h3>\n    \n    <a href = 'mailto:benjaminbauer15@gmail.com'>Email</a>\n    <a href = 'https://www.github.com/Ben-Bauer-15'>GitHub</a>\n    <a href = 'https://www.linkedin.com/in/benjaminbauer15'>LinkedIn</a>\n\n\n</div>    \n\n\n"
+module.exports = "<div class = 'backgroundContainer'>\n    <h3 class = 'name'>Ben Bauer</h3>\n    <h3 class = 'projects'>Projects</h3>\n    <h3 class = 'projectsDetail'>Here are some projects that I've worked on. Feel free to take a look.</h3>\n    <div class = 'projectsContainer'>\n\n        <a [routerLink] = \"['minesweeper']\"><img src = '../../assets/minesweeper.png'></a>\n        \n        <a [routerLink] = \"['hangman']\"><img src = '../../assets/minesweeper.png'></a>\n        <a [routerLink] = \"['hangman']\"><img src = '../../assets/minesweeper.png'></a>\n    </div>\n\n</div>\n<div class = 'blackContainer'>\n    <h3 class = 'projects'>About Me</h3>\n    \n    <p class = 'aboutMe'>ContentContentContentContentContentContentContentContentContentContentContent</p>\n    \n    <h3 class = 'projects'>Contact</h3>\n    \n    <a href = 'mailto:benjaminbauer15@gmail.com'>Email</a>\n    <a href = 'https://www.github.com/Ben-Bauer-15'>GitHub</a>\n    <a href = 'https://www.linkedin.com/in/benjaminbauer15'>LinkedIn</a>\n\n\n</div>    \n\n<a href = 'http://18.225.33.119'>Click me!</a>\n\n"
 
 /***/ }),
 
@@ -1055,7 +1159,7 @@ module.exports = "#playerBoard, #opponentBoard {\n    width: 40%;\n    display: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-minesweeper-header></app-minesweeper-header>\n<div id = 'container'>\n  <div id = 'playerBoard'>\n\n      <div class = 'ticker' id = 'numMines'>\n        <h2>{{minesweeper.numMines}}</h2>\n        <h6>Mines Remaining</h6>\n      </div>\n  \n      <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>\n        \n        <div *ngFor = 'let column of minesweeper.gameArray; index as j' \n        class = 'cell'\n        (click) = 'uncover(i,j)'\n        (mouseenter) = 'hoverOnCell(i, j)'\n        (mouseleave) = 'mouseLeaveCell()'\n        [ngClass]= \"{'uncovered' : minesweeper.gameArray[i][j].clicked && !minesweeper.gameArray[i][j].mine, 'cellHover' : hoveredCell[0] == i && hoveredCell[1] == j && !minesweeper.gameArray[i][j].clicked}\">\n        \n        <p *ngIf = 'minesweeper.gameArray[i][j].clicked && \n        !minesweeper.gameArray[i][j].mine && \n        minesweeper.gameArray[i][j].adjacentMines > 0'\n        [ngClass] = \"colorCode[minesweeper.gameArray[i][j].adjacentMines]\"\n        >{{minesweeper.gameArray[i][j].adjacentMines}}</p>\n        \n        <img *ngIf = 'minesweeper.gameArray[i][j].clicked && \n        minesweeper.gameArray[i][j].mine'\n        src = '../../assets/download.png' class = 'mine'>\n    \n        <img *ngIf = 'flaggingEnabled && \n        !minesweeper.gameArray[i][j].clicked &&\n        !minesweeper.gameArray[i][j].flagged'\n        src = '../../assets/flagging.png'\n        class = 'flagging'>\n    \n        <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&\n        minesweeper.gameArray[i][j].flagged' \n        src = '../../assets/flag2.png'\n        class = 'flagged'>\n        \n      </div>\n    </div>\n  \n    </div>\n  \n    \n    <div class = 'dropdown'>\n      <a (click) = 'displayShareWindow()' class = 'shareLink'><img src = '../../assets/link2.png'></a>\n    </div>\n  \n    <div class = 'linkToShare' [ngClass] = \"{'hide' : initialLoad || !shareWindowDisplay}\">\n      <h3>Share this link with a friend to start the game</h3>\n      <h6>{{linkToShare}}</h6>\n      <button (click) = 'closeShareWindow()'>Close</button>\n      <button (click) = 'copyToClipboard(linkToShare)'>Copy to Clipboard</button>\n      <button (click) = 'sendEmailTo()'>Share Via Email</button>\n      <br>\n      <div class = 'emailContainer'>\n        <mat-form-field  class = 'fullWidth' >\n            <input [(ngModel)] = 'friendEmail' matInput  placeholder=\"Email Address\" name = 'Email_Address'>\n          </mat-form-field>\n      </div>\n    </div>\n  \n    \n  \n    <div id = 'opponentBoard' *ngIf = 'opponentBoard'>\n      \n      <div class = 'ticker' id = 'numMines'>\n        <h2 class = 'opponentLabel' >{{opponentBoard.numMines}}</h2>\n        <h6 class = 'opponentName'>Mines Remaining</h6>\n      </div>\n  \n        <div *ngIf = 'otherUser'>\n          <div *ngFor = 'let row of opponentBoard.gameArray; index as i' class = 'row'>\n            \n            <div *ngFor = 'let column of opponentBoard.gameArray; index as j' \n              class = 'cell'\n              [ngClass]= \"{'uncovered' : opponentBoard.gameArray[i][j].clicked && !opponentBoard.gameArray[i][j].mine}\">\n              \n              <p *ngIf = 'opponentBoard.gameArray[i][j].clicked && \n              !opponentBoard.gameArray[i][j].mine && \n              opponentBoard.gameArray[i][j].adjacentMines > 0'\n              >{{opponentBoard.gameArray[i][j].adjacentMines}}</p>\n              \n              <img *ngIf = 'opponentBoard.gameArray[i][j].clicked && \n              opponentBoard.gameArray[i][j].mine'\n              src = '../../assets/download.png' class = 'mine'>\n          \n              <img *ngIf = '!opponentBoard.gameArray[i][j].clicked &&\n              opponentBoard.gameArray[i][j].flagged' \n              src = '../../assets/flag2.png'\n              class = 'flagged'>\n            \n            </div>\n          </div>\n        </div>\n\n        <h2 *ngIf = '!otherUser && userChose' id = 'waitingForUser'>Waiting for another player</h2>\n      \n      </div>\n</div>\n    \n  <div id = 'winner' *ngIf = 'minesweeper.winner'>\n      <h2>Awww yeah!! :)</h2>\n      <h4>Nice work! Your time was: {{minesweeper.gamePlayTime}} seconds</h4>\n      <h4>Top scores for {{difficulty}}</h4>\n      <ul id = 'topScores'>\n        <li *ngFor = 'let score of topScores' class = 'topScoreItem'>{{score.time}} s</li>\n      </ul>\n      <button (click) = 'reset()' >Play again</button>\n  </div>\n\n\n\n  <div *ngIf = '!userChose' class = 'choice'>\n    <div class = 'choiceButton'>\n      <button (mouseenter) = 'mouseEnter(\"private\")'\n      (mouseleave) = 'mouseLeave()'\n      (click) = 'choosePrivateGame()'>Private Game</button>\n      <h5 *ngIf = 'hoveredButton == \"private\"'>Invite a friend to play</h5>\n  </div>\n\n    <div class = 'choiceButton'>\n      <button (mouseenter) = 'mouseEnter(\"public\")'\n      (mouseleave) = 'mouseLeave()'\n      (click) = 'choosePublicGame()'>Public Game</button>\n      <h5 id = 'publicH5' *ngIf = 'hoveredButton == \"public\"'>You are randomly assigned an opponent</h5>\n    </div>\n  </div>\n\n\n  <div class = 'options' *ngIf = '!dropdownHidden'>\n    <h3>Choose a difficulty</h3>\n      <ul>\n        <li><a (click) = 'changeDiff(\"expert\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'expert'}\" >Expert</a></li>\n        <li><a (click) = 'changeDiff(\"hard\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'hard'}\" >Hard</a></li>\n        <li><a (click) = 'changeDiff(\"normal\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'normal'}\" >Normal</a></li>\n        <li><a (click) = 'changeDiff(\"easy\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'easy'}\" >Easy</a></li>\n        <li><a (click) = 'changeDiff(\"beginner\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'beginner'}\" >Beginner</a></li>\n      </ul>\n      <button (click) = 'confirmDiff()' class = 'cancel'>Ok</button>\n  </div>\n\n  <div class = 'options' *ngIf = 'minesweeper.gameOver && !minesweeper.winner'>\n    <h3>Game Over :(</h3>\n    <h3>Please wait for opponent to finish their game</h3>\n  </div>\n\n  \n<app-minesweeper-footer></app-minesweeper-footer>\n"
+module.exports = "<app-minesweeper-header></app-minesweeper-header>\n<div id = 'container'>\n  <div id = 'playerBoard'>\n\n      <div class = 'ticker' id = 'numMines'>\n        <h2>{{minesweeper.numMines}}</h2>\n        <h6>Mines Remaining</h6>\n      </div>\n  \n      <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>\n        \n        <div *ngFor = 'let column of minesweeper.gameArray; index as j' \n        class = 'cell'\n        (click) = 'uncover(i,j)'\n        (mouseenter) = 'hoverOnCell(i, j)'\n        (mouseleave) = 'mouseLeaveCell()'\n        [ngClass]= \"{'uncovered' : minesweeper.gameArray[i][j].clicked && !minesweeper.gameArray[i][j].mine, 'cellHover' : hoveredCell[0] == i && hoveredCell[1] == j && !minesweeper.gameArray[i][j].clicked}\">\n        \n        <p *ngIf = 'minesweeper.gameArray[i][j].clicked && \n        !minesweeper.gameArray[i][j].mine && \n        minesweeper.gameArray[i][j].adjacentMines > 0'\n        [ngClass] = \"colorCode[minesweeper.gameArray[i][j].adjacentMines]\"\n        >{{minesweeper.gameArray[i][j].adjacentMines}}</p>\n        \n        <img *ngIf = 'minesweeper.gameArray[i][j].clicked && \n        minesweeper.gameArray[i][j].mine'\n        src = '../assets/download.png' class = 'mine'>\n    \n        <img *ngIf = 'flaggingEnabled && \n        !minesweeper.gameArray[i][j].clicked &&\n        !minesweeper.gameArray[i][j].flagged'\n        src = '../assets/flagging.png'\n        class = 'flagging'>\n    \n        <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&\n        minesweeper.gameArray[i][j].flagged' \n        src = '../assets/flag2.png'\n        class = 'flagged'>\n        \n      </div>\n    </div>\n  \n    </div>\n  \n    \n    <div class = 'dropdown'>\n      <a (click) = 'displayShareWindow()' class = 'shareLink'><img src = '../assets/link2.png'></a>\n    </div>\n  \n    <div class = 'linkToShare' [ngClass] = \"{'hide' : initialLoad || !shareWindowDisplay}\">\n      <h3>Share this link with a friend to start the game</h3>\n      <h6>{{linkToShare}}</h6>\n      <button (click) = 'closeShareWindow()'>Close</button>\n      <button (click) = 'copyToClipboard(linkToShare)'>Copy to Clipboard</button>\n      <button (click) = 'sendEmailTo()'>Share Via Email</button>\n      <br>\n      <div class = 'emailContainer'>\n        <mat-form-field  class = 'fullWidth' >\n            <input [(ngModel)] = 'friendEmail' matInput  placeholder=\"Email Address\" name = 'Email_Address'>\n          </mat-form-field>\n      </div>\n    </div>\n  \n    \n  \n    <div id = 'opponentBoard' *ngIf = 'opponentBoard'>\n      \n      <div class = 'ticker' id = 'numMines'>\n        <h2 class = 'opponentLabel' >{{opponentBoard.numMines}}</h2>\n        <h6 class = 'opponentName'>Mines Remaining</h6>\n      </div>\n  \n        <div *ngIf = 'otherUser'>\n          <div *ngFor = 'let row of opponentBoard.gameArray; index as i' class = 'row'>\n            \n            <div *ngFor = 'let column of opponentBoard.gameArray; index as j' \n              class = 'cell'\n              [ngClass]= \"{'uncovered' : opponentBoard.gameArray[i][j].clicked && !opponentBoard.gameArray[i][j].mine}\">\n              \n              <p *ngIf = 'opponentBoard.gameArray[i][j].clicked && \n              !opponentBoard.gameArray[i][j].mine && \n              opponentBoard.gameArray[i][j].adjacentMines > 0'\n              >{{opponentBoard.gameArray[i][j].adjacentMines}}</p>\n              \n              <img *ngIf = 'opponentBoard.gameArray[i][j].clicked && \n              opponentBoard.gameArray[i][j].mine'\n              src = '../assets/download.png' class = 'mine'>\n          \n              <img *ngIf = '!opponentBoard.gameArray[i][j].clicked &&\n              opponentBoard.gameArray[i][j].flagged' \n              src = '../assets/flag2.png'\n              class = 'flagged'>\n            \n            </div>\n          </div>\n        </div>\n\n        <h2 *ngIf = '!otherUser && userChose' id = 'waitingForUser'>Waiting for another player</h2>\n      \n      </div>\n</div>\n    \n  <div id = 'winner' *ngIf = 'minesweeper.winner'>\n      <h2>Awww yeah!! :)</h2>\n      <h4>Nice work! Your time was: {{minesweeper.gamePlayTime}} seconds</h4>\n      <h4>Top scores for {{difficulty}}</h4>\n      <ul id = 'topScores'>\n        <li *ngFor = 'let score of topScores' class = 'topScoreItem'>{{score.time}} s</li>\n      </ul>\n      <button (click) = 'reset()' >Play again</button>\n  </div>\n\n\n\n  <div *ngIf = '!userChose' class = 'choice'>\n    <div class = 'choiceButton'>\n      <button (mouseenter) = 'mouseEnter(\"private\")'\n      (mouseleave) = 'mouseLeave()'\n      (click) = 'choosePrivateGame()'>Private Game</button>\n      <h5 *ngIf = 'hoveredButton == \"private\"'>Invite a friend to play</h5>\n  </div>\n\n    <div class = 'choiceButton'>\n      <button (mouseenter) = 'mouseEnter(\"public\")'\n      (mouseleave) = 'mouseLeave()'\n      (click) = 'choosePublicGame()'>Public Game</button>\n      <h5 id = 'publicH5' *ngIf = 'hoveredButton == \"public\"'>You are randomly assigned an opponent</h5>\n    </div>\n  </div>\n\n\n  <div class = 'options' *ngIf = '!dropdownHidden'>\n    <h3>Choose a difficulty</h3>\n      <ul>\n        <li><a (click) = 'changeDiff(\"expert\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'expert'}\" >Expert</a></li>\n        <li><a (click) = 'changeDiff(\"hard\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'hard'}\" >Hard</a></li>\n        <li><a (click) = 'changeDiff(\"normal\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'normal'}\" >Normal</a></li>\n        <li><a (click) = 'changeDiff(\"easy\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'easy'}\" >Easy</a></li>\n        <li><a (click) = 'changeDiff(\"beginner\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'beginner'}\" >Beginner</a></li>\n      </ul>\n      <button (click) = 'confirmDiff()' class = 'cancel'>Ok</button>\n  </div>\n\n  <div class = 'options' *ngIf = 'minesweeper.gameOver && !minesweeper.winner'>\n    <h3>Game Over :(</h3>\n    <h3>Please wait for opponent to finish their game</h3>\n  </div>\n\n  \n<app-minesweeper-footer></app-minesweeper-footer>\n"
 
 /***/ }),
 
@@ -1077,6 +1181,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! socket.io-client */ "./node_modules/socket.io-client/lib/index.js");
 /* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../http.service */ "./src/app/http.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 
 //Imports
 
@@ -1086,17 +1191,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var MultiComponent = /** @class */ (function () {
-    function MultiComponent(_component, _route, _http) {
+    function MultiComponent(_component, _route, _http, _titleService) {
         this._component = _component;
         this._route = _route;
         this._http = _http;
+        this._titleService = _titleService;
         this.diffConfirmed = false;
         this.userChose = false;
         this.hoveredCell = [-1, -1];
         this.initialLoad = true;
         this.friendEmail = "";
         this.firstUserToPublic = false;
+        this.setTitle();
     }
     MultiComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1350,6 +1458,9 @@ var MultiComponent = /** @class */ (function () {
     MultiComponent.prototype.toggleDifficultyWindow = function () {
         this.dropdownHidden = !this.dropdownHidden;
     };
+    MultiComponent.prototype.setTitle = function () {
+        this._titleService.setTitle("Minesweeper");
+    };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('window:keyup', ['$event']),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
@@ -1364,7 +1475,8 @@ var MultiComponent = /** @class */ (function () {
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_minesweeper_header_minesweeper_header_component__WEBPACK_IMPORTED_MODULE_3__["MinesweeperHeaderComponent"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
-            _http_service__WEBPACK_IMPORTED_MODULE_6__["HttpService"]])
+            _http_service__WEBPACK_IMPORTED_MODULE_6__["HttpService"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["Title"]])
     ], MultiComponent);
     return MultiComponent;
 }());
@@ -1391,7 +1503,7 @@ module.exports = "#gameBoard{\n    margin: 10px 50px 7px 3%;\n    width: 85%;\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-minesweeper-header></app-minesweeper-header>\n<div id = 'gameBoard'>\n  \n  <div class = 'ticker' id = 'numMines'>\n    <h2>{{minesweeper.numMines}}</h2>\n    <h6>Mines Remaining</h6>\n  </div>\n\n  <div class = 'ticker' id = 'timer'>\n    <h2>{{minesweeper.displayedTime}}</h2>\n    <h6>Current Game Time</h6>\n  </div>\n\n  <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>\n    \n    <div *ngFor = 'let column of minesweeper.gameArray; index as j' \n    class = 'cell'\n    (click) = 'uncover(i,j)'\n    (mouseenter) = 'mouseEnter(i, j)'\n    (mouseleave) = 'mouseLeave()'\n    [ngClass]= \"{'uncovered' : minesweeper.gameArray[i][j].clicked && !minesweeper.gameArray[i][j].mine, 'cellHover' : hoveredCell[0] == i && hoveredCell[1] == j && !minesweeper.gameArray[i][j].clicked}\">\n    \n    <p *ngIf = 'minesweeper.gameArray[i][j].clicked && \n    !minesweeper.gameArray[i][j].mine && \n    minesweeper.gameArray[i][j].adjacentMines > 0'\n    [ngClass] = \"colorCode[minesweeper.gameArray[i][j].adjacentMines]\"\n    >{{minesweeper.gameArray[i][j].adjacentMines}}</p>\n    \n    <img *ngIf = 'minesweeper.gameArray[i][j].clicked && \n    minesweeper.gameArray[i][j].mine'\n    src = '../../assets/download.png' class = 'mine'>\n\n    <img *ngIf = 'flaggingEnabled && \n    !minesweeper.gameArray[i][j].clicked &&\n    !minesweeper.gameArray[i][j].flagged'\n    src = '../../assets/flagging.png'\n    class = 'flagging'>\n\n    <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&\n    minesweeper.gameArray[i][j].flagged' \n    src = '../../assets/flag2.png'\n    class = 'flagged'>\n    \n  </div>\n</div>\n\n  <a class = 'dropdown' (click) = 'toggleDropdown()' [ngClass] = \"{'dropdownDisplayed' : !dropdownHidden}\"><div class = 'dropdown'>Game Options</div></a>\n  <div class = 'options' [ngClass] = \"{'hiddenAnimation' : dropdownHidden, 'hide' : initialDropdownLoad, 'showAnimation' : !dropdownHidden}\">\n    <ul>\n      <li><a (click) = 'changeDiff(\"expert\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'expert'}\" >Expert</a></li>\n      <li><a (click) = 'changeDiff(\"hard\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'hard'}\" >Hard</a></li>\n      <li><a (click) = 'changeDiff(\"normal\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'normal'}\" >Normal</a></li>\n      <li><a (click) = 'changeDiff(\"easy\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'easy'}\" >Easy</a></li>\n      <li><a (click) = 'changeDiff(\"beginner\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'beginner'}\" >Beginner</a></li>\n    </ul>\n    <button (click) = 'toggleDropdown()' class = 'cancel'>Cancel</button>\n  </div>\n\n</div>\n\n<div id = 'winner' *ngIf = 'minesweeper.winner'>\n  <h2>Awww yeah!! :)</h2>\n  <h4>Nice work! Your time was: {{minesweeper.gamePlayTime}} seconds</h4>\n  <h4>Top scores for {{difficulty}}</h4>\n  <ul *ngIf = 'topScores' id = 'topScores'>\n    <li *ngFor = 'let score of topScores' class = 'topScoreItem'>{{score.time}} s</li>\n  </ul>\n  <button (click) = 'reset()' >Play again</button>\n</div>\n\n<div [ngClass] = \"{'hiddenAnimation' : !infoPopUp, 'hide' : initialPopUpLoad, 'showAnimation' : infoPopUp}\" class = 'options info'>\n  <h2>Welcome to minesweeper!</h2>\n  <p>Find all of the buried mines to win the game, but be careful to not step on them!\n    Instead, flag them by pressing the 'F' key and clicking where you think they are.\n    Numbered cells tell you how many mines are adjacent (including diagonals).\n    Hit the green refresh button to start a new game, and select 'Options' if you'd like to change the difficulty.\n    Good luck!\n  </p>\n  <button (click) = 'displayInfo()' class = 'cancel infoButton'>Ok, I got it</button>\n</div>\n\n<a (click) = 'reset()'><img class = 'refresh' src = '../../assets//refresh.png'></a>\n<a (click) = 'displayInfo()'><img id = 'info' class = 'refresh' src = '../../assets/information-icon-3.png'></a>\n\n<app-minesweeper-footer></app-minesweeper-footer>"
+module.exports = "<app-minesweeper-header></app-minesweeper-header>\n<div id = 'gameBoard'>\n  \n  <div class = 'ticker' id = 'numMines'>\n    <h2>{{minesweeper.numMines}}</h2>\n    <h6>Mines Remaining</h6>\n  </div>\n\n  <div class = 'ticker' id = 'timer'>\n    <h2>{{minesweeper.displayedTime}}</h2>\n    <h6>Current Game Time</h6>\n  </div>\n\n  <div *ngFor = 'let row of minesweeper.gameArray; index as i' class = 'row'>\n    \n    <div *ngFor = 'let column of minesweeper.gameArray; index as j' \n    class = 'cell'\n    (click) = 'uncover(i,j)'\n    (mouseenter) = 'mouseEnter(i, j)'\n    (mouseleave) = 'mouseLeave()'\n    [ngClass]= \"{'uncovered' : minesweeper.gameArray[i][j].clicked && !minesweeper.gameArray[i][j].mine, 'cellHover' : hoveredCell[0] == i && hoveredCell[1] == j && !minesweeper.gameArray[i][j].clicked}\">\n    \n    <p *ngIf = 'minesweeper.gameArray[i][j].clicked && \n    !minesweeper.gameArray[i][j].mine && \n    minesweeper.gameArray[i][j].adjacentMines > 0'\n    [ngClass] = \"colorCode[minesweeper.gameArray[i][j].adjacentMines]\"\n    >{{minesweeper.gameArray[i][j].adjacentMines}}</p>\n    \n    <img *ngIf = 'minesweeper.gameArray[i][j].clicked && \n    minesweeper.gameArray[i][j].mine'\n    src = '../assets/download.png' class = 'mine'>\n\n    <img *ngIf = 'flaggingEnabled && \n    !minesweeper.gameArray[i][j].clicked &&\n    !minesweeper.gameArray[i][j].flagged'\n    src = '../assets/flagging.png'\n    class = 'flagging'>\n\n    <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&\n    minesweeper.gameArray[i][j].flagged' \n    src = '../assets/flag2.png'\n    class = 'flagged'>\n    \n  </div>\n</div>\n\n  <a class = 'dropdown' (click) = 'toggleDropdown()' [ngClass] = \"{'dropdownDisplayed' : !dropdownHidden}\"><div class = 'dropdown'>Game Options</div></a>\n  <div class = 'options' [ngClass] = \"{'hiddenAnimation' : dropdownHidden, 'hide' : initialDropdownLoad, 'showAnimation' : !dropdownHidden}\">\n    <ul>\n      <li><a (click) = 'changeDiff(\"expert\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'expert'}\" >Expert</a></li>\n      <li><a (click) = 'changeDiff(\"hard\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'hard'}\" >Hard</a></li>\n      <li><a (click) = 'changeDiff(\"normal\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'normal'}\" >Normal</a></li>\n      <li><a (click) = 'changeDiff(\"easy\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'easy'}\" >Easy</a></li>\n      <li><a (click) = 'changeDiff(\"beginner\")' [ngClass] = \"{'selectedDifficulty' : difficulty == 'beginner'}\" >Beginner</a></li>\n    </ul>\n    <button (click) = 'toggleDropdown()' class = 'cancel'>Cancel</button>\n  </div>\n\n</div>\n\n<div id = 'winner' *ngIf = 'minesweeper.winner'>\n  <h2>Awww yeah!! :)</h2>\n  <h4>Nice work! Your time was: {{minesweeper.gamePlayTime}} seconds</h4>\n  <h4>Top scores for {{difficulty}}</h4>\n  <ul *ngIf = 'topScores' id = 'topScores'>\n    <li *ngFor = 'let score of topScores' class = 'topScoreItem'>{{score.time}} s</li>\n  </ul>\n  <button (click) = 'reset()' >Play again</button>\n</div>\n\n<div [ngClass] = \"{'hiddenAnimation' : !infoPopUp, 'hide' : initialPopUpLoad, 'showAnimation' : infoPopUp}\" class = 'options info'>\n  <h2>Welcome to minesweeper!</h2>\n  <p>Find all of the buried mines to win the game, but be careful to not step on them!\n    Instead, flag them by pressing the 'F' key and clicking where you think they are.\n    Numbered cells tell you how many mines are adjacent (including diagonals).\n    Hit the green refresh button to start a new game, and select 'Options' if you'd like to change the difficulty.\n    Good luck!\n  </p>\n  <button (click) = 'displayInfo()' class = 'cancel infoButton'>Ok, I got it</button>\n</div>\n\n<a (click) = 'reset()'><img class = 'refresh' src = '../assets//refresh.png'></a>\n<a (click) = 'displayInfo()'><img id = 'info' class = 'refresh' src = '../assets/information-icon-3.png'></a>\n\n<app-minesweeper-footer></app-minesweeper-footer>"
 
 /***/ }),
 

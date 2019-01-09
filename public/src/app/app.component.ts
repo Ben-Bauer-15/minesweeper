@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+
 import { Router } from "@angular/router";
 
 @Component({
@@ -8,7 +8,6 @@ import { Router } from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Minesweeper';
   selected = ''
   currentPage;
   confirmPopUpVisible;
@@ -17,17 +16,15 @@ export class AppComponent {
   user;
   gameStarted = false
 
-  constructor(private _titleService : Title, private _router : Router){
-    this.setTitle()
+  constructor(private _router : Router){
+    
   }
   
   ngOnInit(){
     this.confirmPopUpVisible = false
   }
 
-  setTitle(){
-    this._titleService.setTitle("Minesweeper")
-  }
+  
 
   mouseEnter(elem){
     this.selected = elem

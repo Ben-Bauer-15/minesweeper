@@ -28,17 +28,17 @@
     
     <img *ngIf = 'minesweeper.gameArray[i][j].clicked && 
     minesweeper.gameArray[i][j].mine'
-    src = '../../assets/download.png' class = 'mine'>
+    src = '../assets/download.png' class = 'mine'>
 
     <img *ngIf = 'flaggingEnabled && 
     !minesweeper.gameArray[i][j].clicked &&
     !minesweeper.gameArray[i][j].flagged'
-    src = '../../assets/flagging.png'
+    src = '../assets/flagging.png'
     class = 'flagging'>
 
     <img *ngIf = '!minesweeper.gameArray[i][j].clicked &&
     minesweeper.gameArray[i][j].flagged' 
-    src = '../../assets/flag2.png'
+    src = '../assets/flag2.png'
     class = 'flagged'>
     
   </div>
@@ -79,7 +79,7 @@
   <button (click) = 'displayInfo()' class = 'cancel infoButton'>Ok, I got it</button>
 </div>
 
-<a (click) = 'reset()'><img class = 'refresh' src = '../../assets//refresh.png'></a>
-<a (click) = 'displayInfo()'><img id = 'info' class = 'refresh' src = '../../assets/information-icon-3.png'></a>
+<a (click) = 'reset()'><img class = 'refresh' src = '../assets//refresh.png'></a>
+<a (click) = 'displayInfo()'><img id = 'info' class = 'refresh' src = '../assets/information-icon-3.png'></a>
 
 <app-minesweeper-footer></app-minesweeper-footer>

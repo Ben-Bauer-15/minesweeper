@@ -3,11 +3,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Minesweeper } from "../minesweeper";
 import { HostListener } from "@angular/core";
-import { AppComponent } from "../../app.component";
 import { MinesweeperHeaderComponent } from "../minesweeper-header/minesweeper-header.component";
 import { ActivatedRoute, Params } from '@angular/router'
 import * as io from 'socket.io-client'
 import { HttpService } from "../../http.service";
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -43,7 +43,9 @@ export class MultiComponent implements OnInit {
 
   constructor(private _component : MinesweeperHeaderComponent, 
     private _route : ActivatedRoute,
-    private _http : HttpService) {
+    private _http : HttpService,
+    private _titleService : Title) {
+      this.setTitle()
    }
 
   ngOnInit() {
@@ -364,6 +366,11 @@ export class MultiComponent implements OnInit {
 
   toggleDifficultyWindow(){
     this.dropdownHidden = !this.dropdownHidden
+  }
+
+
+  setTitle(){
+    this._titleService.setTitle("Minesweeper")
   }
 
 }
