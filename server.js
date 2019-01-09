@@ -18,7 +18,7 @@ app.use(bodyParser.json())
 app.use(bodyParser({extended : true}))
 
 
-app.use(express.static(__dirname + '/client/public/dist/public'))
+app.use(express.static(__dirname + '/public/dist/public'))
 require('./server/config/routes')(app)
 
 const server = app.listen(8000, () => {

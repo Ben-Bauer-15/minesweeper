@@ -1,0 +1,67 @@
+.navbar {
+    padding-right: 14px;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 9px;
+    height: 50px;
+    border-bottom: 1px solid lightslategray;
+    text-align: right;
+    background-color: darkslategray;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: #f0a554;
+    padding: 17px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.hover {
+    border-bottom: 3px solid #f0a554;
+}
+
+#title{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: -6px;
+    margin-right: 50%;
+    margin-bottom: 0px;
+    color: #969696;
+}
+
+#title span {
+    color: #f0a554;
+}
+
+
+@media only screen and (max-width : 949px){
+    #title {
+        margin-right: 15% !important;
+    }
+}
+
+@media only screen and (min-width : 950px){
+    #title {
+        margin-right: 30% !important;
+    }
+}
+
+@media only screen and (min-width : 1200px){
+    #title {
+        margin-right: 54% !important;
+    }
+}
+
+@media only screen and (min-width : 1600px){
+    #title {
+        margin-right: 61% !important;
+    }
+}
+
+@media only screen and (max-width : 1600px){
+    #confirm {
+        left : 28% !important;
+    }
+    
+}

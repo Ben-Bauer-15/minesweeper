@@ -1,0 +1,23 @@
+<div class = 'navbar'>
+  
+    <h1 id = 'title'> mine<span>sweeper</span> </h1>
+    <a (mouseenter) = 'mouseEnter("single")'
+     (mouseleave) = 'mouseLeave()' 
+     [ngClass] = "{'hover' : selected == 'single'}" 
+     [routerLink] = "['/minesweeper/single']">
+     Single Player</a>
+  
+    <a (mouseenter) = 'mouseEnter("multi")'
+     (mouseleave) = 'mouseLeave()' 
+     [ngClass] = "{'hover' : selected == 'multi'}" 
+     [routerLink] = "['/minesweeper/']">
+     Multiplayer</a>
+  
+    <a (mouseenter) = 'mouseEnter("login")' 
+    (mouseleave) = 'mouseLeave()' 
+    [ngClass] = "{'hover' : selected == 'login'}" 
+    [routerLink] = "['/minesweeper/login']"
+    >
+    Login</a>
+  
+  </div> 
