@@ -6,13 +6,13 @@ import { LoginComponent } from './minesweeper/login/login.component';
 import { BenbauerComponent } from './landingPage/benbauer/benbauer.component';
 
 const routes: Routes = [
-  { path : '', component : BenbauerComponent},
-  { path : 'minesweeper/single', component : SingleComponent},
-  { path : 'minesweeper/newUser/:newUserID', component : SingleComponent},
-  { path : 'minesweeper/returningUser/:returningUserID', component : SingleComponent},
-  { path : 'minesweeper', component : MultiComponent},
-  { path : 'minesweeper/login', component : LoginComponent},
-  { path : 'minesweeper/room/:id', component : MultiComponent}
+  // { path : '', component : BenbauerComponent},
+  { path : 'single', component : SingleComponent},
+  { path : 'newUser/:newUserID', component : SingleComponent},
+  { path : 'returningUser/:returningUserID', component : SingleComponent},
+  { path : '', component : MultiComponent},
+  { path : 'login', component : LoginComponent},
+  { path : 'room/:id', component : MultiComponent}
 ];
 
 @NgModule({
