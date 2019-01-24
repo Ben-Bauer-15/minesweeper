@@ -4,19 +4,19 @@
     <a (mouseenter) = 'mouseEnter("single")'
      (mouseleave) = 'mouseLeave()' 
      [ngClass] = "{'hover' : selected == 'single'}" 
-     [routerLink] = "['/minesweeper/single']">
+     [routerLink] = "['single']">
      Single Player</a>
   
     <a (mouseenter) = 'mouseEnter("multi")'
      (mouseleave) = 'mouseLeave()' 
      [ngClass] = "{'hover' : selected == 'multi'}" 
-     [routerLink] = "['/minesweeper/']">
+     [routerLink] = "['']">
      Multiplayer</a>
   
     <a (mouseenter) = 'mouseEnter("login")' 
     (mouseleave) = 'mouseLeave()' 
     [ngClass] = "{'hover' : selected == 'login'}" 
-    [routerLink] = "['/minesweeper/login']"
+    [routerLink] = "['login']"
     >
     Login</a>
   

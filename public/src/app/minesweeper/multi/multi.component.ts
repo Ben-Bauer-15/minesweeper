@@ -98,9 +98,7 @@ export class MultiComponent implements OnInit {
             })
           }
           let topScores = this._http.getGlobalScores(this.minesweeper.difficulty)
-          console.log('getting scores')
           topScores.subscribe(data => {
-            console.log(data)
             self.topScores = data.data
           })
         }
@@ -172,7 +170,6 @@ export class MultiComponent implements OnInit {
     
     this.socket.on('clicked', (data) => {
       this.opponentBoard = data
-      console.log(data)
 
       if (data.gameOver && !data.winner &&  this.minesweeper.gameOver){
         this.minesweeper = new Minesweeper(this.difficulty, 'multi')
@@ -188,7 +185,6 @@ export class MultiComponent implements OnInit {
     })
 
     this.socket.on('reset', () => {
-      console.log('reset')
       this.minesweeper = new Minesweeper(this.difficulty, 'multi')
       this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
     })
@@ -200,7 +196,6 @@ export class MultiComponent implements OnInit {
   //this is for the user who was invited to play
   connectToPrivateRoom(){
     this.socket = io()
-    console.log(this.roomID)
     this.socket.on('welcome', () => {
       this.socket.emit('connectToPrivateRoom', this.roomID)
     })
@@ -217,7 +212,6 @@ export class MultiComponent implements OnInit {
     
     this.socket.on('clicked', (data) => {
       this.opponentBoard = data
-      console.log(data)
       if (data.gameOver && !data.winner && this.minesweeper.gameOver){
         this.minesweeper = new Minesweeper(this.difficulty, 'multi')
         this.opponentBoard = new Minesweeper(this.difficulty, 'multi')
@@ -271,7 +265,6 @@ export class MultiComponent implements OnInit {
 
     this.socket.on('clicked', (data) => {
       this.opponentBoard = data
-      console.log(data)
       if (data.gameOver && !data.winner && this.minesweeper.gameOver){
         this.minesweeper = new Minesweeper(this.difficulty, 'multi')
         this.opponentBoard = new Minesweeper(this.difficulty, 'multi')

@@ -103,10 +103,10 @@
   <div id = 'winner' *ngIf = 'minesweeper.winner'>
       <h2>Awww yeah!! :)</h2>
       <h4>Nice work! Your time was: {{minesweeper.gamePlayTime}} seconds</h4>
-      <h4>Top scores for {{difficulty}}</h4>
+      <!-- <h4>Top scores for {{difficulty}}</h4>
       <ul id = 'topScores'>
         <li *ngFor = 'let score of topScores' class = 'topScoreItem'>{{score.time}} s</li>
-      </ul>
+      </ul> -->
       <button (click) = 'reset()' >Play again</button>
   </div>
 
