@@ -624,7 +624,7 @@ module.exports = ".navbar {\n    padding-right: 14px;\n    box-sizing: border-bo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class = 'navbar'>\n  \n    <h1 id = 'title'> mine<span>sweeper</span> </h1>\n    <a (mouseenter) = 'mouseEnter(\"single\")'\n     (mouseleave) = 'mouseLeave()' \n     [ngClass] = \"{'hover' : selected == 'single'}\" \n     [routerLink] = \"['single']\">\n     Single Player</a>\n  \n    <a (mouseenter) = 'mouseEnter(\"multi\")'\n     (mouseleave) = 'mouseLeave()' \n     [ngClass] = \"{'hover' : selected == 'multi'}\" \n     [routerLink] = \"['']\">\n     Multiplayer</a>\n  \n    <a (mouseenter) = 'mouseEnter(\"login\")' \n    (mouseleave) = 'mouseLeave()' \n    [ngClass] = \"{'hover' : selected == 'login'}\" \n    [routerLink] = \"['login']\"\n    >\n    Login</a>\n  \n  </div> "
+module.exports = "<div class = 'navbar'>\n  \n    <h1 id = 'title'> mine<span>sweeper</span> </h1>\n    <a (mouseenter) = 'mouseEnter(\"single\")'\n     (mouseleave) = 'mouseLeave()' \n     [ngClass] = \"{'hover' : selected == 'single'}\" \n     [routerLink] = \"['/single']\">\n     Single Player</a>\n  \n    <a (mouseenter) = 'mouseEnter(\"multi\")'\n     (mouseleave) = 'mouseLeave()' \n     [ngClass] = \"{'hover' : selected == 'multi'}\" \n     [routerLink] = \"['']\">\n     Multiplayer</a>\n  \n    <a (mouseenter) = 'mouseEnter(\"login\")' \n    (mouseleave) = 'mouseLeave()' \n    [ngClass] = \"{'hover' : selected == 'login'}\" \n    [routerLink] = \"['/login']\"\n    >\n    Login</a>\n  \n  </div> "
 
 /***/ }),
 
