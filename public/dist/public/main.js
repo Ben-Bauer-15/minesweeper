@@ -39,8 +39,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _minesweeper_single_single_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./minesweeper/single/single.component */ "./src/app/minesweeper/single/single.component.ts");
 /* harmony import */ var _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./minesweeper/multi/multi.component */ "./src/app/minesweeper/multi/multi.component.ts");
 /* harmony import */ var _minesweeper_login_login_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./minesweeper/login/login.component */ "./src/app/minesweeper/login/login.component.ts");
-/* harmony import */ var _landingPage_benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./landingPage/benbauer/benbauer.component */ "./src/app/landingPage/benbauer/benbauer.component.ts");
-
 
 
 
@@ -48,13 +46,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = [
-    { path: '', component: _landingPage_benbauer_benbauer_component__WEBPACK_IMPORTED_MODULE_6__["BenbauerComponent"] },
-    { path: 'minesweeper/single', component: _minesweeper_single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
-    { path: 'minesweeper/newUser/:newUserID', component: _minesweeper_single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
-    { path: 'minesweeper/returningUser/:returningUserID', component: _minesweeper_single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
-    { path: 'minesweeper', component: _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
-    { path: 'minesweeper/login', component: _minesweeper_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
-    { path: 'minesweeper/room/:id', component: _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] }
+    // { path : '', component : BenbauerComponent},
+    { path: 'single', component: _minesweeper_single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
+    { path: 'newUser/:newUserID', component: _minesweeper_single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
+    { path: 'returningUser/:returningUserID', component: _minesweeper_single_single_component__WEBPACK_IMPORTED_MODULE_3__["SingleComponent"] },
+    { path: '', component: _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] },
+    { path: 'login', component: _minesweeper_login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"] },
+    { path: 'room/:id', component: _minesweeper_multi_multi_component__WEBPACK_IMPORTED_MODULE_4__["MultiComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
