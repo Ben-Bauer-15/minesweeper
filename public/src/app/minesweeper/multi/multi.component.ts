@@ -98,7 +98,7 @@ export class MultiComponent implements OnInit {
             })
           }
           let topScores = this._http.getGlobalScores(this.minesweeper.difficulty)
-          topScores.subscribe(data => {
+          topScores.subscribe((data : any) => {
             self.topScores = data.data
           })
         }

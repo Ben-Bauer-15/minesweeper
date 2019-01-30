@@ -45,7 +45,6 @@ module.exports = {
 
         User.find({email : req.body.email}, function(err, arr){
             var user = arr[0]
-            console.log(user)
             if (err){
                 console.log("Something went wrong: ", err)
             }
@@ -119,7 +118,6 @@ module.exports = {
                     console.log("Something went wrong: ", err)
                 }
                 else {
-                    console.log(newGame)
                     res.json({message : "Success"})
                 }
             })
@@ -138,7 +136,6 @@ module.exports = {
                             console.log("Something went wrong: ", err)
                         }
                         else {
-                            console.log(newGame)
                             res.json({message : "Success"})
                         }
                     })

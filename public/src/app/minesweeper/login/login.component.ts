@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
   
   submitLogin(){
     let obs = this._http.loginUser(this.returningUser)
-    obs.subscribe(data => {
+    obs.subscribe((data : any) => {
       if (data.message == 'Success'){
         this._router.navigate(['minesweeper/returningUser/' + data.data])
         this.badCombo = false
@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
   keyup(){
     if (this.newUser.email != ""){
       let obs = this._http.checkForExistingEmail(this.newUser.email)
-      obs.subscribe(data => {
+      obs.subscribe((data : any) => {
         if (data.data[0] != undefined){
           this.emailExists = true
         }

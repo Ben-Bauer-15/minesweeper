@@ -88,7 +88,6 @@ function connectToPublicRoom(socket){
     
     else {
         //parse through all the rooms to find an open slot for the new socket
-        // console.log(publicRooms)
         for (var i = 0; i < publicRooms.length; i++){
             
             //if a room has a lonely user in it or is empty, add this new socket to that room
@@ -111,7 +110,6 @@ function connectToPublicRoom(socket){
             socket.emit('welcomeToPublic', {numUsers : 1, id : roomID})
         }
     }
-    console.log(publicRooms)
 }
 
 function makeid() {

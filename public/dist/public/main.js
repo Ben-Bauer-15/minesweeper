@@ -761,15 +761,12 @@ var Minesweeper = /** @class */ (function () {
             //if the user was correct in that this was a mine, remove it from the list of mines
             if (this.gameArray[i][j].mine) {
                 for (var idx = 0; idx < this.mines.length; idx++) {
-                    // console.log(this.mines[idx])
                     if (this.mines[idx][0] == i && this.mines[idx][1] == j) {
-                        // console.log("found the mine")
                         this.mines.splice(idx, 1);
                     }
                 }
             }
             if (this.mines.length == 0) {
-                // console.log("you won!!!")
                 this.winner = true;
                 this.gameOver = true;
                 this.stopTimer();
@@ -855,16 +852,13 @@ var Minesweeper = /** @class */ (function () {
             for (var idx = 0; idx < this.empties.length; idx++) {
                 if (this.empties[idx][0] == i && this.empties[idx][1] == j) {
                     this.empties.splice(idx, 1);
-                    // console.log(this.empties)
                 }
             }
             if (this.empties.length == 0) {
                 this.gameOver = true;
                 this.winner = true;
                 this.stopTimer();
-                // console.log(this.winner)
             }
-            // console.log(this.empties)
         }
     };
     //this will determine where each mine will randomly be placed on the map
@@ -895,7 +889,6 @@ var Minesweeper = /** @class */ (function () {
         for (var i = 0; i < this.mines.length; i++) {
             var row = this.mines[i][0];
             var column = this.mines[i][1];
-            // console.log(row, column)
             this.gameArray[row][column].mine = true;
         }
         //loop through mines again and update the neighbors adjacency property
@@ -912,7 +905,6 @@ var Minesweeper = /** @class */ (function () {
                 }
             }
         }
-        // console.log(this.empties)
         //this will help the user keep track of how many flags they've placed
         //when the game starts, this figure will be the maximum (depending on difficulty),
         //but as they place more flags, the number will decrease
@@ -1453,33 +1445,25 @@ var SingleComponent = /** @class */ (function () {
         else {
             this.minesweeper.uncover(i, j);
         }
-        // console.log(this._component.gameStarted)
-        // console.log(this.minesweeper.winner)
         var self = this;
         if (this.minesweeper.winner && this._component.gameStarted) {
             this._component.gameStarted = false;
-            // console.log('line 75')
             var postObj = { userID: undefined, difficulty: this.minesweeper.difficulty, time: this.minesweeper.gamePlayTime };
             if (this._component.user) {
                 postObj.userID = this._component.user;
                 var obs = this._http.saveSinglePlayerGame(postObj);
                 obs.subscribe(function (data) {
                     var topScoresObs = _this._http.getGlobalScores(_this.difficulty);
-                    // console.log('getting scores')
                     topScoresObs.subscribe(function (data) {
-                        // console.log(data)
                         self.topScores = data.data;
                     });
                 });
             }
             else {
-                // console.log(postObj)
                 var obs = this._http.saveSinglePlayerGame(postObj);
                 obs.subscribe(function (data) {
                     var topScoresObs = _this._http.getGlobalScores(_this.difficulty);
-                    // console.log('getting scores')
                     topScoresObs.subscribe(function (data) {
-                        // console.log(data)
                         self.topScores = data.data;
                     });
                 });
@@ -1507,16 +1491,13 @@ var SingleComponent = /** @class */ (function () {
     SingleComponent.prototype.changeDiff = function (diff) {
         this.difficulty = diff;
         this._component.gameStarted = false;
-        // console.log(this.difficulty)
         this.dropdownHidden = true;
         this.minesweeper = new _minesweeper__WEBPACK_IMPORTED_MODULE_2__["Minesweeper"](this.difficulty, 'single');
-        // console.log(this.minesweeper.difficulty)
     };
     //this method toggles the users ability to place flags
     SingleComponent.prototype.handleKeyBoardEvent = function (event) {
         if (event.key == 'f') {
             this.flaggingEnabled = !this.flaggingEnabled;
-            // console.log(this.flaggingEnabled)
         }
     };
     SingleComponent.prototype.mouseEnter = function (i, j) {

@@ -68,14 +68,11 @@ export class SingleComponent implements OnInit {
     else {
       this.minesweeper.uncover(i,j)
     }
-    // console.log(this._component.gameStarted)
-    // console.log(this.minesweeper.winner)
 
     var self = this
 
     if (this.minesweeper.winner && this._component.gameStarted){
       this._component.gameStarted = false
-      // console.log('line 75')
 
       var postObj = {userID : undefined, difficulty : this.minesweeper.difficulty, time : this.minesweeper.gamePlayTime}
       if (this._component.user){
@@ -83,22 +80,17 @@ export class SingleComponent implements OnInit {
         var obs = this._http.saveSinglePlayerGame(postObj)
         obs.subscribe(data => {
           var topScoresObs = this._http.getGlobalScores(this.difficulty)
-          // console.log('getting scores')
-          topScoresObs.subscribe(data => {
-            // console.log(data)
+          topScoresObs.subscribe((data : any) => {
             self.topScores = data.data
           })
         })
       }
       
       else {
-        // console.log(postObj)
         var obs = this._http.saveSinglePlayerGame(postObj)
         obs.subscribe(data => {
           var topScoresObs = this._http.getGlobalScores(this.difficulty)
-          // console.log('getting scores')
-          topScoresObs.subscribe(data => {
-            // console.log(data)
+          topScoresObs.subscribe((data : any) => {
             self.topScores = data.data
           })
         })
@@ -130,10 +122,8 @@ export class SingleComponent implements OnInit {
   changeDiff(diff){
     this.difficulty = diff
     this._component.gameStarted = false
-    // console.log(this.difficulty)
     this.dropdownHidden = true 
     this.minesweeper = new Minesweeper(this.difficulty, 'single')
-    // console.log(this.minesweeper.difficulty)
   }
 
 
@@ -142,7 +132,6 @@ export class SingleComponent implements OnInit {
   handleKeyBoardEvent(event : KeyboardEvent){
     if (event.key == 'f'){
       this.flaggingEnabled = !this.flaggingEnabled
-      // console.log(this.flaggingEnabled)
     }
   }
 

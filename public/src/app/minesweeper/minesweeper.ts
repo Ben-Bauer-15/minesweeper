@@ -129,16 +129,13 @@ export class Minesweeper{
       //if the user was correct in that this was a mine, remove it from the list of mines
       if (this.gameArray[i][j].mine){
         for (var idx = 0; idx < this.mines.length; idx++){
-          // console.log(this.mines[idx])
           if (this.mines[idx][0] == i && this.mines[idx][1] == j){
-            // console.log("found the mine")
             this.mines.splice(idx, 1)
           }
         }
       }
 
       if (this.mines.length == 0){
-        // console.log("you won!!!")
         this.winner = true
         this.gameOver = true
         this.stopTimer()
@@ -256,16 +253,13 @@ export class Minesweeper{
         if (this.empties[idx][0] == i && this.empties[idx][1] == j){
   
           this.empties.splice(idx, 1)
-          // console.log(this.empties)
         }
       }
       if (this.empties.length == 0){
         this.gameOver = true
         this.winner = true 
         this.stopTimer()
-        // console.log(this.winner)
       }
-      // console.log(this.empties)
     }
   }
 
@@ -306,7 +300,6 @@ export class Minesweeper{
     for (var i = 0; i < this.mines.length; i++){
       var row = this.mines[i][0]
       var column = this.mines[i][1]
-      // console.log(row, column)
       this.gameArray[row][column].mine = true
     }
 
@@ -325,7 +318,6 @@ export class Minesweeper{
         }
       }
     }
-    // console.log(this.empties)
     
 
     //this will help the user keep track of how many flags they've placed
